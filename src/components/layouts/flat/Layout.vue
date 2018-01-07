@@ -1,5 +1,5 @@
 <template>
-    <span class="vue-paper">
+    <span class="sidebar-mini">
         <div :class="{'nav-open': $sidebar.showSidebar}">
             <DashboardLayout/>
             <!--This sidebar appears only for screens smaller than 992px-->

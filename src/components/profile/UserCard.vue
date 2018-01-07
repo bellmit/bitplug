@@ -1,35 +1,36 @@
 <template>
   <div class="card card-user">
     <div class="image">
-      <img src="static/img/background.jpg" alt="...">
+      <!-- <img :src="require('@/assets/img/background.jpg')" alt="..."> -->
     </div>
     <div class="content">
       <div class="author">
-        <img class="avatar border-white" src="static/img/faces/face-2.jpg" alt="...">
-        <h4 class="title">Chet Faker
+        <!-- <img class="avatar border-white" :src="require('@/assets/img/faces/face-2.jpg')" alt="..."> -->
+        <h4 class="title">Seigha Filatei
           <br>
           <a href="#">
-            <small>@chetfaker</small>
+            <small>seighaf@yahoo.com</small>
+          </a>
+          <br>
+          <a href="#">
+            <small>09031294843</small>
           </a>
         </h4>
       </div>
-      <p class="description text-center">
-        "I like the way you work it
-        <br> No diggity
-        <br> I wanna bag it up"
-      </p>
+      <!-- <p class="description text-center">
+      </p> -->
     </div>
     <hr>
-    <div class="text-center">
+    <!-- <div class="text-center">
       <div class="row">
-        <div v-for="(info,index) in details" :class="getClasses(index)">
+        <div v-for="(info,index) in details" :key="index" :class="getClasses(index)">
           <h5>{{info.title}}
             <br>
             <small>{{info.subTitle}}</small>
           </h5>
         </div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>

@@ -14,6 +14,11 @@ const SidebarStore = {
       path: '/dashboard/wallet'
     },
     {
+      name: 'Orders',
+      icon: 'ti-receipt',
+      path: '/dashboard/orders'
+    },
+    {
       name: 'Transactions',
       icon: 'ti-view-list-alt',
       path: '/dashboard/transactions'
@@ -22,6 +27,48 @@ const SidebarStore = {
       name: 'Exchange',
       icon: 'ti-stats-up',
       path: '/dashboard/exchange'
+    },
+    {
+      name: 'Markets',
+      icon: 'ti-shopping-cart',
+      path: '/dashboard/markets'
+    },
+    {
+      name: 'Price Alerts',
+      icon: 'ti-alarm-clock',
+      path: '/dashboard/price_alerts'
+    }
+  ],
+  adminSidebarLinks: [
+    {
+      name: 'Dashboard',
+      icon: 'ti-home',
+      path: '/dashboard'
+    },
+    {
+      name: 'Wallets',
+      icon: 'ti-wallet',
+      path: '/dashboard/wallet'
+    },
+    {
+      name: 'Orders',
+      icon: 'ti-view-list-alt',
+      path: '/dashboard/orders'
+    },
+    {
+      name: 'Transactions',
+      icon: 'ti-view-list-alt',
+      path: '/dashboard/transactions'
+    },
+    {
+      name: 'Exchange',
+      icon: 'ti-stats-up',
+      path: '/dashboard/exchange'
+    },
+    {
+      name: 'Markets',
+      icon: 'ti-shopping-cart',
+      path: '/dashboard/markets'
     },
     {
       name: 'Price Alerts',

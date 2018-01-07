@@ -29,6 +29,61 @@
 
 }
 
+// Sidebar Mini
+@media (min-width: 992px) {
+  .sidebar-mini .sidebar .sidebar-wrapper {
+    width: 80px;
+    box-shadow: none;
+    overflow: inherit;
+  }
+
+  .sidebar-mini .sidebar {
+    width: 80px;
+    display: block;
+    font-weight: 200;
+    z-index: 3;
+    position: fixed;
+  }
+
+  .sidebar-mini .main-panel, .sidebar-mini .sidebar {
+    max-height: none;
+    height: auto;
+    overflow: visible;
+  }
+  .sidebar-mini .main-panel {
+    width: calc(100% - 80px);
+    margin-left: 80px;
+  }
+
+  .sidebar-mini .sidebar:hover .sidebar-wrapper .user .info > a > p, 
+  .sidebar-mini .sidebar:hover .sidebar-wrapper .user .info [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal, 
+  .sidebar-mini .sidebar:hover .sidebar-wrapper .user .info a span, 
+  .sidebar-mini .sidebar:hover .sidebar-wrapper > .nav [data-toggle="collapse"] ~ div > ul > li > a .sidebar-normal, 
+  .sidebar-mini .sidebar:hover .sidebar-wrapper > .nav li > a .caret, 
+  .sidebar-mini .sidebar:hover .sidebar-wrapper > .nav li > a p {
+    transform: translateZ(0px);
+    opacity: 1;
+  }
+
+  .sidebar-mini .sidebar:hover {
+    width: 260px;
+    transform: translateZ(0px);
+    opacity: 1;
+    .sidebar-wrapper {
+      width: 260px;
+      transform: translateZ(0px);
+    opacity: 1;
+    }
+  }
+
+  .main-panel, .navbar-fixed, .navbar-minimize, .sidebar, .sidebar-wrapper {
+    transition-property: top, bottom, width;
+    transition-duration: 0.2s, 0.2s, 0.35s;
+    transition-timing-function: linear, linear, ease;
+  }
+}
+// End sibebar mini
+
 .sidebar,
 .off-canvas-sidebar {
   width: 260px;
@@ -71,6 +126,18 @@
       }
     }
   }
+  .sidebar .nav .nav-item .nav-link {
+    color: rgb(255, 255, 255);
+    opacity: 0.86;
+    text-transform: uppercase;
+    line-height: 30px;
+    font-size: 12px;
+    font-weight: 600;
+    white-space: nowrap;
+    margin: 5px 15px 0px 10px;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
 
   .nav {
     //margin-top: 20px;
@@ -88,9 +155,20 @@
         opacity: 1;
       }
 
-      &.active > a {
+      // & .nav-link {
+
+      //   margin-left: 20px;
+      //   margin-right: 20px;
+      // }
+
+      &.router-link-active > .nav-link {
         color: $primary-color;
         opacity: 1;
+
+        // color: rgb(255, 255, 255);
+        // opacity: 1;
+        // background: rgba(255, 255, 255, 0.227);
+
       }
     }
 

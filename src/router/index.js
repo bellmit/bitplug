@@ -1,10 +1,24 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+
+// Generic
+
+// Flat
+import FlatLayout from '@/components/layouts/flat/Layout'
 
 // User dashboard
-import UserDashboard from '@/components/layout/Dashboard'
+import UserDashboard from '@/components/layouts/dashboard/Dashboard'
+import UserDashboardHome from '@/components/home/Home'
 import UserProfileLayout from '@/components/profile/Profile'
+import UserWallets from '@/components/wallet/Wallets'
+import UserTransactions from '@/components/transactions/Transactions'
+import UserOrders from '@/components/orders/Orders'
+import UserPriceAlerts from '@/components/priceAlerts/PriceAlerts'
+import UserSettings from '@/components/settings/Settings'
+
+import Exchange from '@/components/exchange/Exchange'
+import HelpCenter from '@/components/helpCenter/HelpCenter'
+import Markets from '@/components/markets/Markets'
 
 Vue.use(Router)
 
@@ -15,17 +29,17 @@ const router = new Router({
     {
       path: '/',
       name: 'home',
-      component: HelloWorld,
+      component: FlatLayout,
       children: [
         {
           path: 'signup',
           name: 'signup',
-          component: HelloWorld
+          component: UserProfileLayout
         },
         {
           path: 'login',
           name: 'login',
-          component: HelloWorld
+          component: UserProfileLayout
         }
       ]
     },
@@ -39,7 +53,7 @@ const router = new Router({
         {
           path: 'home',
           name: 'user-dashboard',
-          component: UserProfileLayout
+          component: UserDashboardHome
         },
         {
           path: 'profile',
@@ -49,32 +63,42 @@ const router = new Router({
         {
           path: 'wallet',
           name: 'wallet',
-          component: UserProfileLayout
+          component: UserWallets
+        },
+        {
+          path: 'orders',
+          name: 'orders',
+          component: UserOrders
         },
         {
           path: 'transactions',
           name: 'transactions',
-          component: UserProfileLayout
+          component: UserTransactions
+        },
+        {
+          path: 'markets',
+          name: 'markets',
+          component: Markets
         },
         {
           path: 'exchange',
           name: 'exchange',
-          component: UserProfileLayout
+          component: Exchange
         },
         {
           path: 'price_alerts',
           name: 'price_alerts',
-          component: UserProfileLayout
+          component: UserPriceAlerts
         },
         {
           path: 'settings',
           name: 'settings',
-          component: UserProfileLayout
+          component: UserSettings
         },
         {
           path: 'help',
           name: 'help',
-          component: UserProfileLayout
+          component: HelpCenter
         }
       ]
     },

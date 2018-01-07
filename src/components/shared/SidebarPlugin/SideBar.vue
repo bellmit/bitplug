@@ -22,7 +22,7 @@
       <ul :class="navClasses">
         <!--By default vue-router adds an active class to each route link. This way the links are colored when clicked-->
         <router-link v-for="(link,index) in sidebarLinks" :to="link.path" tag="li" :ref="link.name" :key="link.name + index">
-          <a>
+          <a class="nav-link">
             <i :class="link.icon"></i>
 
             <p>{{link.name}}
@@ -58,7 +58,7 @@
       },
       activeColor: {
         type: String,
-        default: 'success',
+        default: 'primary',
         validator: (value) => {
           let acceptedValues = ['primary', 'info', 'success', 'warning', 'danger']
           return acceptedValues.indexOf(value) !== -1
