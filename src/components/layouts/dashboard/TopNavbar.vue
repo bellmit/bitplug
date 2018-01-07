@@ -8,8 +8,8 @@
           <span class="icon-bar bar2"></span>
           <span class="icon-bar bar3"></span>
         </button>
-        <router-link :to="{ name: 'profile' }" class="navbar-brand">
-          Seigha
+        <router-link to="" class="navbar-brand">
+          {{ routeName }}
         </router-link>
       </div>
       <div class="collapse navbar-collapse">
@@ -35,6 +35,12 @@
               <p>Help Centre</p>
             </router-link>
           </li>
+          <li class="open">
+            <router-link :to="{ name: 'profile'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
+              <i class="ti-user"></i>
+              <!-- <p>Help Centre</p> -->
+            </router-link>
+          </li>
         </ul>
       </div>
     </div>
@@ -45,7 +51,7 @@
     computed: {
       routeName () {
         const {name} = this.$route
-        return this.capitalizeFirstLetter(name)
+        return this.capitalizeFirstLetter(this.cleanString(name))
       }
     },
     data () {
@@ -56,6 +62,9 @@
     methods: {
       capitalizeFirstLetter (string) {
         return string.charAt(0).toUpperCase() + string.slice(1)
+      },
+      cleanString (string) {
+        return string.split('_').join(' ')
       },
       toggleNotificationDropDown () {
         this.activeNotifications = !this.activeNotifications

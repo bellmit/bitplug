@@ -1,0 +1,53 @@
+.transaction {
+    margin-bottom: 10px;
+    .description {
+        font-size: 14px;
+        // margin-left: 30px; 
+        // display: inline-block;
+    }
+
+    .content {
+        display: inline-block;
+    }
+
+    .title {
+        display: block;
+        font-size: 16px;
+        font-weight: 100;
+        margin-bottom: 0;
+        // margin-left: 2px;
+    }
+
+    .action {
+        display: inline-block;
+        font-size: 16px;
+        // color: $danger-color;
+        float: right;
+    }
+
+    .icon {
+        float: left;
+        font-size: 26px;
+        display: inline-block;
+        margin: 1px 8px;
+        margin-top: 8px; 
+    }
+}
+
+.block-inline {
+    display: inline-block;
+}
+
+.order-filter {
+    float: right;
+    margin: 3px 8px;
+    display: inline-block;
+
+    &.form-control {
+        width: auto;
+    }
+}
+
+.dropdown {
+    list-style: none;
+}
