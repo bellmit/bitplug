@@ -21,24 +21,18 @@
                <li><a href="#">Notification 4</a></li>
                <li><a href="#">Another notification</a></li>
              </drop-down> -->
+          <li class="open">
+            <router-link :to="{ name: 'profile'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
+              <i class="ti-user"></i>
+              <p>Profile</p>
+            </router-link>
+          </li>
           <li>
             <router-link :to="{ name: 'settings'}" class="btn-rotate">
               <i class="ti-settings"></i>
               <p>
                 Settings
               </p>
-            </router-link>
-          </li>
-          <li class="open">
-            <router-link :to="{ name: 'help'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
-              <i class="ti-help-alt"></i>
-              <p>Help Centre</p>
-            </router-link>
-          </li>
-          <li class="open">
-            <router-link :to="{ name: 'profile'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
-              <i class="ti-user"></i>
-              <!-- <p>Help Centre</p> -->
             </router-link>
           </li>
         </ul>
