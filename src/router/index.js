@@ -32,7 +32,7 @@ const router = new Router({
       path: '/',
       name: 'home',
       component: FlatLayout,
-      redirect: '/dashboard/profile',
+      // redirect: '/dashboard/profile',
       children: [
         {
           path: 'signup',
