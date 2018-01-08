@@ -18,11 +18,15 @@
         title: {
             type: String,
             default: ''
+        },
+        defaultState: {
+            type: Boolean,
+            default: false
         }
     },
     data () {
       return {
-          open: false,
+          open: this.defaultState,
       }
     },
     methods: {

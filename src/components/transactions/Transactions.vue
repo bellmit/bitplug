@@ -1,7 +1,7 @@
 <template>
 <span>
     <div class="col-md-12" v-for="(transaction, index) in transactions" :key="index">
-        <SavageWell :title="transaction.month">
+        <SavageWell :title="transaction.month" :defaultState="true">
             <div slot="content" class="row">
                 <div class="col-md-12" v-for="(trans, index) in transaction.transactions" :key="index">
                     <Transaction :description="trans.description"
