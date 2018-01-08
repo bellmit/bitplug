@@ -7,7 +7,8 @@
       <div class="row">
         <div class="col-md-6 settings-block">
           <h5 class="block-inline">Two factor authentication</h5>
-          <input type="checkbox" class="block-inline"/>
+          <el-switch v-model="settings.tfa" class="action">
+          </el-switch>
         </div>
       </div>
     </div>
@@ -21,7 +22,8 @@
       <div class="row">
         <div class="col-md-6 settings-block">
           <h5 class="block-inline">Show Cancelled Orders</h5>
-          <input type="checkbox" class="block-inline"/>
+          <el-switch v-model="settings.showCancel" class="action">
+          </el-switch>
         </div>
       </div>
     </div>
@@ -34,6 +36,10 @@
   export default {
     data () {
       return {
+        settings: {
+          tfa: null,
+          showCancel: true,
+        }
       }
     },
     methods: {

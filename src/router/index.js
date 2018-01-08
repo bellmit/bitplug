@@ -44,11 +44,6 @@ const router = new Router({
           component: Login
         },
         {
-          path: 'markets',
-          name: 'markets',
-          component: Markets
-        },
-        {
           path: 'exchange',
           name: 'exchange',
           component: Exchange
@@ -96,11 +91,6 @@ const router = new Router({
           path: 'transactions',
           name: 'transactions',
           component: UserTransactions
-        },
-        {
-          path: 'markets',
-          name: 'markets',
-          component: Markets
         },
         {
           path: 'exchange',

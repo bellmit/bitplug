@@ -34,6 +34,13 @@
             <li><a href="#">ETH</a></li>
           </drop-down>
         </div>
+        <div class="order-filter">
+          <el-date-picker
+            v-model="date"
+            type="date"
+            placeholder="Filter a day">
+          </el-date-picker>
+        </div>
       </div>
       <div class="col-md-12">
         <div class="card">
@@ -88,6 +95,7 @@
           columns: [...tableColumns],
           data: [...tableData]
         },
+        date: null,
       }
     },
     methods: {

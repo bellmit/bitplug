@@ -9,6 +9,7 @@ import './assets/sass/paper-dashboard.scss'
 // import 'bootstrap/dist/css/bootstrap.css'
 import './assets/css/font-awesome/css/font-awesome.css'
 import './assets/css/themify-icons/themify-icons.css'
+import 'element-ui/lib/theme-chalk/index.css'
 
 // library imports
 import Chartist from 'chartist'
@@ -22,12 +23,19 @@ import GlobalComponents from './globalComponents'
 import GlobalDirectives from './globalDirectives'
 import vClickOutside from 'v-click-outside'
 
+import ElementUI from 'element-ui'
+import lang from 'element-ui/lib/locale/lang/en'
+import locale from 'element-ui/lib/locale'
+
 // plugin setup
 Vue.use(vClickOutside)
 Vue.use(SideBar)
 Vue.use(GlobalComponents)
 Vue.use(GlobalDirectives)
 Vue.use(Notifications)
+Vue.use(ElementUI)
+
+locale.use(lang)
 
 // global library setup
 Object.defineProperty(Vue.prototype, '$Chartist', {

@@ -30,11 +30,6 @@ const SidebarStore = {
       path: '/dashboard/exchange'
     },
     {
-      name: 'Markets',
-      icon: 'ti-shopping-cart',
-      path: '/dashboard/markets'
-    },
-    {
       name: 'Price Alerts',
       icon: 'ti-alarm-clock',
       path: '/dashboard/price_alerts'
@@ -82,11 +77,6 @@ const SidebarStore = {
       name: 'Exchange',
       icon: 'ti-stats-up',
       path: '/exchange'
-    },
-    {
-      name: 'Markets',
-      icon: 'ti-shopping-cart',
-      path: '/markets'
     },
     {
       name: 'Fees & Features',

@@ -23,6 +23,14 @@
                <li><a href="#">Another notification</a></li>
              </drop-down> -->
           <li>
+            <router-link :to="{ name: 'user-dashboard'}" class="btn-rotate">
+              <!-- <i class="ti-settings"></i> -->
+              <p>
+                FakeLogin
+              </p>
+            </router-link>
+          </li>
+          <li>
             <router-link :to="{ name: 'login'}" class="btn-rotate">
               <!-- <i class="ti-settings"></i> -->
               <p>
