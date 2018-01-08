@@ -61,10 +61,14 @@
     },
     methods: {
       capitalizeFirstLetter (string) {
-        return string.charAt(0).toUpperCase() + string.slice(1)
+        let strings = string.split(' ')
+
+        return strings.map((string) => {
+          return string.charAt(0).toUpperCase() + string.slice(1)
+        }).join(' ')
       },
       cleanString (string) {
-        return string.split('_').join(' ')
+        return string.split('_').join(' ').split('-').join(' ')
       },
       toggleNotificationDropDown () {
         this.activeNotifications = !this.activeNotifications

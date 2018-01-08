@@ -5,6 +5,8 @@ import Router from 'vue-router'
 
 // Flat
 import FlatLayout from '@/components/layouts/flat/Layout'
+import Login from '@/components/Login'
+import SignUp from '@/components/Signup'
 
 // User dashboard
 import UserDashboard from '@/components/layouts/dashboard/Dashboard'
@@ -34,12 +36,32 @@ const router = new Router({
         {
           path: 'signup',
           name: 'signup',
-          component: UserProfileLayout
+          component: SignUp
         },
         {
           path: 'login',
           name: 'login',
-          component: UserProfileLayout
+          component: Login
+        },
+        {
+          path: 'markets',
+          name: 'markets',
+          component: Markets
+        },
+        {
+          path: 'exchange',
+          name: 'exchange',
+          component: Exchange
+        },
+        {
+          path: 'help-center',
+          name: 'help',
+          component: HelpCenter
+        },
+        {
+          path: 'fees',
+          name: 'fees',
+          component: HelpCenter
         }
       ]
     },
@@ -94,11 +116,6 @@ const router = new Router({
           path: 'settings',
           name: 'settings',
           component: UserSettings
-        },
-        {
-          path: 'help',
-          name: 'help',
-          component: HelpCenter
         }
       ]
     },

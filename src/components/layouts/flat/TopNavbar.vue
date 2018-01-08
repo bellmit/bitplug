@@ -8,8 +8,9 @@
           <span class="icon-bar bar2"></span>
           <span class="icon-bar bar3"></span>
         </button>
-        <router-link :to="{ name: 'profile' }" class="navbar-brand">
-          Seigha
+        <i class="navbar-brand more-icon" :class="{'ti-close': $sidebar.showFlatSidebar, 'ti-menu': !$sidebar.showFlatSidebar}" @click.prevent="toggleSidebarNav"></i>
+        <router-link to="" class="navbar-brand">
+          BitPlug
         </router-link>
       </div>
       <div class="collapse navbar-collapse">
@@ -22,17 +23,17 @@
                <li><a href="#">Another notification</a></li>
              </drop-down> -->
           <li>
-            <router-link :to="{ name: 'settings'}" class="btn-rotate">
-              <i class="ti-settings"></i>
+            <router-link :to="{ name: 'login'}" class="btn-rotate">
+              <!-- <i class="ti-settings"></i> -->
               <p>
-                Settings
+                Sign in
               </p>
             </router-link>
           </li>
           <li class="open">
-            <router-link :to="{ name: 'help'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
-              <i class="ti-help-alt"></i>
-              <p>Help Centre</p>
+            <router-link :to="{ name: 'signup'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
+              <!-- <i class="ti-help-alt"></i> -->
+              <p>Sign up</p>
             </router-link>
           </li>
         </ul>
@@ -45,17 +46,28 @@
     computed: {
       routeName () {
         const {name} = this.$route
-        return this.capitalizeFirstLetter(name)
+        return this.capitalizeFirstLetter(this.cleanString(name))
       }
     },
     data () {
       return {
-        activeNotifications: false
+        activeNotifications: false,
+        isSidebarOpen: false,
       }
     },
     methods: {
       capitalizeFirstLetter (string) {
-        return string.charAt(0).toUpperCase() + string.slice(1)
+        let strings = string.split(' ')
+
+        return strings.map((string) => {
+          return string.charAt(0).toUpperCase() + string.slice(1)
+        }).join(' ')
+      },
+      cleanString (string) {
+        return string.split('_').join(' ').split('-').join(' ')
+      },
+      toggleSidebarNav () {
+        this.$sidebar.displayFlatSidebar(!this.$sidebar.showFlatSidebar)
       },
       toggleNotificationDropDown () {
         this.activeNotifications = !this.activeNotifications

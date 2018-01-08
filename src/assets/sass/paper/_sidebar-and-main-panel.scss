@@ -84,6 +84,53 @@
 }
 // End sibebar mini
 
+// Sidebar Flat
+@media (min-width: 992px) {
+  .flat-view .sidebar .sidebar-wrapper {
+    width: 0px;
+    box-shadow: none;
+    overflow: inherit;
+  }
+
+  .flat-view .sidebar {
+    width: 0px;
+    display: block;
+    font-weight: 200;
+    z-index: 3;
+    position: fixed;
+  }
+  .flat-view .flat-sidebar-open .sidebar .sidebar-wrapper {
+    width: 260px;
+    box-shadow: none;
+    overflow: inherit;
+  }
+
+  .flat-view .flat-sidebar-open .sidebar {
+    width: 260px;
+    display: block;
+    font-weight: 200;
+    z-index: 3;
+    position: fixed;
+  }
+
+  // .sidebar-mini .main-panel, .sidebar-mini .sidebar {
+  //   max-height: none;
+  //   height: auto;
+  //   overflow: visible;
+  // }
+  
+  .flat-view .main-panel {
+    width: calc(100% - 0px);
+    margin-left: 0;
+  }
+  
+  .flat-view .flat-sidebar-open .main-panel {
+    width: calc(100% - 260px);
+    margin-left: 260px;
+  }
+}
+// End sibebar mini
+
 .sidebar,
 .off-canvas-sidebar {
   width: 260px;

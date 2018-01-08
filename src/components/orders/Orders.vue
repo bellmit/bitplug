@@ -67,6 +67,16 @@
     total: '0.020384',
     status: 'Closed',
   },
+  {
+    date: '7th January 2018 13:30',
+    pair: 'BTC/NGN',
+    type: 'Limit',
+    action: 'Buy',
+    price: '0.002384',
+    amount: '8',
+    total: '0.020384',
+    status: 'Canceled',
+  },
   ]
 
   export default {

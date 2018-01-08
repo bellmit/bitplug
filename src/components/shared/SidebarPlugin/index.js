@@ -2,6 +2,7 @@ import Sidebar from './SideBar.vue'
 
 const SidebarStore = {
   showSidebar: false,
+  showFlatSidebar: false,
   sidebarLinks: [
     {
       name: 'Dashboard',
@@ -76,8 +77,33 @@ const SidebarStore = {
       path: '/dashboard/price_alerts'
     }
   ],
+  flatSidebarLinks: [
+    {
+      name: 'Exchange',
+      icon: 'ti-stats-up',
+      path: '/exchange'
+    },
+    {
+      name: 'Markets',
+      icon: 'ti-shopping-cart',
+      path: '/markets'
+    },
+    {
+      name: 'Fees & Features',
+      icon: 'ti-money',
+      path: '/fees'
+    },
+    {
+      name: 'Help Center',
+      icon: 'ti-help-alt',
+      path: '/help-center'
+    }
+  ],
   displaySidebar (value) {
     this.showSidebar = value
+  },
+  displayFlatSidebar (value) {
+    this.showFlatSidebar = value
   }
 }
 

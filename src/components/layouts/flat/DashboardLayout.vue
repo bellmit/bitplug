@@ -1,6 +1,6 @@
 <template>
   <div class="wrapper">
-    <side-bar type="sidebar" :sidebar-links="$sidebar.sidebarLinks">
+    <side-bar type="sidebar" :sidebar-links="$sidebar.flatSidebarLinks">
 
     </side-bar>
     <notifications>
@@ -22,7 +22,7 @@
 </style>
 <script>
   import TopNavbar from './TopNavbar.vue'
-  import ContentFooter from './ContentFooter.vue'
+  import ContentFooter from '../ContentFooter.vue'
   import DashboardContent from './Content.vue'
   export default {
     components: {

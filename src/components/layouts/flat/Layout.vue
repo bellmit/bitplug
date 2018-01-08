@@ -1,9 +1,9 @@
 <template>
-    <span class="sidebar-mini">
-        <div :class="{'nav-open': $sidebar.showSidebar}">
+    <span class="flat-view">
+        <div :class="{'nav-open': $sidebar.showSidebar, 'flat-sidebar-open': $sidebar.showFlatSidebar}">
             <DashboardLayout/>
             <!--This sidebar appears only for screens smaller than 992px-->
-            <side-bar type="navbar" :sidebar-links="$sidebar.sidebarLinks">
+            <side-bar type="navbar" :sidebar-links="$sidebar.flatSidebarLinks">
             </side-bar>
         </div>
     </span>
@@ -14,7 +14,7 @@
 import DashboardLayout from './DashboardLayout.vue'
 
 export default {
-    name: 'dashboard',
+    name: 'flat-dashboard',
     components: {
         DashboardLayout,
     }
