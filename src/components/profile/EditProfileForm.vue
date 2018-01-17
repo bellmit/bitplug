@@ -53,10 +53,10 @@
     data () {
       return {
         user: {
-          firstName: 'Seigha',
-          lastName: 'Filatei',
-          email: 'seighaf@yahoo.com',
-          phone: '09031294843',
+          firstName: '',
+          lastName: '',
+          email: '',
+          phone: '',
         }
       }
     },

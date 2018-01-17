@@ -10,7 +10,7 @@
         <BannerError v-if="error" :exempt="true">{{ error }}</BannerError>
 
         <div class="row">
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <fg-input type="text"
                       v-validate="'min:2'"
                       :class="{'input': true, 'is-danger': errors.has('first_name') }" 
@@ -37,9 +37,9 @@
             <FieldError>
                 {{ errors.first('last_name') || fieldErrors.last_name }}
             </FieldError>
-          </div>
+          </div> -->
         </div>
-          <div class="col-md-6">
+          <div class="col-md-12">
             <fg-input v-validate="'required|email'" 
                       type="email" 
                       :class="{'input': true, 'is-danger': errors.has('email') }" 
@@ -53,7 +53,7 @@
                 {{ errors.first('email') || fieldErrors.email }}
             </FieldError>
           </div>
-          <div class="col-md-6">
+          <!-- <div class="col-md-6">
             <fg-input type="number"
                       v-validate="'min:11|max:11'"
                       :class="{'input': true, 'is-danger': errors.has('phone') }" 
@@ -66,7 +66,7 @@
                 {{ errors.first('phone') || fieldErrors.phone }}
             </FieldError>
             </fg-input>
-          </div>
+          </div> -->
           <div class="col-md-12">
             <fg-input v-validate="'required|min:6'"  
                 v-model="user.password"
@@ -137,10 +137,10 @@
 
         clearFields () {
             this.user = {
-              firstName: '',
-              lastName: '',
+              firstName: null,
+              lastName: null,
               email: '',
-              phone: '',
+              phone: null,
               password: '',
             }
         },
