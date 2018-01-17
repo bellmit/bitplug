@@ -1,0 +1,32 @@
+.well {
+    &.custom-well {
+        background: white;
+        border: 0px solid white;
+        -webkit-box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+        padding: 16px 32px;
+        color: #000;
+
+        &.well-content {
+            background: white;
+            padding: 60px;
+            margin-top: -1%;
+            z-index: -1;
+            border: 0px solid white;
+            -webkit-box-shadow: 0 2px 15px rgba(0,0,0,0.10) !important;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.10) !important;
+        }
+    }
+
+    .title {
+        display: inline-block;
+        font-size: 14px;
+        font-weight: 100;
+        margin-bottom: 0;
+    }
+
+    .icon {
+        float: right;
+        font-size: 16px;
+    }
+}
