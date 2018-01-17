@@ -24,6 +24,8 @@ module.exports = {
     /**
      * Deployment section
      * http://pm2.keymetrics.io/docs/usage/deployment/
+     * 
+     *  npm install && npm run build &&
      */
     deploy : {
       production : {
@@ -32,7 +34,7 @@ module.exports = {
         ref  : 'origin/master',
         repo : 'git@gitlab.com:BitPlug/bitplug-webapp.git',
         path : '/var/www/production',
-        'post-deploy' : 'export NODE_ENV=production && npm install && npm run build && pm2 reload ecosystem.config.js --env production'
+        'post-deploy' : 'export NODE_ENV=production && pm2 reload ecosystem.config.js --env production'
       },
       dev : {
         user : 'root',

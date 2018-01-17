@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default">
+  <nav class="navbar navbar-default" :class="{'navbar-float': stickyNav }">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" :class="{toggled: $sidebar.showSidebar}" @click="toggleSidebar">
@@ -61,9 +61,23 @@
       return {
         activeNotifications: false,
         isSidebarOpen: false,
+        stickyNav: false
       }
     },
+    mounted () {
+      window.addEventListener('scroll', this.handleScroll);
+    },
+    destroyed () {
+      window.removeEventListener('scroll', this.handleScroll);
+    },
     methods: {
+      handleScroll () {
+        if (window.scrollY >= 60) {
+          this.stickyNav = true
+        } else {
+          this.stickyNav = false
+        }
+      },
       capitalizeFirstLetter (string) {
         let strings = string.split(' ')
 

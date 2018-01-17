@@ -56,6 +56,9 @@
 
 .navbar-default {
   background-color: $bg-nude;
+  // position: fixed;
+  // width: 100%;
+  // margin-bottom: 100px;
   // border-bottom: 1px solid $medium-gray;
 
   .brand {
@@ -96,6 +99,14 @@
     }
 
   }
+
+  // .navbar-float {
+  //   background-color: white;
+  //   position: fixed;
+  //   width: 100%;
+  //   height: 10%;
+  
+  // }
 
   &:not(.navbar-transparent) .btn-default:hover {
     color: $info-color;
