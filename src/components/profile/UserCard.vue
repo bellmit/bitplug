@@ -6,14 +6,14 @@
     <div class="content">
       <div class="author">
         <!-- <img class="avatar border-white" :src="require('@/assets/img/faces/face-2.jpg')" alt="..."> -->
-        <h4 class="title">Seigha Filatei
+        <h4 class="title">{{ user.first_name }} {{ user.last_name }}
           <br>
           <a href="#">
-            <small>seighaf@yahoo.com</small>
+            <small>{{ user.email }}</small>
           </a>
           <br>
           <a href="#">
-            <small>09031294843</small>
+            <small>{{ user.phone }}</small>
           </a>
         </h4>
       </div>
@@ -34,24 +34,17 @@
   </div>
 </template>
 <script>
+  import { mapGetters } from 'vuex'
   export default {
+    name: 'user-card',
     data () {
       return {
-        details: [
-          {
-            title: '12',
-            subTitle: 'Files'
-          },
-          {
-            title: '2GB',
-            subTitle: 'Used'
-          },
-          {
-            title: '24,6$',
-            subTitle: 'Spent'
-          }
-        ]
       }
+    },
+    computed: {
+        ...mapGetters('userCredentials', [
+          'user',
+        ]),
     },
     methods: {
       getClasses (index) {

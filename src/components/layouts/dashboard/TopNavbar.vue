@@ -35,12 +35,22 @@
               </p>
             </router-link>
           </li>
+          <li>
+            <a @click.prevent="logoutUser" class="btn-rotate">
+              <i class="ti-shift-left"></i>
+              <p>
+                Logout
+              </p>
+            </a>
+          </li>
         </ul>
       </div>
     </div>
   </nav>
 </template>
 <script>
+  import { mapActions, mapGetters } from 'vuex'
+
   export default {
     computed: {
       routeName () {
@@ -54,6 +64,22 @@
       }
     },
     methods: {
+      ...mapActions('userCredentials', [
+          'logout',
+          'callWithToken',
+      ]),
+      logoutUser() {
+        /**
+         * Logout the user and redirect to login page
+         */
+
+        const self = this
+        this.logout()
+        .then( status => {
+          // Redirect to login page
+          self.$_$redirectLoginNoBack()
+        })
+      },
       capitalizeFirstLetter (string) {
         let strings = string.split(' ')
 
