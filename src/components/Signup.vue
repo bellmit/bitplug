@@ -39,7 +39,7 @@
             </FieldError>
           </div> -->
         </div>
-          <div class="col-md-12">
+          <div class="col-md-6">
             <fg-input v-validate="'required|email'" 
                       type="email" 
                       :class="{'input': true, 'is-danger': errors.has('email') }" 
@@ -53,20 +53,20 @@
                 {{ errors.first('email') || fieldErrors.email }}
             </FieldError>
           </div>
-          <!-- <div class="col-md-6">
+          <div class="col-md-6">
             <fg-input type="number"
-                      v-validate="'min:11|max:11'"
+                      v-validate="'required|min:11|max:11'"
                       :class="{'input': true, 'is-danger': errors.has('phone') }" 
                       name="phone" 
                       label="Phone Number"
                       placeholder="Phone Number"
                       v-model="user.phone">
+            </fg-input>
 
             <FieldError>
                 {{ errors.first('phone') || fieldErrors.phone }}
             </FieldError>
-            </fg-input>
-          </div> -->
+          </div>
           <div class="col-md-12">
             <fg-input v-validate="'required|min:6'"  
                 v-model="user.password"
@@ -140,7 +140,7 @@
               firstName: null,
               lastName: null,
               email: '',
-              phone: null,
+              phone: '',
               password: '',
             }
         },
