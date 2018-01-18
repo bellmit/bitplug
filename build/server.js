@@ -6,7 +6,7 @@ const compiler = require('webpack')(config);
 var history = require('connect-history-api-fallback');
  
 app.use(history());
-app.set('port', process.env.PORT || 80);
+app.set('port', process.env.PORT || 8000);
 app.set('host', process.env.HOST || '0.0.0.0');
  
 const webpackMiddleware = createWebpackMiddleware(compiler, config);
