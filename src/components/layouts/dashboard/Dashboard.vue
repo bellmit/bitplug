@@ -44,6 +44,9 @@ export default {
     components: {
         DashboardLayout,
     },
+    mounted () {
+        this.$sidebar.displaySidebar(false)
+    },
     methods: {
       ...mapActions('userCredentials', [
           'logout',

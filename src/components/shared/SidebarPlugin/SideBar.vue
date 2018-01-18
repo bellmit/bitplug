@@ -120,7 +120,6 @@
         })
       },
       hideSidebar () {
-        console.log('ssss')
         this.$sidebar.displaySidebar(false)
       }
     },

@@ -42,7 +42,10 @@ export default {
     name: 'flat-dashboard',
     components: {
         DashboardLayout,
-    }
+    },
+    mounted () {
+        this.$sidebar.displaySidebar(false)
+    },
 }
 
 </script>
