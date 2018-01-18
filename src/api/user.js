@@ -7,8 +7,8 @@ import { getAll, getById, add, edit, gDelete } from './generic'
 export default {
   resource: {
     user: 'auth/session',
-    updateProfile: 'auth/update_profile/',
-    updatePassword: 'auth/update_password'
+    updateProfile: 'auth/user_update',
+    updatePassword: 'auth/user_update'
   },
 
   getUser (dargs) {
@@ -38,9 +38,8 @@ export default {
     /**
      * Update user password
      */
-    return blackAxios.put(this.resource.updatePassword, {
-      id: dargs.id, // user id
-      password: dargs.password, // user current password
+    return blackAxios.patch(this.resource.updatePassword, {
+      old_password: dargs.old_password, // user current password
       new_password: dargs.new_password // new password
     },
     {
@@ -67,7 +66,7 @@ export default {
      * Update user profile
      * only with fields to be updated
      */
-    return blackAxios.put(this.resource.updateProfile + dargs.userId, {
+    return blackAxios.put(this.resource.updateProfile, {
       first_name: dargs.first_name,
       last_name: dargs.last_name,
       email: dargs.email,

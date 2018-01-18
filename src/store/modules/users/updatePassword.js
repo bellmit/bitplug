@@ -11,9 +11,9 @@ const state = {
         loading: false,
         unauthorized: null,
         unverified: null,
-        notfound: false,
-    },
-};
+        notfound: false
+    }
+}
 
 // getters
 const getters = {
@@ -36,22 +36,18 @@ const actions = {
         } else if (dargs.loader) {
             const load = dargs.loader.load
             dispatch(load.namespace, load.args, { root: true }).then(() => {
-            });
+            })
         }
 
         return api.updatePassword(dargs)
             .then((result) => {
                 if (result.error === undefined) {
                     // Successful
-                    commit('clearErrors');
-                    commit('success');
+                    commit('clearErrors')
+                    commit('success')
 
                     // Use response body
                     const data = result.data
-                    const returnObject = {
-                        id: data.id,
-                        state: true,
-                    }
 
                     // Not Loading
                     if (dargs.noLoad !== true) {
@@ -59,24 +55,24 @@ const actions = {
                     } else if (dargs.loader) {
                         const load = dargs.loader.stopLoading
                         dispatch(load.namespace, load.args, { root: true }).then(() => {
-                        });
+                        })
                     }
-                    return returnObject;
+                    return true
                 }
                 // else
                 // Failed
                 if (result.unauthorized) {
-                    commit('isAuthError');
+                    commit('isAuthError')
                 }
-                commit('setVerification', result.unverified);
-                commit('setNotFound', result.notfound);
+                commit('setVerification', result.unverified)
+                commit('setNotFound', result.notfound)
 
                 // Turn field errors to obj instead of array
-                const fieldErrors = result.data;
+                const fieldErrors = result.data
 
-                commit('setFieldErrors', fieldErrors);
+                commit('setFieldErrors', fieldErrors)
 
-                commit('setError', result.error);
+                commit('setError', result.error)
 
                 // Not Loading
                 if (dargs.noLoad !== true) {
@@ -84,48 +80,48 @@ const actions = {
                 } else if (dargs.loader) {
                     const load = dargs.loader.stopLoading
                     dispatch(load.namespace, load.args, { root: true }).then(() => {
-                    });
+                    })
                 }
-                return false;
+                return false
             })
     },
     clearErrors ({ commit, state }) {
-        commit('clearErrors');
+        commit('clearErrors')
     },
     clearFieldErrors ({ commit, state }) {
-        commit('clearErrors');
+        commit('clearErrors')
     },
     resetState ({ commit, state }) {
-        commit('resetState');
+        commit('resetState')
     },
     load ({ commit, state }, id) {
-        commit('loading', id);
+        commit('loading', id)
     },
     stopLoading ({ commit, state }, id) {
-        commit('notLoading', id);
+        commit('notLoading', id)
     },
 }
 
 // mutations
 const mutations = {
     loading (state) {
-        state.sub.loading = true;
+        state.sub.loading = true
     },
 
     notLoading (state) {
-        state.sub.loading = false;
+        state.sub.loading = false
     },
 
     setError (state, error) {
-        state.sub.error = error;
+        state.sub.error = error
     },
 
     success (state) {
-        state.sub.success = true;
+        state.sub.success = true
     },
 
     setFieldErrors (state, error) {
-        state.sub.fieldErrors = error || {};
+        state.sub.fieldErrors = error || {}
     },
 
     resetState (state) {
@@ -138,34 +134,34 @@ const mutations = {
             unauthorized: null,
             unverified: null,
             notfound: false,
-        };
+        }
     },
 
     clearErrors (state) {
-        state.sub.fieldErrors = false;
-        state.sub.error = false;
+        state.sub.fieldErrors = false
+        state.sub.error = false
     },
 
     clearFieldErrors (state) {
-        state.sub.fieldErrors = false;
+        state.sub.fieldErrors = false
     },
 
     setNotFound (state, val) {
-        state.sub.notfound = val;
+        state.sub.notfound = val
     },
 
     setVerification (state, val) {
-        state.sub.unverified = val;
+        state.sub.unverified = val
     },
 
     isAuthError (state) {
-        state.sub.unauthorized = true;
+        state.sub.unauthorized = true
     },
 
     notAuthError (state) {
-        state.sub.unauthorized = false;
+        state.sub.unauthorized = false
     },
-};
+}
 
 export default {
     namespaced: true,

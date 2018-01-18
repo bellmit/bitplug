@@ -1,4 +1,4 @@
-import { userTypes } from '@/constants';
+import { userTypes } from '@/constants'
 
 // Remember to update resetState mutation
 const state = {
@@ -31,38 +31,38 @@ const actions = {
     /**
      * Log a user out by clearing credentials from state and cookies
      */
-    commit('loading');
+    commit('loading')
 
-    commit('logout');
+    commit('logout')
 
-    commit('notLoading');
-    return true;
+    commit('notLoading')
+    return true
   },
 
   setToken ({ dispatch, commit, state }, token) {
     /**
      * Save the user's token in state
      */
-    commit('setToken', token);
-    return true;
+    commit('setToken', token)
+    return true
   },
 
   setUser ({ dispatch, commit, state }, user) {
     /**
      * Save the user's details in state
      */
-    commit('setUser', user);
-    return true;
+    commit('setUser', user)
+    return true
   },
 
   setAuthenticated ({ dispatch, commit, state }, type) {
     /**
      * Register that a user has been authenticated and set the type of user that was authenticated
      */
-    commit('isAuthenticated');
+    commit('isAuthenticated')
 
-    commit('setAuthenticatedType', type);
-    return true;
+    commit('setAuthenticatedType', type)
+    return true
   },
 
   callWithToken ({ dispatch, commit, state }, dargs) {
@@ -76,14 +76,14 @@ const actions = {
      * @returns Promise
      */
 
-    const params = dargs.parameters;
-    const storeAction = dargs.action;
-    const token = state.sub.token;
+    const params = dargs.parameters
+    const storeAction = dargs.action
+    const token = state.sub.token
 
     // Add token to args
-    params.token = token;
+    params.token = token
     // Call action and return promise
-    return storeAction(params);
+    return storeAction(params)
   },
 }
 
@@ -98,40 +98,40 @@ const mutations = {
   },
 
   setToken (state, val) {
-    state.sub.token = val || null;
+    state.sub.token = val || null
   },
 
   setUser (state, val) {
-    state.sub.user = val || {};
+    state.sub.user = val || {}
   },
 
   isAuthenticated (state) {
-    state.sub.isAuth = true;
+    state.sub.isAuth = true
   },
 
   setAuthenticatedType (state, type) {
     if (type === userTypes.client.id) {
-      state.sub.isClientAuth = true;
-      state.sub.isDeveloperAuth = false;
-      state.sub.isProjectManagerAuth = false;
+      state.sub.isClientAuth = true
+      state.sub.isDeveloperAuth = false
+      state.sub.isProjectManagerAuth = false
     } else if (type === userTypes.developer.id) {
-      state.sub.isDeveloperAuth = true;
-      state.sub.isClientAuth = false;
-      state.sub.isProjectManagerAuth = false;
+      state.sub.isDeveloperAuth = true
+      state.sub.isClientAuth = false
+      state.sub.isProjectManagerAuth = false
     } else if (type === userTypes.projectManager.id) {
-      state.sub.isProjectManagerAuth = true;
-      state.sub.isDeveloperAuth = false;
-      state.sub.isClientAuth = false;
+      state.sub.isProjectManagerAuth = true
+      state.sub.isDeveloperAuth = false
+      state.sub.isClientAuth = false
     }
   },
 
   logout (state) {
-    state.sub.token = null;
-    state.sub.user = {};
-    state.sub.isAuth = false;
-    state.sub.isDeveloperAuth = false;
-    state.sub.isClientAuth = false;
-    state.sub.isProjectManagerAuth = false;
+    state.sub.token = null
+    state.sub.user = {}
+    state.sub.isAuth = false
+    state.sub.isDeveloperAuth = false
+    state.sub.isClientAuth = false
+    state.sub.isProjectManagerAuth = false
   },
 }
 
