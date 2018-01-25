@@ -9,7 +9,7 @@
           <span class="icon-bar bar3"></span>
         </button>
         <router-link to="" class="navbar-brand">
-          {{ routeName }}
+          {{ username }}
         </router-link>
       </div>
       <div class="collapse navbar-collapse">
@@ -52,15 +52,22 @@
   import { mapActions, mapGetters } from 'vuex'
 
   export default {
-    computed: {
-      routeName () {
-        const {name} = this.$route
-        return this.capitalizeFirstLetter(this.cleanString(name))
-      }
-    },
+    name: 'dashboard-navbar',
     data () {
       return {
         activeNotifications: false
+      }
+    },
+    computed: {
+      ...mapGetters('userCredentials', [
+          'user',
+      ]),
+      username () {
+        return this.user.first_name + ' ' + this.user.last_name
+      },
+      routeName () {
+        const {name} = this.$route
+        return this.capitalizeFirstLetter(this.cleanString(name))
       }
     },
     methods: {

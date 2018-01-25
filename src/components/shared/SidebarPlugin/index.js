@@ -39,37 +39,37 @@ const SidebarStore = {
     {
       name: 'Dashboard',
       icon: 'ti-home',
-      path: '/dashboard'
+      path: '/admin'
     },
     {
-      name: 'Wallets',
+      name: 'Wallet Types',
       icon: 'ti-wallet',
-      path: '/dashboard/wallet'
+      path: '/admin/wallet'
     },
     {
-      name: 'Orders',
+      name: 'Withdrawal Requests',
       icon: 'ti-view-list-alt',
-      path: '/dashboard/orders'
-    },
-    {
-      name: 'Transactions',
-      icon: 'ti-view-list-alt',
-      path: '/dashboard/transactions'
-    },
-    {
-      name: 'Exchange',
-      icon: 'ti-stats-up',
-      path: '/dashboard/exchange'
+      path: '/admin/withdrawal_requests'
     },
     {
       name: 'Markets',
       icon: 'ti-shopping-cart',
-      path: '/dashboard/markets'
+      path: '/admin/markets'
     },
     {
-      name: 'Price Alerts',
+      name: 'Transactions',
+      icon: 'ti-view-list-alt',
+      path: '/admin/transactions'
+    },
+    {
+      name: 'Order Book',
+      icon: 'ti-stats-up',
+      path: '/admin/order_book'
+    },
+    {
+      name: 'Fees',
       icon: 'ti-alarm-clock',
-      path: '/dashboard/price_alerts'
+      path: '/admin/fees'
     }
   ],
   flatSidebarLinks: [

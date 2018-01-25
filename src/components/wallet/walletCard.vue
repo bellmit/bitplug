@@ -3,7 +3,7 @@
     <div class="header">
     <div class="col-xs-3">
         <div class="avatar">
-            <img :src="image" alt="Circle Image" class="img-circle img-no-padding img-responsive">
+            <img :src="image" alt="..." class="img-circle img-no-padding img-responsive">
         </div>
     </div>
       <h4 class="title">{{ title }}</h4>

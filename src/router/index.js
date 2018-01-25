@@ -18,9 +18,20 @@ import UserOrders from '@/components/orders/Orders'
 import UserPriceAlerts from '@/components/priceAlerts/PriceAlerts'
 import UserSettings from '@/components/settings/Settings'
 
+// Admin dashboard
+import AdminDashboard from '@/components/layouts/dashboard/AdminDashboard'
+import AdminDashboardHome from '@/components/home/AdminHome'
+import AdminWalletTypes from '@/components/wallet/WalletTypes'
+import CreateWalletType from '@/components/wallet/forms/CreateWalletType'
+import EditWalletType from '@/components/wallet/forms/EditWalletType'
+import AdminTransactions from '@/components/transactions/AdminTransactions'
+import AdminMarkets from '@/components/markets/Markets'
+import AdminFees from '@/components/fees/AdminFees'
+import WithdrawalRequests from '@/components/wallet/WithdrawalRequests'
+
+import OrderBook from '@/components/orders/OrderBook'
 import Exchange from '@/components/exchange/Exchange'
 import HelpCenter from '@/components/helpCenter/HelpCenter'
-import Markets from '@/components/markets/Markets'
 
 Vue.use(Router)
 
@@ -114,13 +125,13 @@ const router = new Router({
     // Admin Dashboard Route
     {
       path: '/admin',
-      component: UserDashboard,
+      component: AdminDashboard,
       redirect: '/admin/home',
       children: [
         {
           path: 'home',
           name: 'admin-dashboard',
-          component: UserProfileLayout
+          component: AdminDashboardHome
         },
         {
           path: 'profile',
@@ -129,33 +140,48 @@ const router = new Router({
         },
         {
           path: 'wallet',
-          name: 'admin-wallet',
-          component: UserProfileLayout
+          name: 'admin-wallet-types',
+          component: AdminWalletTypes
+        },
+        {
+          path: 'edit_wallet',
+          name: 'edit-wallet-type',
+          component: EditWalletType
+        },
+        {
+          path: 'create_wallet',
+          name: 'create-wallet-type',
+          component: CreateWalletType
         },
         {
           path: 'transactions',
           name: 'admin-transactions',
-          component: UserProfileLayout
+          component: AdminTransactions
         },
         {
-          path: 'exchange',
-          name: 'admin-exchange',
-          component: UserProfileLayout
+          path: 'withdrawal_requests',
+          name: 'admin-withdrawal-requests',
+          component: WithdrawalRequests
         },
         {
-          path: 'price_alerts',
-          name: 'admin-price-alerts',
-          component: UserProfileLayout
+          path: 'markets',
+          name: 'admin-markets',
+          component: AdminMarkets
+        },
+        {
+          path: 'order_book',
+          name: 'admin-order-book',
+          component: OrderBook
+        },
+        {
+          path: 'fees',
+          name: 'admin-fees',
+          component: AdminFees
         },
         {
           path: 'settings',
           name: 'admin-settings',
-          component: UserProfileLayout
-        },
-        {
-          path: 'help',
-          name: 'admin-help',
-          component: UserProfileLayout
+          component: UserSettings
         }
       ]
     }
