@@ -9,7 +9,7 @@ const state = {
     redirectError: false,
     autherror: false,
     autherrorMsg: 'Email or password is incorrect',
-    loading: false,
+    loading: false
   }
 }
 
@@ -20,7 +20,7 @@ const getters = {
   autherror: state => state.sub.autherror,
   autherrorMsg: state => state.sub.autherrorMsg,
   redirectError: state => state.sub.redirectError,
-  loading: state => state.sub.loading,
+  loading: state => state.sub.loading
 }
 
 // actions
