@@ -5,14 +5,6 @@
     <div class="header">
       <h4 class="title">Edit Wallet Type</h4>
     </div>
-    <savage-dropzone ref="myVueDropzone" id="dropzone"
-            method="PUT"
-            url="picture/update/"
-            :options="dropzoneOptions">
-        <!-- Optional parameters if any! -->
-        <!--<input type="hidden" name="id" :value="item.id">-->
-        <input type="hidden" name="token" value="hi">
-    </savage-dropzone>
     <div class="content">
       <form @submit.prevent="validateBeforeSubmit">
         <BannerError v-if="error" :exempt="true">{{ error }}</BannerError>
@@ -123,13 +115,6 @@ export default {
         initialBalance: null,
         feeId: 0,
         isCrypto: ""
-      },
-
-    dropzoneOptions: {
-          url: 'https://httpbin.org/post',
-          thumbnailWidth: 150,
-          maxFilesize: 0.5,
-          headers: { "My-Awesome-Header": "header value" }
       },
     }
   },

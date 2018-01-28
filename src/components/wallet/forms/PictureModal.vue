@@ -1,5 +1,5 @@
 <template>
-  <el-button type="text" @click="open4">
+  <el-button type="text" @click="openModal">
     <slot>content</slot>
   </el-button>
 </template>
@@ -11,19 +11,22 @@
       }
     },
     methods: {
-      open4() {
+      openModal() {
         const h = this.$createElement;
         this.$msgbox({
           title: 'Message',
-          message:h('vue-dropzone', null, 'Got it'),
+          message:h('savage-dropzone', null),
+          showCancelButton: true,
+          confirmButtonText: 'Save',
+          cancelButtonText: 'Cancel',
           beforeClose: (action, instance, done) => {
             if (action === 'confirm') {
-              instance.confirmButtonLoading = true;
-              instance.confirmButtonText = 'Loading...';
+              instance.confirmButtonLoading = true
+              instance.confirmButtonText = 'Saving...'
               setTimeout(() => {
                 done();
                 setTimeout(() => {
-                  instance.confirmButtonLoading = false;
+                  instance.confirmButtonLoading = false
                 }, 300);
               }, 3000);
             } else {
@@ -32,8 +35,8 @@
           }
         }).then(action => {
           this.$message({
-            type: 'info',
-            message: 'action: ' + action
+            type: 'success',
+            message: 'Success'
           });
         });
       },
