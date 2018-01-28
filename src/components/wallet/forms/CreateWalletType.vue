@@ -109,88 +109,78 @@
   </div>
 </template>
 <script>
-  import { mapActions, mapGetters } from 'vuex'
-  
-  export default {
-    name: 'signup',
-    destroyed () {
-        this.$_$destroyedHook()
-    },
-    data () {
-      return {
-        walletType: {
-          title: '',
-          actions: [],
-          currency: '',
-          initialBalance: null,
-          feeId: '',
-          isCrypto: '',
-        }
+import { mapActions, mapGetters } from "vuex";
+
+export default {
+  name: "signup",
+  destroyed() {
+    this.$_$destroyedHook();
+  },
+  data() {
+    return {
+      walletType: {
+        title: "",
+        actions: [],
+        currency: "",
+        initialBalance: null,
+        feeId: "",
+        isCrypto: ""
       }
-    },
-    computed: {
-        ...mapGetters('register', [
-            'error',
-            'fieldErrors',
-            'loading',
-        ]),
+    };
+  },
+  computed: {
+    ...mapGetters("register", ["error", "fieldErrors", "loading"])
 
-        // isUserClient() {
-        //     const clientType = this.$_$userTypesObject.client.id
-        //     return this.user.userType === clientType
-        // },
-    },
-    methods: {
-        ...mapActions('register', [
-            'register',
-            'resetState',
-            'clearErrors',
-        ]),
+    // isUserClient() {
+    //     const clientType = this.$_$userTypesObject.client.id
+    //     return this.user.userType === clientType
+    // },
+  },
+  methods: {
+    ...mapActions("register", ["register", "resetState", "clearErrors"]),
 
-        clearFields () {
-            this.walletType = {
-              title: '',
-              actions: [],
-              currency: '',
-              initialBalance: null,
-              feeId: '',
-              isCrypto: '',
+    clearFields() {
+      this.walletType = {
+        title: "",
+        actions: [],
+        currency: "",
+        initialBalance: null,
+        feeId: "",
+        isCrypto: ""
+      };
+    },
+
+    redirectBack() {
+      this.$router.push({ name: "admin-wallet-types" });
+    },
+
+    validateBeforeSubmit() {
+      this.$validator.validateAll().then(result => {
+        if (result) {
+          // eslint-disable-next-line
+          // Set arguments for endpoint
+          let args = {
+            first_name: this.user.firstName,
+            last_name: this.user.lastName,
+            email: this.user.email,
+            phone: this.user.phone,
+            password: this.user.password,
+            type: this.user.userType
+          };
+
+          const self = this;
+          this.register(args).then(function(status) {
+            if (status.state === true) {
+              self.clearFields();
+              self.redirectBack();
             }
-        },
-
-        redirectBack () {
-            this.$router.push({name: 'admin-wallet-types'})
-        },
-
-        validateBeforeSubmit() {
-            this.$validator.validateAll().then(result => {
-                if (result) {
-                // eslint-disable-next-line
-                // Set arguments for endpoint
-                    let args = {
-                        first_name: this.user.firstName,
-                        last_name: this.user.lastName,
-                        email: this.user.email,
-                        phone: this.user.phone,
-                        password: this.user.password,
-                        type: this.user.userType,
-                    }
-
-                    const self = this
-                    this.register(args)
-                    .then(function (status) {
-                        if (status.state === true) {
-                            self.clearFields()
-                            self.redirectBack()
-                        }
-                    })
-                    return
-                }
-            })
-        },
-    },
+          });
+          return;
+        }
+      });
+    }
   }
-
+};
 </script>
 <style>
 
