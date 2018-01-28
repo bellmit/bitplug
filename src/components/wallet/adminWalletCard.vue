@@ -26,11 +26,12 @@
     <div class="footer">
         <hr>
         <div class="row">
-            <h6 class="text-primary wallet-action wallet-icon ti-camera"></h6>
+            <PictureModal>
+              <h6 class="text-primary wallet-action wallet-icon ti-camera"></h6>
+            </PictureModal>
             <router-link :to="{'name': 'edit-wallet-type'}">
               <h6 class="text-primary wallet-action wallet-icon ti-pencil"></h6>
             </router-link>
-            <h6 class="text-primary wallet-action wallet-icon ti-trash"></h6>
         </div>
     </div>
     </div>
@@ -38,12 +39,16 @@
   </div>
 </template>
 <script>
+  import PictureModal from './forms/PictureModal'
   export default {
     props: {
         wallet: {  
             type: Object,
             default: () => {},
         },
+    },
+    components: {
+      PictureModal: PictureModal
     },
     data () {
       return {
