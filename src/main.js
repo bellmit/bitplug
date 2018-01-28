@@ -11,6 +11,7 @@ import './assets/sass/paper-dashboard.scss'
 import './assets/css/font-awesome/css/font-awesome.css'
 import './assets/css/themify-icons/themify-icons.css'
 import 'element-ui/lib/theme-chalk/index.css'
+import 'vue2-dropzone/dist/vue2Dropzone.css'
 
 // library imports
 import Chartist from 'chartist'

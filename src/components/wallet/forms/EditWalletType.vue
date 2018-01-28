@@ -5,7 +5,14 @@
     <div class="header">
       <h4 class="title">Edit Wallet Type</h4>
     </div>
-    <vue-dropzone ref="myVueDropzone" id="dropzone" :options="dropzoneOptions"></vue-dropzone>
+    <savage-dropzone ref="myVueDropzone" id="dropzone"
+            method="PUT"
+            url="picture/update/"
+            :options="dropzoneOptions">
+        <!-- Optional parameters if any! -->
+        <!--<input type="hidden" name="id" :value="item.id">-->
+        <input type="hidden" name="token" value="hi">
+    </savage-dropzone>
     <div class="content">
       <form @submit.prevent="validateBeforeSubmit">
         <BannerError v-if="error" :exempt="true">{{ error }}</BannerError>
@@ -98,17 +105,14 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
-import vue2Dropzone from 'vue2-dropzone'
-import 'vue2-dropzone/dist/vue2Dropzone.css'
+import { mapActions, mapGetters } from "vuex"
 
 export default {
-  name: "signup",
+  name: "edit-wallet-type",
   destroyed() {
-    this.$_$destroyedHook();
+    this.$_$destroyedHook()
   },
   components: {
-    vueDropzone: vue2Dropzone
   },
   data() {
     return {
@@ -119,8 +123,15 @@ export default {
         initialBalance: null,
         feeId: 0,
         isCrypto: ""
-      }
-    };
+      },
+
+    dropzoneOptions: {
+          url: 'https://httpbin.org/post',
+          thumbnailWidth: 150,
+          maxFilesize: 0.5,
+          headers: { "My-Awesome-Header": "header value" }
+      },
+    }
   },
   computed: {
     ...mapGetters("register", ["error", "fieldErrors", "loading"])
@@ -136,15 +147,8 @@ export default {
         initialBalance: null,
         feeId: "",
         isCrypto: ""
-      };
+      }
     },
-
-    dropzoneOptions: {
-          url: 'https://httpbin.org/post',
-          thumbnailWidth: 150,
-          maxFilesize: 0.5,
-          headers: { "My-Awesome-Header": "header value" }
-      },
 
     validateBeforeSubmit() {
       console.log(this.walletType)
@@ -159,21 +163,21 @@ export default {
             initialBalance: this.walletType.initialBalance,
             feeId: this.walletType.feeId,
             isCrypto: this.walletType.isCrypto
-          };
+          }
 
-          const self = this;
+          const self = this
           this.register(args).then(function(status) {
             if (status.state === true) {
-              self.clearFields();
-              self.$_$redirectLoginNoBack();
+              self.clearFields()
+              self.$_$redirectLoginNoBack()
             }
-          });
-          return;
+          })
+          return
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 <style>
 

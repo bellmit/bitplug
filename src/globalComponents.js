@@ -6,6 +6,7 @@ import PaperTable from './components/shared/PaperTable.vue'
 import Well from './components/shared/well.vue'
 import PlainCard from './components/shared/cards/PlainCard.vue'
 
+import SavageDropzone from './plugins/savage_dropzone/index.vue'
 import BannerError from './components/shared/bannerError'
 import BannerSuccess from './components/shared/bannerSuccess'
 import FetchError from './components/shared/fetchError'
@@ -41,6 +42,7 @@ const GlobalComponents = {
     Vue.component('SavageWell', Well)
     Vue.component('PlainCard', PlainCard)
 
+    Vue.component('SavageDropzone', SavageDropzone)
     Vue.component('BannerError', BannerError)
     Vue.component('BannerSuccess', BannerSuccess)
     Vue.component('FetchError', FetchError)
