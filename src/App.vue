@@ -7,11 +7,13 @@
 
 <script>
 export default {
-  name: 'app'
+  name: 'app',
 }
 </script>
 
 <style lang="scss">
   // @import './assets/sass/paper-dashboard.scss';
   // @import './assets/css/font-awesome/css/font-awesome.css';
+  @import "vodal/common.css";
+  @import "vodal/rotate.css";
 </style>

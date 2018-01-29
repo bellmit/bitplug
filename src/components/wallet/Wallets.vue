@@ -1,15 +1,18 @@
 <template>
 <span>
-      <!-- <form class="navbar-form navbar-right" role="search">
-          <div class="form-group  is-empty">
-            <input type="text" class="form-control" placeholder="Search">
-            <span class="material-input"></span>
-          </div>
-          <button type="submit" class="btn btn-white btn-round btn-just-icon">
-            <i class="material-icons">search</i><div class="ripple-container"></div>
-          </button>
-        </form> -->
     <div class="row">
+
+      <vodalModal :show="fundModal" animation="zoom" width="500" height="300" @hide="clearModals">
+          <div>A vue modal with animations.</div>
+      </vodalModal>
+
+      <vodalModal :show="receiveModal" animation="zoom" @hide="clearModals">
+          <div>A vue modal with animations.</div>
+      </vodalModal>
+
+      <vodalModal :show="withdrawModal" animation="zoom" @hide="clearModals">
+          <div>A vue modal with animations.</div>
+      </vodalModal>
 
       <div class="col-lg-4 col-md-5" v-for="(wallet, index) in wallets" :key="index">
         <WalletCard :title="wallet.title"
@@ -17,7 +20,6 @@
           :balance="wallet.balance"
           :available="wallet.available"
           :actions="wallet.actions">
-
         </WalletCard>
       </div>
     </div>
@@ -25,6 +27,7 @@
 </template>
 <script>
   import WalletCard from './walletCard'
+  import { mapActions, mapGetters } from 'vuex'
 
   export default {
     components: {
@@ -53,10 +56,22 @@
             balance: '0.0103790',
             available: '0.0103790',
             actions: ['recieve'],
-          },
+          }
         ]
       }
     },
+    computed:{
+      ...mapGetters('wallet', [
+        'fundModal',
+        'receiveModal',
+        'withdrawModal'
+      ])
+    },
+    methods:{
+      ...mapActions('wallet', [
+        'clearModals'
+      ]),
+    }
   }
 
 </script>

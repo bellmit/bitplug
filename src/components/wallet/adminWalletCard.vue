@@ -26,9 +26,8 @@
     <div class="footer">
         <hr>
         <div class="row">
-            <PictureModal>
-              <h6 class="text-primary wallet-action wallet-icon ti-camera"></h6>
-            </PictureModal>
+            <h6 class="text-primary wallet-action wallet-icon ti-camera"  @click="setuploadPicsModal"></h6>
+            <PictureModal />
             <router-link :to="{'name': 'edit-wallet-type'}">
               <h6 class="text-primary wallet-action wallet-icon ti-pencil"></h6>
             </router-link>
@@ -40,6 +39,7 @@
 </template>
 <script>
   import PictureModal from './forms/PictureModal'
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     props: {
         wallet: {  
@@ -55,6 +55,9 @@
       }
     },
     methods: {
+       ...mapActions('wallet', [
+        'setuploadPicsModal',
+      ]),
       getStatusClass (status) {
         switch (status) {
           case 'Offline':
