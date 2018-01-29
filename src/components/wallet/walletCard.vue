@@ -33,9 +33,9 @@
     <div class="footer">
         <hr>
         <div class="row">
-            <h6 class="text-primary wallet-action" v-show="hasAction('fund')"> Fund </h6>
-            <h6 class="text-primary wallet-action" v-show="hasAction('withdraw')"> Withdraw </h6>
-            <h6 class="text-primary wallet-action" v-show="hasAction('recieve')"> Recieve </h6>
+            <button class="text-primary wallet-action" @click="setfundModal" v-show="hasAction('fund')"> Fund </button>
+            <button class="text-primary wallet-action" @click="setwithdrawModal" v-show="hasAction('withdraw')"> Withdraw </button>
+            <button class="text-primary wallet-action" @click="setreceiveModal" v-show="hasAction('recieve')"> Recieve </button>
         </div>
     </div>
     </div>
@@ -43,28 +43,29 @@
   </div>
 </template>
 <script>
+  import { mapActions, mapGetters } from 'vuex'
   export default {
     props: {
-        title: {  
+        title: {
             type: String,
-            default: '',
+            default: ''
         },
-        balance: {  
+        balance: {
             type: String,
-            default: '',
+            default: ''
         },
-        available: {  
+        available: {
             type: String,
-            default: '',
+            default: ''
         },
-        image: {  
+        image: {
             type: String,
-            default: '',
+            default: ''
         },
-        actions: {  
+        actions: {
             type: Array,
-            default: [],
-        },
+            default: []
+        }
     },
     data () {
       return {
@@ -78,16 +79,16 @@
             image: 'static/img/faces/face-1.jpg',
             name: 'Creative Tim',
             status: 'Available'
-          },
-          {
-            image: 'static/img/faces/face-1.jpg',
-            name: 'Flume',
-            status: 'Busy'
           }
         ]
       }
     },
     methods: {
+      ...mapActions('wallet', [
+        'setfundModal',
+        'setwithdrawModal',
+        'setreceiveModal'
+      ]),
       getStatusClass (status) {
         switch (status) {
           case 'Offline':
@@ -118,5 +119,5 @@
 
 </script>
 <style>
-  
+
 </style>
