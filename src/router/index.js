@@ -13,6 +13,7 @@ import UserDashboard from '@/components/layouts/dashboard/Dashboard'
 import UserDashboardHome from '@/components/home/Home'
 import UserProfileLayout from '@/components/profile/Profile'
 import UserWallets from '@/components/wallet/Wallets'
+import UserWalletDetails from '@/components/wallet/walletDetails'
 import UserTransactions from '@/components/transactions/Transactions'
 import UserOrders from '@/components/orders/Orders'
 import UserPriceAlerts from '@/components/priceAlerts/PriceAlerts'
@@ -93,6 +94,11 @@ const router = new Router({
           path: 'wallet',
           name: 'wallet',
           component: UserWallets
+        },
+        {
+          path: 'wallet/:id',
+          name: 'walletDetails',
+          component: UserWalletDetails
         },
         {
           path: 'orders',

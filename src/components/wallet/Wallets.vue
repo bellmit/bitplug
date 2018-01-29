@@ -15,7 +15,9 @@
       </vodal>
 
       <div class="col-lg-4 col-md-5" v-for="(wallet, index) in wallets" :key="index">
-        <WalletCard :title="wallet.title"
+        <WalletCard
+          :wallet="wallet"
+          :title="wallet.title"
           :image="wallet.image"
           :balance="wallet.balance"
           :available="wallet.available"
@@ -41,6 +43,7 @@
       return {
         wallets: [
           {
+              id:1,
             title: 'NGN Wallet',
             image: 'static/img/faces/face-0.jpg',
             balance: '5000.00',
@@ -48,6 +51,7 @@
             actions: ['fund', 'withdraw'],
           },
           {
+            id:2,
             title: 'BTC Wallet',
             image: 'static/img/faces/face-0.jpg',
             balance: '0.00',
@@ -55,6 +59,7 @@
             actions: ['recieve'],
           },
           {
+            id:3,
             title: 'ETH Wallet',
             image: 'static/img/faces/face-0.jpg',
             balance: '0.0103790',
