@@ -2,17 +2,17 @@
 <span>
     <div class="row">
 
-      <vodal :show="fundModal" animation="zoom" width="500" height="300" @hide="clearModals">
+      <vodalModal :show="fundModal" animation="zoom" width="500" height="300" @hide="clearModals">
           <div>A vue modal with animations.</div>
-      </vodal>
+      </vodalModal>
 
-      <vodal :show="receiveModal" animation="zoom" @hide="clearModals">
+      <vodalModal :show="receiveModal" animation="zoom" @hide="clearModals">
           <div>A vue modal with animations.</div>
-      </vodal>
+      </vodalModal>
 
-      <vodal :show="withdrawModal" animation="zoom" @hide="clearModals">
+      <vodalModal :show="withdrawModal" animation="zoom" @hide="clearModals">
           <div>A vue modal with animations.</div>
-      </vodal>
+      </vodalModal>
 
       <div class="col-lg-4 col-md-5" v-for="(wallet, index) in wallets" :key="index">
         <WalletCard :title="wallet.title"
@@ -28,10 +28,6 @@
 <script>
   import WalletCard from './walletCard'
   import { mapActions, mapGetters } from 'vuex'
-  import Vue from 'vue'
-  import Vodal from 'vodal'
-
-  Vue.component(Vodal.name, Vodal);
 
   export default {
     components: {
