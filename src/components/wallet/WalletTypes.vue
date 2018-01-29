@@ -3,11 +3,11 @@
       <!-- Fab icon -->
     <div class="row">
 
-      <router-link :to="{'name': 'create-wallet-type'}">
+      <!-- <router-link :to="{'name': 'create-wallet-type'}">
         <div class="btn btn-price btn-wallet btn-md">
           <i class="ti-plus icon"></i>
         </div>
-      </router-link>
+      </router-link> -->
     </div>
     <div class="row">
 
