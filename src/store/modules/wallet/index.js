@@ -9,6 +9,9 @@ import getTransactions from './getTransactions'
 // Remember to update resetState mutation
 const state = {
   sub: {
+    fundModal:false,
+    withdrawModal:false,
+    receiveModal:false,
     status: null,
     error: false,
     loading: false,
@@ -21,6 +24,9 @@ const state = {
 
 // getters
 const getters = {
+  fundModal: state => state.sub.fundModal,
+  withdrawModal: state => state.sub.withdrawModal,
+  receiveModal: state => state.sub.receiveModal,
   status: state => state.sub.status,
   error: state => state.sub.error,
   loading: state => state.sub.loading,
@@ -79,6 +85,18 @@ const actions = {
   stopLoading ({ commit, state }, id) {
     commit('notLoading', id);
   },
+  setfundModal ({ commit, state }) {
+    commit('setfundModal');
+  },
+  setreceiveModal ({ commit, state }) {
+    commit('setreceiveModal');
+  },
+  setwithdrawModal ({ commit, state }) {
+    commit('setwithdrawModal');
+  },
+  clearModals ({ commit, state }) {
+    commit('clearModals');
+  }
 }
 
 // mutations
@@ -102,8 +120,17 @@ const mutations = {
     state.sub.unauthorized = false
   },
 
+  clearModals(state) {
+    state.sub.fundModal = false
+    state.sub.withdrawModal = false
+    state.sub.receiveModal = false
+  },
+
   resetState (state) {
     state.sub = {
+      fundModal: false,
+      withdrawModal: false,
+      receiveModal: false,
       status: null,
       error: false,
       loading: false,
@@ -137,6 +164,18 @@ const mutations = {
   notAuthError (state) {
     state.sub.unauthorized = false;
   },
+
+  setfundModal(state) {
+    state.sub.fundModal = true;
+  },
+
+  setreceiveModal(state) {
+    state.sub.receiveModal = true;
+  },
+
+  setwithdrawModal(state) {
+    state.sub.withdrawModal = true;
+  }
 }
 
 export default {
