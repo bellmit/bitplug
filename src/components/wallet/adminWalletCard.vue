@@ -27,7 +27,6 @@
         <hr>
         <div class="row">
             <h6 class="text-primary wallet-action wallet-icon ti-camera"  @click="setuploadPicsModal"></h6>
-            <PictureModal />
             <router-link :to="{'name': 'edit-wallet-type'}">
               <h6 class="text-primary wallet-action wallet-icon ti-pencil"></h6>
             </router-link>
@@ -38,7 +37,6 @@
   </div>
 </template>
 <script>
-  import PictureModal from './forms/PictureModal'
   import { mapActions, mapGetters } from 'vuex'
   export default {
     props: {
@@ -48,7 +46,6 @@
         },
     },
     components: {
-      PictureModal: PictureModal
     },
     data () {
       return {

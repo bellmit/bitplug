@@ -17,14 +17,17 @@
         </WalletCard>
       </div>
     </div>
+    <PictureModal/>
 </span>
 </template>
 <script>
   import WalletCard from './adminWalletCard'
+  import PictureModal from './forms/PictureModal'
 
   export default {
     components: {
-      WalletCard
+      WalletCard,
+      PictureModal
     },
     data () {
       return {
