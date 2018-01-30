@@ -6,7 +6,10 @@
             <img :src="image" alt="..." class="img-circle img-no-padding img-responsive">
         </div>
     </div>
-      <h4 class="title">{{ title }}</h4>
+      <router-link :to="{ name: 'walletDetails', params: {id: wallet.id } }">
+        <a><h4 class="title">{{ title }}</h4></a>
+      </router-link>
+
     </div>
     <div class="content">
       <ul class="list-unstyled team-members">
@@ -33,9 +36,9 @@
     <div class="footer">
         <hr>
         <div class="row">
-            <button class="text-primary wallet-action" @click="setfundModal" v-show="hasAction('fund')"> Fund </button>
-            <button class="text-primary wallet-action" @click="setwithdrawModal" v-show="hasAction('withdraw')"> Withdraw </button>
-            <button class="text-primary wallet-action" @click="setreceiveModal" v-show="hasAction('recieve')"> Recieve </button>
+            <h6 class="point text-primary wallet-action" @click="setfundModal" v-show="hasAction('fund')"> Fund </h6>
+            <h6 class="point text-primary wallet-action" @click="setwithdrawModal" v-show="hasAction('withdraw')"> Withdraw </h6>
+            <h6 class="point text-primary wallet-action" @click="setreceiveModal" v-show="hasAction('recieve')"> Recieve </h6>
         </div>
     </div>
     </div>
@@ -65,7 +68,11 @@
         actions: {
             type: Array,
             default: []
+        },
+        wallet: {
+            type: Object
         }
+
     },
     data () {
       return {
