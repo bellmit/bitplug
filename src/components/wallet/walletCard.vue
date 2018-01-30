@@ -91,7 +91,7 @@
       }
     },
     methods: {
-      ...mapActions('wallet', [
+      ...mapActions('modals', [
         'setfundModal',
         'setwithdrawModal',
         'setreceiveModal'

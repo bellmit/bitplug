@@ -10,6 +10,7 @@ import auth from './modules/auth'
 import register from './modules/register'
 import users from './modules/users'
 import wallet from './modules/wallet'
+import modals from './modules/modals'
 
 // Modules with persistent states
 import userCredentials from './modules/userCredentials'
@@ -34,6 +35,7 @@ export default new Vuex.Store({
     userCredentials,
     persistentState,
     users,
-    wallet
+    wallet,
+    modals
   }
 })

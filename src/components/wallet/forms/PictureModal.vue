@@ -14,18 +14,18 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from "vuex"
 export default {
   data() {
-    return {};
+    return {}
   },
   computed: {
-    ...mapGetters("wallet", ["uploadPicsModal"])
+    ...mapGetters("modals", ["uploadPicsModal"])
   },
   methods: {
-    ...mapActions("wallet", ["clearModals"])
+    ...mapActions("modals", ["clearModals"])
   }
-};
+}
 </script>
 
 <style>

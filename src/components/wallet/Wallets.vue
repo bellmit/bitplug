@@ -2,7 +2,7 @@
 <span>
     <div class="row">
 
-      <vodalModal :show="fundModal" animation="zoom" width="500" height="300" @hide="clearModals">
+      <vodalModal :show="fundModal" animation="zoom" :width="500" :height="300" @hide="clearModals">
           <div>A vue modal with animations.</div>
       </vodalModal>
 
@@ -66,14 +66,14 @@
       }
     },
     computed:{
-      ...mapGetters('wallet', [
+      ...mapGetters('modals', [
         'fundModal',
         'receiveModal',
         'withdrawModal'
       ])
     },
     methods:{
-      ...mapActions('wallet', [
+      ...mapActions('modals', [
         'clearModals'
       ]),
     }

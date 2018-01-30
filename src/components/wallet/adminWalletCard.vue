@@ -52,7 +52,7 @@
       }
     },
     methods: {
-       ...mapActions('wallet', [
+       ...mapActions('modals', [
         'setuploadPicsModal',
       ]),
       getStatusClass (status) {

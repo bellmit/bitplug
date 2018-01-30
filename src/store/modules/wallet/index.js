@@ -9,33 +9,25 @@ import getTransactions from './getTransactions'
 // Remember to update resetState mutation
 const state = {
   sub: {
-    fundModal: false,
-    withdrawModal: false,
-    receiveModal: false,
-    uploadPicsModal: false,
     status: null,
     error: false,
     loading: false,
     wallet: {},
     notfound: false,
     unverified: false,
-    unauthorized: null,
+    unauthorized: null
   }
 }
 
 // getters
 const getters = {
-  fundModal: state => state.sub.fundModal,
-  uploadPicsModal: state => state.sub.uploadPicsModal,
-  withdrawModal: state => state.sub.withdrawModal,
-  receiveModal: state => state.sub.receiveModal,
   status: state => state.sub.status,
   error: state => state.sub.error,
   loading: state => state.sub.loading,
   wallet: state => state.sub.wallet,
   notfound: state => state.sub.notfound,
   unverified: state => state.sub.unverified,
-  unauthorized: state => state.sub.unauthorized,
+  unauthorized: state => state.sub.unauthorized
 }
 
 // actions
@@ -47,25 +39,25 @@ const actions = {
     } else if (dargs.loader) {
       const load = dargs.loader.load
       dispatch(load.namespace, load.args, { root: true }).then(() => {
-      });
+      })
     }
 
     api.getWallet(dargs)
     .then((result) => {
       if (result.error === undefined) {
-        commit('clearErrors');
+        commit('clearErrors')
         // Use response data
         const data = result.data
-        commit('setWallet', data);
+        commit('setWallet', data)
       } else {
         if (result.unauthorized) {
-          commit('isAuthError');
+          commit('isAuthError')
         }
         if (result.verified) {
-          commit('isVerificationError');
+          commit('isVerificationError')
         }
-        commit('setError', result.error);
-        commit('setNotFound', result.notfound);
+        commit('setError', result.error)
+        commit('setNotFound', result.notfound)
       }
 
       // Not Loading
@@ -74,33 +66,18 @@ const actions = {
       } else if (dargs.loader) {
         const load = dargs.loader.stopLoading
         dispatch(load.namespace, load.args, { root: true }).then(() => {
-        });
+        })
       }
     })
   },
   resetState ({ commit, state }) {
-    commit('resetState');
+    commit('resetState')
   },
   load ({ commit, state }, id) {
-    commit('loading', id);
+    commit('loading', id)
   },
   stopLoading ({ commit, state }, id) {
-    commit('notLoading', id);
-  },
-  setfundModal ({ commit, state }) {
-    commit('setfundModal');
-  },
-  setreceiveModal ({ commit, state }) {
-    commit('setreceiveModal');
-  },
-  setuploadPicsModal ({ commit, state }) {
-    commit('setuploadPicsModal');
-  },
-  setwithdrawModal ({ commit, state }) {
-    commit('setwithdrawModal');
-  },
-  clearModals ({ commit, state }) {
-    commit('clearModals');
+    commit('notLoading', id)
   }
 }
 
@@ -125,27 +102,16 @@ const mutations = {
     state.sub.unauthorized = false
   },
 
-  clearModals(state) {
-    state.sub.fundModal = false
-    state.sub.uploadPicsModal = false
-    state.sub.withdrawModal = false
-    state.sub.receiveModal = false
-  },
-
   resetState (state) {
     state.sub = {
-      fundModal: false,
-      withdrawModal: false,
-      receiveModal: false,
-      uploadPicsModal: false,
       status: null,
       error: false,
       loading: false,
       wallet: {},
       notfound: false,
       unverified: false,
-      unauthorized: null,
-    };
+      unauthorized: null
+    }
   },
 
   setWallet (state, wallet) {
@@ -170,22 +136,6 @@ const mutations = {
 
   notAuthError (state) {
     state.sub.unauthorized = false
-  },
-
-  setfundModal (state) {
-    state.sub.fundModal = true
-  },
-
-  setreceiveModal (state) {
-    state.sub.receiveModal = true
-  },
-
-  setuploadPicsModal () {
-    state.sub.uploadPicsModal = true
-  },
-
-  setwithdrawModal (state) {
-    state.sub.withdrawModal = true
   }
 }
 
@@ -200,6 +150,6 @@ export default {
     fund,
     getCards,
     deleteCard,
-    getTransactions,
+    getTransactions
   }
 }
