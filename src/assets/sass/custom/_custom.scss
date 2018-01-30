@@ -165,8 +165,129 @@ select.selectpicker, .selectpicker {
     color: #66615b;
     width: 100%;
     height: 40px;
+<<<<<<< HEAD
 }
 
 .point{
   cursor: pointer;
+=======
+}
+
+.modal-mask {
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, .7);
+  display: table;
+  transition: opacity .3s ease;
+}
+
+.modal-wrapper {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.modal-container {
+  width: 80%;
+  height: 80vh;
+  margin: 0px auto;
+  padding: 3%;
+  background-color: #fff;
+  border-radius: 2px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
+  transition: all .3s ease;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
+.modal-header h3 {
+  margin-top: 0;
+  color: #42b983;
+}
+
+.modal-body {
+  margin: 20px 0;
+}
+
+.modal-default-button {
+  float: right;
+}
+
+.modal-footer {
+  bottom: 0;
+}
+/*
+ * The following styles are auto-applied to elements with
+ * transition="modal" when their visibility is toggled
+ * by Vue.js.
+ *
+ * You can easily play with the modal transition by editing
+ * these styles.
+ */
+
+.modal-enter {
+  opacity: 0;
+}
+
+.modal-leave-active {
+  opacity: 0;
+}
+
+.modal-enter .modal-container,
+.modal-leave-active .modal-container {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.card .footer div {
+  display: block;
+}
+
+.vodal-cancel-btn,
+.vodal-confirm-btn {
+  position: absolute;
+  font: inherit;
+  bottom: 16px;
+  width: 70px;
+  padding: 4px 15px;
+  border-radius: 3px;
+  transition: background .2s;
+  border: 1px solid #03a9f4;
+}
+
+.vodal-confirm-btn {
+  color: #fff;
+  right: 102px;
+  background: #03a9f4;
+}
+
+.vodal-confirm-btn:hover {
+  background: #0098e3;
+}
+
+.vodal-cancel-btn {
+  color: #03a9f4;
+  right: 16px;
+  background: #fff;
+}
+
+.vodal-cancel-btn:hover {
+  background: #fafafa;
+}
+
+.vodal-cancel-btn:focus,
+.vodal-confirm-btn:focus {
+  outline: none;
+}
+
+.vodal-confirm-btn:active {
+  background: #0087d2;
+}
+
+.vodal-cancel-btn:active {
+  background: #fafafa;
+  box-shadow: inset 1px 1px 1px rgba(0, 0, 0, .2), 0 0 1px transparent;
+>>>>>>> ce897b549af319f95bd95505eeda18bdff4e45a4
 }

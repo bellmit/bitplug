@@ -41,8 +41,7 @@
         </div>
 
         <div class="col-md-12">
-          <fg-input v-validate="'required'" 
-                    type="decimal"
+          <fg-input v-validate="'required|decimal'"
                     :class="{'input': true, 'is-danger': errors.has('balance') }" 
                     name="balance" 
                     label="Initial Balance"
@@ -136,7 +135,6 @@ export default {
     },
 
     validateBeforeSubmit() {
-      console.log(this.walletType)
       this.$validator.validateAll().then(result => {
         if (result) {
           // eslint-disable-next-line

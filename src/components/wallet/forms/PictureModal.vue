@@ -1,50 +1,27 @@
 <template>
-  <el-button type="text" @click="openModal">
-    <slot>content</slot>
-  </el-button>
+  <vodalModal :show="uploadPicsModal" animation="zoom" :width="500" :height="300" @hide="clearModals">
+    <br>
+    <div class="vodal-body"><savage-dropzone /></div>
+    <button class="vodal-confirm-btn" @click="clearModals">Save</button>
+    <button class="vodal-cancel-btn" @click="clearModals">close</button>
+  </vodalModal>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-      }
-    },
-    methods: {
-      openModal() {
-        const h = this.$createElement;
-        this.$msgbox({
-          title: 'Message',
-          message:h('savage-dropzone', null),
-          showCancelButton: true,
-          confirmButtonText: 'Save',
-          cancelButtonText: 'Cancel',
-          beforeClose: (action, instance, done) => {
-            if (action === 'confirm') {
-              instance.confirmButtonLoading = true
-              instance.confirmButtonText = 'Saving...'
-              setTimeout(() => {
-                done();
-                setTimeout(() => {
-                  instance.confirmButtonLoading = false
-                }, 300);
-              }, 3000);
-            } else {
-              done();
-            }
-          }
-        }).then(action => {
-          this.$message({
-            type: 'success',
-            message: 'Success'
-          });
-        });
-      },
-    }
+import { mapActions, mapGetters } from "vuex";
+export default {
+  data() {
+    return {};
+  },
+  computed: {
+    ...mapGetters("wallet", ["uploadPicsModal"])
+  },
+  methods: {
+    ...mapActions("wallet", ["clearModals"])
   }
-
+};
 </script>
 
 <style>
-  
+
 </style>

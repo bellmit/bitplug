@@ -9,9 +9,10 @@ import getTransactions from './getTransactions'
 // Remember to update resetState mutation
 const state = {
   sub: {
-    fundModal:false,
-    withdrawModal:false,
-    receiveModal:false,
+    fundModal: false,
+    withdrawModal: false,
+    receiveModal: false,
+    uploadPicsModal: false,
     status: null,
     error: false,
     loading: false,
@@ -25,6 +26,7 @@ const state = {
 // getters
 const getters = {
   fundModal: state => state.sub.fundModal,
+  uploadPicsModal: state => state.sub.uploadPicsModal,
   withdrawModal: state => state.sub.withdrawModal,
   receiveModal: state => state.sub.receiveModal,
   status: state => state.sub.status,
@@ -91,6 +93,9 @@ const actions = {
   setreceiveModal ({ commit, state }) {
     commit('setreceiveModal');
   },
+  setuploadPicsModal ({ commit, state }) {
+    commit('setuploadPicsModal');
+  },
   setwithdrawModal ({ commit, state }) {
     commit('setwithdrawModal');
   },
@@ -122,6 +127,7 @@ const mutations = {
 
   clearModals(state) {
     state.sub.fundModal = false
+    state.sub.uploadPicsModal = false
     state.sub.withdrawModal = false
     state.sub.receiveModal = false
   },
@@ -131,6 +137,7 @@ const mutations = {
       fundModal: false,
       withdrawModal: false,
       receiveModal: false,
+      uploadPicsModal: false,
       status: null,
       error: false,
       loading: false,
@@ -146,35 +153,39 @@ const mutations = {
   },
 
   setNotFound (state, val) {
-    state.sub.notfound = val;
+    state.sub.notfound = val
   },
 
   isVerificationError (state) {
-    state.sub.unverified = true;
+    state.sub.unverified = true
   },
 
   notVerificationError (state) {
-    state.sub.unverified = false;
+    state.sub.unverified = false
   },
 
   isAuthError (state) {
-    state.sub.unauthorized = true;
+    state.sub.unauthorized = true
   },
 
   notAuthError (state) {
-    state.sub.unauthorized = false;
+    state.sub.unauthorized = false
   },
 
-  setfundModal(state) {
-    state.sub.fundModal = true;
+  setfundModal (state) {
+    state.sub.fundModal = true
   },
 
-  setreceiveModal(state) {
-    state.sub.receiveModal = true;
+  setreceiveModal (state) {
+    state.sub.receiveModal = true
   },
 
-  setwithdrawModal(state) {
-    state.sub.withdrawModal = true;
+  setuploadPicsModal () {
+    state.sub.uploadPicsModal = true
+  },
+
+  setwithdrawModal (state) {
+    state.sub.withdrawModal = true
   }
 }
 

@@ -14,6 +14,7 @@ import FieldError from './components/shared/fieldError'
 import NoContentError from './components/shared/noContentError'
 import LoadingBar from './components/shared/loading'
 import LoadingButton from './components/shared/loadingButton'
+import Vodal from 'vodal'
 
 // Helper functions
 import {
@@ -35,6 +36,7 @@ import {
 
 const GlobalComponents = {
   install (Vue) {
+    Vue.component('vodalModal', Vodal)
     Vue.component('fg-input', fgInput)
     Vue.component('drop-down', DropDown)
     Vue.component('PaperTable', PaperTable)
