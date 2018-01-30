@@ -3,6 +3,7 @@
 const state = {
   sub: {
     fundModal: false,
+    sendModal: false,
     withdrawModal: false,
     receiveModal: false,
     uploadPicsModal: false
@@ -12,6 +13,7 @@ const state = {
 // getters
 const getters = {
   fundModal: state => state.sub.fundModal,
+  sendModal: state => state.sub.sendModal,
   uploadPicsModal: state => state.sub.uploadPicsModal,
   withdrawModal: state => state.sub.withdrawModal,
   receiveModal: state => state.sub.receiveModal
@@ -21,6 +23,9 @@ const getters = {
 const actions = {
   resetState ({ commit, state }) {
     commit('resetState')
+  },
+  setsendModal ({ commit, state }) {
+    commit('setsendModal')
   },
   setfundModal ({ commit, state }) {
     commit('setfundModal')
@@ -43,6 +48,7 @@ const actions = {
 const mutations = {
   clearModals (state) {
     state.sub.fundModal = false
+    state.sub.sendModal = false
     state.sub.uploadPicsModal = false
     state.sub.withdrawModal = false
     state.sub.receiveModal = false
@@ -50,11 +56,16 @@ const mutations = {
 
   resetState (state) {
     state.sub = {
+      sendModal: false,
       fundModal: false,
       withdrawModal: false,
       receiveModal: false,
       uploadPicsModal: false
     }
+  },
+
+  setsendModal (state) {
+    state.sub.sendModal = true
   },
 
   setfundModal (state) {

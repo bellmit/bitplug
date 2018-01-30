@@ -36,9 +36,10 @@
     <div class="footer">
         <hr>
         <div class="row">
-            <h6 class="point text-primary wallet-action" @click="setfundModal" v-show="hasAction('fund')"> Fund </h6>
-            <h6 class="point text-primary wallet-action" @click="setwithdrawModal" v-show="hasAction('withdraw')"> Withdraw </h6>
-            <h6 class="point text-primary wallet-action" @click="setreceiveModal" v-show="hasAction('recieve')"> Recieve </h6>
+            <h6 class="point text-primary wallet-action" @click="fundhandler" v-show="hasAction('fund')"> Fund </h6>
+          <h6 class="point text-primary wallet-action" @click="sendhandler" v-show="hasAction('send')"> Send </h6>
+            <h6 class="point text-primary wallet-action" @click="withdrawhandler" v-show="hasAction('withdraw')"> Withdraw </h6>
+            <h6 class="point text-primary wallet-action" @click="receivehandler" v-show="hasAction('recieve')"> Recieve </h6>
         </div>
     </div>
     </div>
@@ -93,9 +94,30 @@
     methods: {
       ...mapActions('modals', [
         'setfundModal',
+        'setsendModal',
         'setwithdrawModal',
         'setreceiveModal'
       ]),
+      ...mapActions('wallet', [
+        'setSeletedWallet',
+        'resetSeletedWallet'
+      ]),
+      fundhandler(){
+        this.setfundModal()
+        this.setSeletedWallet(this.wallet)
+      },
+      sendhandler(){
+        this.setsendModal()
+        this.setSeletedWallet(this.wallet)
+      },
+      withdrawhandler(){
+        this.setwithdrawModal()
+        this.setSeletedWallet(this.wallet)
+      },
+      receivehandler(wallet){
+        this.setreceiveModal()
+        this.setSeletedWallet(this.wallet)
+      },
       getStatusClass (status) {
         switch (status) {
           case 'Offline':
@@ -111,6 +133,8 @@
 
       hasAction(type) {
         switch (type) {
+          case 'send':
+            return this.actions.includes('send')
           case 'fund':
             return this.actions.includes('fund')
           case 'withdraw':

@@ -13,6 +13,7 @@ const state = {
     error: false,
     loading: false,
     wallet: {},
+    selectedWallet: {},
     notfound: false,
     unverified: false,
     unauthorized: null
@@ -25,6 +26,7 @@ const getters = {
   error: state => state.sub.error,
   loading: state => state.sub.loading,
   wallet: state => state.sub.wallet,
+  selectedWallet: state => state.sub.selectedWallet,
   notfound: state => state.sub.notfound,
   unverified: state => state.sub.unverified,
   unauthorized: state => state.sub.unauthorized
@@ -73,6 +75,12 @@ const actions = {
   resetState ({ commit, state }) {
     commit('resetState')
   },
+  resetSeletedWallet ({ commit, state }) {
+    commit('resetSelectedWallet')
+  },
+  setSeletedWallet ({ commit, state }, wallet) {
+    commit('setSelectedWallet', wallet)
+  },
   load ({ commit, state }, id) {
     commit('loading', id)
   },
@@ -95,6 +103,14 @@ const mutations = {
     state.sub.error = error
   },
 
+  setSelectedWallet (state, wallet) {
+    state.sub.selectedWallet = wallet
+  },
+
+  resetSelectedWallet (state) {
+    state.sub.selectedWallet = {}
+  },
+
   clearErrors (state) {
     state.sub.error = false
     state.sub.unverified = false
@@ -108,6 +124,7 @@ const mutations = {
       error: false,
       loading: false,
       wallet: {},
+      selectedWallet:{},
       notfound: false,
       unverified: false,
       unauthorized: null

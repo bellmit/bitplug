@@ -29,6 +29,7 @@ import VeeValidate from 'vee-validate'
 import ElementUI from 'element-ui'
 import lang from 'element-ui/lib/locale/lang/en'
 import locale from 'element-ui/lib/locale'
+import VueQrcode from '@xkeshi/vue-qrcode'
 
 // plugin setup
 Vue.use(vClickOutside)
@@ -37,6 +38,7 @@ Vue.use(GlobalComponents)
 Vue.use(GlobalDirectives)
 Vue.use(Notifications)
 Vue.use(ElementUI)
+Vue.component('qrcode', VueQrcode);
 
 locale.use(lang)
 
