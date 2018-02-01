@@ -73,7 +73,8 @@ const mutations = {
       beneficiaryModal: false,
       withdrawModal: false,
       receiveModal: false,
-      uploadPicsModal: false
+      uploadPicsModal: false,
+      adminWithdrawModal: false
     }
   },
 
