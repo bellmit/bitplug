@@ -10,76 +10,47 @@
           <th v-for="column in table1.columns">{{column}}</th>
         </thead>
         <tbody v-for="data in table1.data">
-          <tr>
-            <td>{{data.firstname}}</td>
-            <td>{{data.lastname}}</td>
+          <adminWithdrawModal :data="data"></adminWithdrawModal>          
+          <tr class="point" v-on:click.prevent="setAdminWithdrawalModal">
+            <td>{{`${data.firstname + ' ' + data.lastname}`}}</td>
             <td>{{data.withdrawalamount}}</td>
             <td>{{data.feeamount}}</td>
             <td>{{data.totalamount}}</td>
             <td>{{data.status}}</td>
-            <td><a class="point text-primary" @click="setAdminWithdrawalModal"> Details </a></td>
-          </tr>  
+          </tr>
         </tbody>
       </table>
     </div>
   </div>
-
-  <vodalModal :show="adminWithdrawModal" animation="zoom" :width="700" :height="400"  @hide="clearModals">
-    <div class="card withdrawal-card card-wallet">
-      <h3 class="header text-center text-muted">
-        Withdrawal Request
-      </h3>
-
-      <div class="content">
-        <h3 class="text-center text-muted withdraw-text">
-          NGN 20,000
-        </h3>
-        <ul class="list-unstyled withdraw-list">
-          <li>
-            <div class="row">
-              <div class="col-xs-12 withdraw-content">
-                <h5>GT Bank</h5>
-              </div>
-              <div class="col-xs-12 withdraw-content">
-                <h5>John Doe</h5>
-              </div>
-              <div class="col-xs-12 withdraw-content">
-                <h5>0230222222</h5>
-              </div>
-            </div>
-          </li>
-        </ul>
-        <br>
-        <div class="text-danger text-center">
-          NGN 200 fee to 0230222222 - GT Bank
-        </div>
-        <br>
-        <div class="footer withdraw-footer">
-          <hr>
-          <div class="row">
-            <h6 class="wallet-action btn btn-danger withdraw-btn" @click="clearModals"> Reject </h6>
-            <h6 class="wallet-action btn btn-info withdraw-btn"> On hold </h6>
-            <h6 class="wallet-action btn btn-success withdraw-btn"> Confirm </h6>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </vodalModal>
 </div>
 </template>
 <script>
 import WalletCard from "./walletCard"
-import { mapActions, mapGetters } from 'vuex'
+import adminWithdrawModal from "./modals/adminWithdrawal"
+import { mapActions } from 'vuex'
 
-const tableColumns = ['First name', 'Last Name', 'Withdrawal Amount', 'Fee Amount', 'Total Amount', 'Status', 'Action']
+const tableColumns = ['User', 'Withdrawal Amount', 'Fee Amount', 'Total Amount', 'Status']
 const tableData = [{
     'firstname': 'Fajemi',
-    'lastname': 'Opeyemi',
+    'lastname': 'Yemi',
     'withdrawalamount': '12',
     'feeamount': '0.003',
     'totalamount': '12.003',
     'status': 'Open',
+    'bank': 'Gt Bank',
+    'account_no': '002234555',
+    'id': 1
+  },
+  {
+    'firstname': 'Fajemi',
+    'lastname': 'Ope',
+    'withdrawalamount': '12',
+    'feeamount': '0.003',
+    'totalamount': '12.003',
+    'status': 'Open',
+    'bank': 'Access Bank',
+    'account_no': '002234555',
+    'id': 2
   },
   {
     'firstname': 'Fajemi',
@@ -88,28 +59,20 @@ const tableData = [{
     'feeamount': '0.003',
     'totalamount': '12.003',
     'status': 'Open',
-  },
-  {
-    'firstname': 'Fajemi',
-    'lastname': 'Opeyemi',
-    'withdrawalamount': '12',
-    'feeamount': '0.003',
-    'totalamount': '12.003',
-    'status': 'Open',
+    'bank': 'Orile Bank',
+    'account_no': '002234555',
+    'id': 3
   },
   ]
 
 export default {
   components: {
-    WalletCard
+    WalletCard, adminWithdrawModal
   },
   methods: {
     ...mapActions('modals', [
       'setAdminWithdrawalModal', "clearModals"
     ]),
-  },
-  computed: {
-    ...mapGetters("modals", ["adminWithdrawModal"])
   },
   data() {
     return {
