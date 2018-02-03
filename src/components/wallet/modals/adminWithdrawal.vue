@@ -46,11 +46,27 @@
   import { mapActions, mapGetters } from 'vuex'
 
   export default {
-    props: ['data'],
+    // props: ['data'],
     computed:{
       ...mapGetters('modals', [
         'adminWithdrawModal',
       ])
+    },
+    data() {
+      return {
+        data:
+        {
+          firstname: "Fajemi",
+          lastname: "Yemi",
+          withdrawalamount: "12",
+          feeamount: "0.003",
+          totalamount: "12.003",
+          status: "Open",
+          bank: "Gt Bank",
+          account_no: "002234555",
+          id: 1
+        },
+      }
     },
     methods:{
       ...mapActions('modals', [
