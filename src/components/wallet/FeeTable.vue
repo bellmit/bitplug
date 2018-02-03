@@ -3,7 +3,7 @@
     <div class="col-md-12">
       <div class="card">
         <paper-table
-          title="Fees"
+          title="Platform Fees"
           sub-title=""
           :data="table.data"
           :columns="table.columns"

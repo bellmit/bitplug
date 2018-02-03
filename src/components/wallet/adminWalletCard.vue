@@ -9,11 +9,42 @@
       <h4 class="title">{{ wallet.title }}</h4>
     </div>
     <div class="content">
-      <ul class="list-unstyled team-members">
+      <ul v-if="page==='walletType'" class="list-unstyled team-members">
         <li>
           <div class="row">
             <div class="col-xs-12">
               <h6>Initial Balance</h6>
+              <!-- <br> -->
+              <span>
+                <h5>{{ wallet.initial_balance }}</h5>
+              </span>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <ul v-if="page==='platformWallet'" class="list-unstyled team-members">
+        <li>
+          <div class="row">
+            <div class="col-xs-12">
+              <h6>Balance</h6>
+              <!-- <br> -->
+              <span>
+                <h5>{{ wallet.initial_balance }}</h5>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <h6>Address</h6>
+              <!-- <br> -->
+              <span>
+                <h5>{{ wallet.title }}</h5>
+              </span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-xs-12">
+              <h6>Incoming Fee</h6>
               <!-- <br> -->
               <span>
                 <h5>{{ wallet.initial_balance }}</h5>
@@ -43,6 +74,10 @@
         wallet: {  
             type: Object,
             default: () => {},
+        },
+        page: {  
+            type: String,
+            default: '',
         },
     },
     components: {
