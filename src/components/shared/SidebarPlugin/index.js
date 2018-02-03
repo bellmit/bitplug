@@ -65,11 +65,6 @@ const SidebarStore = {
       name: 'Order Book',
       icon: 'ti-stats-up',
       path: '/admin/order_book'
-    },
-    {
-      name: 'Fees',
-      icon: 'ti-alarm-clock',
-      path: '/admin/fees'
     }
   ],
   flatSidebarLinks: [

@@ -22,7 +22,7 @@
 </template>
 <script>
   import WalletCard from './adminWalletCard'
-  import PictureModal from './forms/PictureModal'
+  import PictureModal from './modals/PictureModal'
 
   export default {
     components: {
