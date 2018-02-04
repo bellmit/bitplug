@@ -42,7 +42,9 @@
         </div>
       </div>
 
-      <input type="submit" class="form-control btn btn-primary mt-10" value="Withdraw">
+      <button type="submit" class="btn btn-info btn-block btn-fill btn-wd mt-10">
+        Withdraw
+      </button>
     </vodalModal>
   </div>
 </template>

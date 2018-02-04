@@ -3,7 +3,9 @@
     <vodalModal :show="fundModal" animation="zoom" :width="400" :height="200" @hide="clearModals">
       <div>Deposit Method</div>
       <h5>Which service would you like to use to add money to your BitPlug Wallet</h5>
-      <input @click="setbeneficiaryModal" class="form-control btn btn-primary mt-10" value="PayU Debit or Credit Card with PayU">
+      <button type="button" @click="setbeneficiaryModal" class="btn btn-info btn-block btn-fill btn-wd mt-10">
+        PayU Debit or Credit Card with PayU
+      </button>
     </vodalModal>
   </div>
 </template>

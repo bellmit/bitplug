@@ -1,30 +1,42 @@
 <template>
   <div>
-    <vodalModal :show="sendModal" animation="zoom" :width="400" :height="600" @hide="clearModals">
+    <vodalModal :show="sendModal" animation="zoom" :width="400" :height="400" @hide="clearModals">
       <div><i class="fa fa-arrow-up"></i> Send {{selectedWallet.title}}.</div>
       <div class="text-center mt-10">
-        <div class="col-md-12">
-          <qrcode value="Hello, World!" :options="{ size: 150 }"></qrcode>
-        </div>
-        <div class="col-md-6 mt-10">
+        <!--<div class="col-md-12">-->
+          <!--<qrcode value="Hello, World!" :options="{ size: 150 }"></qrcode>-->
+        <!--</div>-->
+        <div class="col-md-5 mt-10">
           <span v-if="selectedWallet.type == 'BTC'">BTC</span>
           <span v-else>ETH</span>
-          <input type="text" name="" class="form-control" :value="0 ">
+          <input type="text" name="" class="form-control" v-model="coin_amount" placeholder="0">
         </div>
-        <div class="col-md-6 mt-10">
+        <div class="col-md-2 mt-10">
+          <h6>&nbsp;</h6>
+          <i class="fa fa-arrows-h"></i>
+        </div>
+        <div class="col-md-5 mt-10">
           <span>USD</span>
-          <input type="text" class="form-control" :value="0">
+          <input type="text" class="form-control" v-model="usd_amount" placeholder="0">
         </div>
         <div class="col-md-12 mt-10">
           <div class="mt-10">
             <span>Address</span>
-            <input type="text" class="form-control " :value="0">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Paste or scan an address" :value="0">
+              <div class="input-group-btn">
+                <!-- Buttons -->
+                <button type="submit" class="btn btn-info btn-block btn-fill btn-wd mt-10">
+                  <i class="fa fa-qrcode"></i>
+                </button>
+
+              </div>
+            </div>
           </div>
           <div class="mt-10">
             <span>Description</span>
             <textarea class="form-control mt-10" name="" id="" cols="30" rows="3"></textarea>
           </div>
-
           <p>
             <strong>Transaction Fee</strong><br>
             <span v-if="selectedWallet.type == 'BTC'">0.0000483 BTC (0.56 USD)</span>

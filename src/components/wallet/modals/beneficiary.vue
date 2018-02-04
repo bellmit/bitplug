@@ -1,41 +1,27 @@
 <template>
   <div class="row">
-    <vodalModal :show="beneficiaryModal" animation="zoom" :width="400" :height="500" @hide="clearModals">
-      <div>New Beneficiary</div>
+    <vodalModal :show="beneficiaryModal" animation="zoom" :width="400" :height="300" @hide="clearModals">
+      <div>Card Details</div>
 
-      <div class="row col-md-6 mt-10">
-        <small>Beneficiary Type</small>
-        <select v-model="depositType" id="depositType" class="form-control">
-          <option value="bank">Bank Account</option>
-          <option value="card">Card</option>
-        </select>
+      <div class="row">
+        <div class="col-md-12 mt-100">
+          <input type="text" class="form-control" placeholder="Card Number" v-model="card_number">
+        </div>
+
+
+        <div class="col-md-6 mt-100">
+          <input type="text" class="form-control" placeholder="MM/YY" v-model="month_Year">
+        </div>
+
+        <div class="col-md-6 mt-100">
+          <input type="text" class="form-control" placeholder="CVV" v-model="cvv">
+        </div>
+        <div class="col-md-12 mt-100">
+          <button type="submit" class="btn btn-info btn-block btn-fill">
+            Copy Address
+          </button>
+        </div>
       </div>
-
-      <div v-if="depositType == 'bank'" class="row col-md-12 mt-10">
-        <small>Bank Region</small>
-        <select id="regions" class="form-control">
-          <option v-for="region in bankRegions">{{region}}</option>
-        </select>
-      </div>
-
-      <div class="row col-md-12 mt-10">
-        <small>Bank Account Holder's Full Name</small>
-        <input type="text" class="form-control" placeholder=" e.g. Danny Blaze" v-model="account_name">
-        <small>To protect your security you can only withdraw money to an account in your own name. Please use the full name shown on your bank statements otherwise the withdrawal may be cancelled</small>
-      </div>
-
-      <div v-if="depositType == 'bank'" class="row col-md-12 mt-10">
-        <small>Bank Account Number</small>
-        <input type="text" class="form-control" placeholder=" e.g. 3088467899" v-model="account_number">
-      </div>
-
-      <div v-if="depositType == 'card'" class="row col-md-12 mt-10">
-        <small>Card Number</small>
-        <input type="text" class="form-control" placeholder=" e.g. 3088467899" v-model="card_number">
-      </div>
-
-
-      <input type="submit" class="form-control btn btn-primary mt-10" value="Add Bank Account">
     </vodalModal>
   </div>
 </template>
