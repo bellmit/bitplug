@@ -25,16 +25,14 @@
       <ul v-if="page==='platformWallet'" class="list-unstyled team-members">
         <li>
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
               <h6>Balance</h6>
               <!-- <br> -->
               <span>
                 <h5>{{ wallet.initial_balance }}</h5>
               </span>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
               <h6>Address</h6>
               <!-- <br> -->
               <span>
