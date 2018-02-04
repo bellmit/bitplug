@@ -1,28 +1,25 @@
 <template>
 <span>
+  <el-tabs v-model="activeName" @tab-click="handleClick">
+    <el-tab-pane label="Details" name="first">
       <fund></fund>
       <beneficiary></beneficiary>
       <receive></receive>
       <withdraw></withdraw>
       <send></send>
-  <div class="col-md-6 col-md-offset-3">
-    <div class="col-md-6"><h4 @click="details = true">Details</h4></div>
-    <div class="col-md-6"><h4 @click="details = false">Transactions</h4></div>
-  </div>
-  <div v-if="details"  class="col-md-12">
-    <WalletDetails
-      :title="wallet.title"
-      :image="wallet.image"
-      :balance="wallet.balance"
-      :available="wallet.available"
-      :actions="wallet.actions"
-    >
+      <WalletDetails
+        :title="wallet.title"
+        :image="wallet.image"
+        :balance="wallet.balance"
+        :available="wallet.available"
+        :actions="wallet.actions"
+      >
     </WalletDetails>
-  </div>
-  <div v-else class="col-md-12">
-    <transaction ></transaction>
-  </div>
-
+    </el-tab-pane>
+    <el-tab-pane label="Config" name="second">
+      <transaction ></transaction>
+    </el-tab-pane>
+  </el-tabs>
 </span>
 </template>
 <script>
@@ -46,6 +43,7 @@
     },
     data () {
       return {
+        activeName: 'first',
         wallet: {
           id:1,
           title: 'NGN Wallet',
@@ -60,6 +58,9 @@
       }
     },
     methods: {
+      handleClick(tab, event) {
+        console.log(tab, event);
+      }
     }
   }
 

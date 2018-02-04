@@ -1,6 +1,6 @@
 <template>
   <div>
-    <vodalModal :show="sendModal" animation="zoom" :width="400" :height="400" @hide="clearModals">
+    <vodalModal :show="sendModal" animation="zoom" :width="400" :height="450" @hide="clearModals">
       <div><i class="fa fa-arrow-up"></i> Send {{selectedWallet.title}}.</div>
       <div class="text-center mt-10">
         <!--<div class="col-md-12">-->
