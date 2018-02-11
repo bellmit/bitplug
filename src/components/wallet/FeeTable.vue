@@ -2,66 +2,67 @@
   <div class="row">
     <div class="col-md-12">
       <div class="card">
-        <paper-table
-          title="Platform Fees"
-          sub-title=""
-          :data="table.data"
-          :columns="table.columns"
-        />
+        <div class="content table-responsive table-full-width">
+          <table class="table table-striped">
+            <thead>
+              <th v-for="column in table.columns">{{column}}</th>
+            </thead>
+            <tbody>
+              <tr v-for="data in table.rows">
+                <td>{{data.name}}</td>
+                <td>{{data.description}}</td>                
+                <td>{{data.withdrawal_bank_account_id}}</td>
+                <td>{{data.percent_fee}}</td>
+                <td>{{data.fixed_fee}}</td>
+                <td>{{data.is_crypto}}</td>
+                <td>{{data.withdrawal_wallet_id}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-  import { mapActions } from "vuex";
-
-  const tableColumns = [
-    "Name",
-    "Description",
-    "Fee Percent",
-    "Fixed Fee",
-    "Is Crypto",
-    "Withdrawal Bank Acc No",
-    "Withdrawal Wallet Name",
-  ];
-  const tableData = [
-    {
-      'name': "Ope",
-      'description': "Yemi",
-      'fee percent': "12",
-      'fixed fee': "12",
-      'is crypto': "0.003",
-      'withdrawal bank acc no': "12.003",
-      'withdrawal wallet name': "BTC",
-    },
-    {
-      'name': "2pac",
-      'description': "Yemi",
-      'fee percent': "12",
-      'fixed fee': "12",
-      'is crypto': "0.003",
-      'withdrawal bank acc no': "12.003",
-      'withdrawal wallet name': "ETH",
-    },
-    {
-      'name': "Jeremy",
-      'description': "Yemi",
-      'fee percent': "12",
-      'fixed fee': "12",
-      'is crypto': "0.003",
-      'withdrawal bank acc no': "12.003",
-      'withdrawal wallet name': "USD",
-    }
-  ];
+  import { mapActions, mapGetters } from "vuex"
   export default {
-    data () {
+    data () {  
       return {
         table: {
-          columns: [...tableColumns],
-          data: [...tableData]
+          columns: ['Name',
+          'Description',
+          'Withdrawal bank acc Id',
+          'Percent fee',
+          'Fixed fee',
+          'Is crypto',
+          'Withdrawal wallet Id'
+          ],
+          rows: []
         }
       }
     },
+    mounted() {
+      this.getfee();
+    },
+    computed: {
+      ...mapGetters("admin", {
+        response: "fees",
+      })
+    },
+    methods: {
+      ...mapActions("admin", ["getFees"]),
+      ...mapActions("userCredentials", ["callWithToken"]),
+      getfee() {
+        this.callWithToken({
+          parameters: {},
+          action: this.getFees
+        }).then(() => {
+          this.table.rows = this.response
+        })
+        return
+      },
+    }
   }
 
 </script>
