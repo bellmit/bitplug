@@ -6,9 +6,9 @@
       <h4 class="title">Edit Wallet Type</h4>
     </div>
     <div class="content">
-      <form @submit.prevent="validateBeforeSubmit">
+      <form @submit.prevent="editwalletById">
         <BannerError v-if="error" :exempt="true">{{ error }}</BannerError>
-
+      
         <div class="row"></div>
         <div class="col-md-6">
           <fg-input v-validate="'required|min:3|max:20'" 
@@ -46,7 +46,7 @@
                     name="balance" 
                     label="Initial Balance"
                     placeholder="0.00"
-                    v-model="walletType.initialBalance">
+                    v-model="walletType.initial_balance">
           </fg-input>
 
           <FieldError>
@@ -69,7 +69,7 @@
         </div>
 
         <div class="col-md-6">
-          <select v-model="walletType.feeId" v-validate="'required'" class="selectpicker">
+          <select v-model="walletType.fee_id" v-validate="'required'" class="selectpicker">
             <option disabled value="0">Fee</option>
             <option value="1">20</option>
             <option value="2">30</option>
@@ -100,65 +100,62 @@ import { mapActions, mapGetters } from "vuex"
 
 export default {
   name: "edit-wallet-type",
-  destroyed() {
-    this.$_$destroyedHook()
-  },
-  components: {
-  },
   data() {
     return {
       walletType: {
         title: "",
         actions: [],
         currency: "",
-        initialBalance: null,
+        initial_balance: null,
         feeId: 0,
         isCrypto: ""
       },
     }
   },
   computed: {
-    ...mapGetters("register", ["error", "fieldErrors", "loading"])
+    ...mapGetters("admin", ["loading", "fieldErrors", "error", "success"])
   },
   methods: {
-    ...mapActions("register", ["register", "resetState", "clearErrors"]),
+    ...mapActions("admin", ["editWalletType"]),
+    ...mapActions("userCredentials", ["callWithToken"]),    
 
     clearFields() {
       this.walletType = {
         title: "",
         actions: [],
         currency: "",
-        initialBalance: null,
-        feeId: "",
+        initial_balance: null,
+        fee_id: "",
         isCrypto: ""
       }
     },
-
-    validateBeforeSubmit() {
-      this.$validator.validateAll().then(result => {
-        if (result) {
-          // eslint-disable-next-line
-          // Set arguments for endpoint
-          let args = {
-            title: this.walletType.title,
-            actions: this.walletType.actions,
-            currency: this.walletType.currency.toUpperCase(),
-            initialBalance: this.walletType.initialBalance,
-            feeId: this.walletType.feeId,
-            isCrypto: this.walletType.isCrypto
-          }
-
-          const self = this
-          this.register(args).then(function(status) {
-            if (status.state === true) {
-              self.clearFields()
-              self.$_$redirectLoginNoBack()
-            }
-          })
-          return
+    setWalletDetails() {
+      // Updating component with data from api
+      this.walletType.title = this.userData.title
+      this.walletType.actions = this.userData.actions
+      this.walletType.currency = this.userData.currency
+      this.walletType.fee_id = this.userData.fee_id
+    },
+    editwalletById() {
+      let args = {
+        title: this.walletType.title,
+        actions: this.walletType.actions,
+        currency: this.walletType.currency.toUpperCase(),
+        initial_balance: this.walletType.initial_balance,
+        fee_id: this.walletType.fee_id,
+        // isCrypto: this.walletType.isCrypto,
+        id: this.$route.params.walletId
+      }
+      this.callWithToken({
+        parameters: args,
+        action: this.editWalletType
+      }).then(() => {
+        if(this.success) {
+          this.$router.push('/admin/wallet')          
         }
+        this.platformWallets = this.platformWal
       })
-    }
+    },
   }
 }
 </script>

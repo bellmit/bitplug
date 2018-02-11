@@ -11,6 +11,7 @@ import register from './modules/register'
 import users from './modules/users'
 import wallet from './modules/wallet'
 import modals from './modules/modals'
+import admin from './modules/admin'
 
 // Modules with persistent states
 import userCredentials from './modules/userCredentials'
@@ -31,6 +32,7 @@ export default new Vuex.Store({
   getters,
   modules: {
     auth,
+    admin,
     register,
     userCredentials,
     persistentState,

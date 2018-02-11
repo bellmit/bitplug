@@ -9,7 +9,7 @@
     <div class="vodal-body">
       <savage-dropzone />
     </div>
-    <button class="vodal-cancel-btn" @click="clearModals">Done</button>
+    <button class="vodal-cancel-btn" @click="mayor">Done</button>
   </vodalModal>
 </template>
 
@@ -17,13 +17,19 @@
 import { mapActions, mapGetters } from "vuex"
 export default {
   data() {
-    return {}
+    return {
+      walletId: null
+    }
   },
   computed: {
-    ...mapGetters("modals", ["uploadPicsModal"])
+    ...mapGetters("modals", ["uploadPicsModal", "uploadPicsModalId"])
   },
   methods: {
-    ...mapActions("modals", ["clearModals"])
+    ...mapActions("modals", ["clearModals"]),
+    mayor() {
+      this.walletId = this.uploadPicsModalId
+      this.clearModals()      
+    }
   }
 }
 </script>

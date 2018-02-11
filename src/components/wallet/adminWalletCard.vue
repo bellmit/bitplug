@@ -55,8 +55,8 @@
     <div class="footer">
         <hr>
         <div class="row">
-            <h6 class="text-primary wallet-action wallet-icon ti-camera"  @click="setuploadPicsModal"></h6>
-            <router-link :to="{'name': 'edit-wallet-type'}">
+            <h6 class="text-primary wallet-action wallet-icon ti-camera"  @click="upload"></h6>
+            <router-link :to="{name: 'edit-wallet-type', params: { walletId: wallet.id }}">
               <h6 class="text-primary wallet-action wallet-icon ti-pencil"></h6>
             </router-link>
         </div>
@@ -82,12 +82,20 @@
     },
     data () {
       return {
+        walletId: this.wallet.id,
       }
+    },
+    computed: {
+      ...mapGetters("modals", ["uploadPicsModalId"])
     },
     methods: {
        ...mapActions('modals', [
         'setuploadPicsModal',
       ]),
+      upload() {
+        this.setuploadPicsModal(this.walletId)
+        console.log('uploadPicsModalId', this.uploadPicsModalId)
+      },
       getStatusClass (status) {
         switch (status) {
           case 'Offline':
