@@ -1,5 +1,6 @@
 import api from '@/api/walletType'
-import fees from './fees'
+import adminApi from '@/api/admin'
+// import fees from './fees'
 
 // Remember to update resetState mutation
 const state = {
@@ -7,12 +8,15 @@ const state = {
     error: false,
     success: false,
     fieldErrors: {},
+    platformBanks: [],
     platformWallet: [],
+    fees: [],
     successMsg: 'Profile updated',
     loading: false,
     unauthorized: null,
     unverified: null,
     walletType: [],
+    allBanks: [],
     notfound: false,
   },
 }
@@ -29,6 +33,9 @@ const getters = {
   loading: state => state.sub.loading,
   walletType: state => state.sub.walletType,
   platformWallet: state => state.sub.platformWallet,
+  fees: state => state.sub.fees,
+  platformBanks: state => state.sub.platformBanks,
+  allBanks: state => state.sub.allBanks,  
 }
 
 // actions
@@ -103,6 +110,75 @@ const actions = {
         }
       })
   },
+  getFees ({ dispatch, commit, state }, dargs) {
+    // Loading
+    if (dargs.noLoad !== true) {
+      // commit('loading')
+    } else if (dargs.loader) {
+      const load = dargs.loader.load
+      dispatch(load.namespace, load.args, { root: true }).then(() => {
+      })
+    }
+
+    return adminApi.getFee(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          const data = result.data
+          commit('feesRetrieved', data)
+        }
+      })
+  },
+  getPlatformBanks ({ dispatch, commit, state }, dargs) {
+    // Loading
+    if (dargs.noLoad !== true) {
+      // commit('loading')
+    } else if (dargs.loader) {
+      const load = dargs.loader.load
+      dispatch(load.namespace, load.args, { root: true }).then(() => {
+      })
+    }
+
+    return adminApi.getPlatformBanks(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          const data = result.data
+          commit('platformBanksRetrieved', data)
+        }
+      })
+  },
+  getAllBanks ({ dispatch, commit, state }, dargs) {
+    // Loading
+    if (dargs.noLoad !== true) {
+      // commit('loading')
+    } else if (dargs.loader) {
+      const load = dargs.loader.load
+      dispatch(load.namespace, load.args, { root: true }).then(() => {
+      })
+    }
+
+    return adminApi.getAllBanks(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          const data = result.data
+          commit('allbanksRetrieved', data)
+        }
+      })
+  },
   clearErrors({ commit, state }) {
     commit('clearErrors')
   },
@@ -151,6 +227,9 @@ const mutations = {
       loading: false,
       unauthorized: null,
       unverified: null,
+      fees: [],
+      banks: [],
+      allBanks: [],
       notfound: false,
     }
   },
@@ -166,7 +245,6 @@ const mutations = {
 
   platformWalletRetrieved(state, val) {
     state.sub.platformWallet = val
-    console.log('state.sub.platformWallet', state.sub.platformWallet)
   },
 
   setNotFound(state, val) {
@@ -187,16 +265,24 @@ const mutations = {
 
   walletTypeRetrieved(state, val) {
     state.sub.walletType = val
-  }
+  },
+  feesRetrieved(state, val) {
+    state.sub.fees = val
+  },
+  platformBanksRetrieved(state, val) {
+    state.sub.platformBanks = val
+  },
+  allbanksRetrieved(state, val) {
+    state.sub.allBanks = val
+  },
 }
-
 export default {
   namespaced: true,
   state,
   getters,
   actions,
   mutations,
-  modules: [
-    fees
-  ]
+  // modules: [
+  //   fees
+  // ]
 }
