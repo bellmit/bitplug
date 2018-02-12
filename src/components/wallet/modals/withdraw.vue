@@ -1,21 +1,21 @@
 <template>
   <div>
-    <vodalModal :show="withdrawModal" animation="zoom" :width="400" :height="400" @hide="clearModals">
+    <vodalModal :show="withdrawModal" animation="zoom" :width="400" :height="500" @hide="clearModals">
       <div>Withdraw</div>
 
-      <div class="row col-md-6 mt-10">
+      <div class="col-md-6 mt-100">
         <small>To</small>
         <select v-model="bank" id="bank" class="form-control">
           <option :value="bank">Bank Account</option>
         </select>
       </div>
 
-      <div class="row col-md-12 mt-10">
+      <div class="col-md-12 mt-100">
         <small>NGN amount (including fee)</small>
         <input type="text" class="form-control" placeholder=" e.g. Danny Blaze" v-model="withdraw_amount">
       </div>
       <hr>
-      <div class="row col-md-12 mt-10">
+      <div class="col-md-12 mt-100">
         <div class="row col-md-9">
           <span>Your Available Balance</span>
         </div>
@@ -24,7 +24,7 @@
         </div>
       </div>
 
-      <div class="row col-md-12 mt-10">
+      <div class="col-md-12 mt-100">
         <div class="row col-md-9">
           <span>Withdrawal Fee</span>
         </div>
@@ -33,7 +33,7 @@
         </div>
       </div>
 
-      <div class="row col-md-12 mt-10">
+      <div class="col-md-12 mt-100">
         <div class="row col-md-9">
           <span>Minimum Withdrawal (Including Fee)</span>
         </div>
@@ -42,7 +42,11 @@
         </div>
       </div>
 
-      <input type="submit" class="form-control btn btn-primary mt-10" value="Withdraw">
+      <div class="col-md-12 mt-100">
+        <button type="submit" class="btn btn-info btn-block btn-fill btn-wd">
+          Withdraw
+        </button>
+      </div>
     </vodalModal>
   </div>
 </template>

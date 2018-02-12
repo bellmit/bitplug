@@ -25,16 +25,14 @@
       <ul v-if="page==='platformWallet'" class="list-unstyled team-members">
         <li>
           <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
               <h6>Balance</h6>
               <!-- <br> -->
               <span>
                 <h5>{{ wallet.initial_balance }}</h5>
               </span>
             </div>
-          </div>
-          <div class="row">
-            <div class="col-xs-12">
+            <div class="col-xs-6">
               <h6>Address</h6>
               <!-- <br> -->
               <span>
@@ -57,8 +55,8 @@
     <div class="footer">
         <hr>
         <div class="row">
-            <h6 class="text-primary wallet-action wallet-icon ti-camera"  @click="setuploadPicsModal"></h6>
-            <router-link :to="{'name': 'edit-wallet-type'}">
+            <h6 class="text-primary wallet-action wallet-icon ti-camera"  @click="upload"></h6>
+            <router-link :to="{name: 'edit-wallet-type', params: { walletId: wallet.id }}">
               <h6 class="text-primary wallet-action wallet-icon ti-pencil"></h6>
             </router-link>
         </div>
@@ -84,12 +82,20 @@
     },
     data () {
       return {
+        walletId: this.wallet.id,
       }
+    },
+    computed: {
+      ...mapGetters("modals", ["uploadPicsModalId"])
     },
     methods: {
        ...mapActions('modals', [
         'setuploadPicsModal',
       ]),
+      upload() {
+        this.setuploadPicsModal(this.walletId)
+        console.log('uploadPicsModalId', this.uploadPicsModalId)
+      },
       getStatusClass (status) {
         switch (status) {
           case 'Offline':

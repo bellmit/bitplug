@@ -8,7 +8,8 @@ const state = {
     withdrawModal: false,
     receiveModal: false,
     uploadPicsModal: false,
-    adminWithdrawModal: false
+    adminWithdrawModal: false,
+    uploadPicsModalId: null
   }
 }
 
@@ -20,7 +21,8 @@ const getters = {
   uploadPicsModal: state => state.sub.uploadPicsModal,
   withdrawModal: state => state.sub.withdrawModal,
   receiveModal: state => state.sub.receiveModal,
-  adminWithdrawModal: state => state.sub.adminWithdrawModal
+  adminWithdrawModal: state => state.sub.adminWithdrawModal,
+  uploadPicsModalId: state => state.sub.uploadPicsModalId,
 }
 
 // actions
@@ -37,8 +39,8 @@ const actions = {
   setreceiveModal ({ commit, state }) {
     commit('setreceiveModal')
   },
-  setuploadPicsModal ({ commit, state }) {
-    commit('setuploadPicsModal')
+  setuploadPicsModal ({ commit, state }, dargs) {
+    commit('setuploadPicsModal', dargs)
   },
   setwithdrawModal ({ commit, state }) {
     commit('setwithdrawModal')
@@ -74,7 +76,8 @@ const mutations = {
       withdrawModal: false,
       receiveModal: false,
       uploadPicsModal: false,
-      adminWithdrawModal: false
+      adminWithdrawModal: false,
+      uploadPicsModalId: null
     }
   },
 
@@ -90,8 +93,9 @@ const mutations = {
     state.sub.receiveModal = true
   },
 
-  setuploadPicsModal () {
+  setuploadPicsModal (state, dargs) {
     state.sub.uploadPicsModal = true
+    state.sub.uploadPicsModalId = dargs
   },
 
   setwithdrawModal (state) {

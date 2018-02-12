@@ -150,7 +150,7 @@ const router = new Router({
           component: AdminWalletTypes
         },
         {
-          path: 'edit_wallet',
+          path: 'edit_wallet/:walletId',
           name: 'edit-wallet-type',
           component: EditWalletType
         },
