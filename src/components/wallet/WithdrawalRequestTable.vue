@@ -9,7 +9,7 @@
         <div class="content table-responsive table-full-width">
           <table class="table table-striped">
             <thead>
-              <th v-for="column in table1.columns">{{column}}</th>
+              <th v-for="column in table1.columns" :key="column">{{column}}</th>
             </thead>
             <tbody>
               <tr v-for="data in table1.data" class="point" v-on:click.prevent="setAdminWithdrawalModal">
