@@ -7,7 +7,23 @@
 
     <div class="tab-content">
       <div id="walletType" class="tab-pane fade in active">
-        <span>
+        <span v-if="loading">
+          <div class="row">
+            <br />
+            <div class="col-xs-4 text-center">
+              <img src="../../assets/img/loading.gif" alt="">
+            </div>
+          </div>
+        </span>
+        <span v-else-if="wallets.length === 0 && !walletError">
+          <div class="row">
+            <br />
+            <div class="col-lg-4 col-md-5 text-danger">
+              No wallet found
+            </div>
+          </div>
+        </span>
+        <span v-else-if="wallets.length > 0 && !walletError">
           <div class="row">
             <div class="col-lg-4 col-md-5" v-for="(wallet) in wallets" :key="wallet.id">
               <WalletCard :wallet="wallet" :page="'walletType'"/>
@@ -15,9 +31,41 @@
           </div>
           <PictureModal />
         </span>
+        <span v-else-if="walletError">
+          <div class="row">
+            <br />
+            <div class="col-lg-4 col-md-5 text-danger">
+              {{walletError}}
+            </div>
+          </div>
+        </span>
       </div>
       <div id="platformWallet" class="tab-pane fade">
-        <span>
+        <span v-if="platformError">
+          <div class="row">
+            <br />
+            <div class="col-lg-4 col-md-5 text-danger">
+              {{platformError}}
+            </div>
+          </div>
+        </span>
+        <span v-else-if="loading">
+          <div class="row">
+            <br />
+            <div class="col-xs-4 text-center">
+              <img src="../../assets/img/loading.gif" alt="">
+            </div>
+          </div>
+        </span>
+        <span v-else-if="platformWallets.length === 0 && !platformError">
+          <div class="row">
+            <br />
+            <div class="col-lg-4 col-md-5 text-danger">
+              No Platform wallet found
+            </div>
+          </div>
+        </span>
+        <span v-else-if="platformWallets.length > 0 && !platformError">
           <div class="row">
             <div class="col-lg-4 col-md-5" v-for="(platformWallet, index) in platformWallets" :key="index">
               <WalletCard :wallet="platformWallet" :page="'platformWallet'"/>
@@ -41,8 +89,8 @@ export default {
   },
   data() {
     return {
-      wallets: [],
-      platformWallets: []
+      walletError: '',
+      platformError: ''
     };
   },
   mounted() {
@@ -51,8 +99,10 @@ export default {
   },
   computed: {
     ...mapGetters("admin", {
-      walletTypes: "walletType",
-      platformWal: "platformWallet"
+      wallets: "walletType",
+      platformWallets: "platformWallet",
+      error: 'error',
+      loading: 'loading'
     })
   },
   methods: {
@@ -63,7 +113,9 @@ export default {
         parameters: {},
         action: this.getWalletType
       }).then(() => {
-        this.wallets = this.walletTypes
+        this.loading
+        this.walletError = this.error                
+        this.wallets
       })
       return
     },
@@ -72,7 +124,10 @@ export default {
         parameters: {},
         action: this.getPlatformWallet
       }).then(() => {
-        this.platformWallets = this.platformWal
+        this.platformWallets
+        this.platformError = this.error,
+        this.loading
+        console.log(this.platformWallets)
       })
       return
     }
