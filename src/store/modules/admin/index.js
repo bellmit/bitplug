@@ -98,6 +98,37 @@ const actions = {
       })
   },
 
+  rejectWithdrawalRequests({ dispatch, commit, state }, dargs) {
+    // Loading
+    commit('loading')
+    return withdrawRequestApi.rejectWithdrawalRequest(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          this.getWithdrawalRequests()
+        }
+      })
+  },
+
+  holdWithdrawalRequests({ dispatch, commit, state }, dargs) {
+    commit('loading')
+    return withdrawRequestApi.holdWithdrawalRequest(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          this.getWithdrawalRequests()
+        }
+      })
+  },
+
 
   getPlatformWallet({ dispatch, commit, state }, dargs) {
     commit('loading')
@@ -207,6 +238,12 @@ const actions = {
   stopLoading({ commit, state }, id) {
     commit('stopLoading', id)
   },
+  setSelectedRequest ({ commit, state }, request) {
+    commit('setSelectedRequest', request)
+  },
+  resetsetSelectedRequest ({ commit, state }) {
+    commit('resetSelectedRequest')
+  }
 }
 
 // mutations

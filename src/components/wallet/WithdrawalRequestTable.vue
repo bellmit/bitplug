@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <adminWithdrawModal></adminWithdrawModal>    
+    <adminWithdrawModal></adminWithdrawModal>
     <div class="col-md-12">
       <div class="card">
         <div class="header">
@@ -12,7 +12,7 @@
               <th v-for="column in table1.columns" :key="column">{{column}}</th>
             </thead>
             <tbody>
-              <tr v-for="data in table1.data" class="point" v-on:click.prevent="setAdminWithdrawalModal">
+              <tr v-for="data in table1.data" class="point" @click.prevent="requestHandler(data)">
                 <!-- <adminWithdrawModal :data="data"></adminWithdrawModal> -->
                 <td>{{`${data.firstname + ' ' + data.lastname}`}}</td>
                 <td>{{data.withdrawalamount}}</td>
@@ -78,7 +78,15 @@ const tableData = [
       adminWithdrawModal
     },
     methods: {
-      ...mapActions("modals", ["setAdminWithdrawalModal", "clearModals"])
+      ...mapActions("modals", ["setAdminWithdrawalModal", "clearModals", ]),
+      ...mapActions('admin', [
+        'setSelectedRequest',
+        'resetSeletedWallet'
+      ]),
+      requestHandler(data){
+          this.setAdminWithdrawalModal();
+          this.setSelectedRequest(data);
+      }
     },
     data () {
       return {

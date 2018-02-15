@@ -9,7 +9,7 @@ export default {
     holdWithdrawalRequest: 'withdrawal_requests/hold',
   },
 
-  getwithDrawalRequests(dargs) {
+  getwithdrawalRequests(dargs) {
     /**
      * Get all withdrawal requests
      */
@@ -36,19 +36,21 @@ export default {
     /**
      * Confirm a withdrawal request
      */
-    return blackAxios.get(this.resource.confirmWithdrawalRequest+`/${dargs.id}`, {
+    return blackAxios.post(this.resource.confirmWithdrawalRequest+`/${dargs.id}`,{
+      processor_user_id:dargs.id
+    }, {
       'headers': {
         'Authorization': 'Bearer ' + dargs.token
       }
     })
       .then(function (response) {
-        return getAll.success({
+        return getById.success({
           response: response,
           resource: 'data' // Resource is the first element of array
         })
       })
       .catch(function (error) {
-        return getAll.error({
+        return getById.error({
           error: error,
           defaultmsg: ''
         })
@@ -60,19 +62,21 @@ export default {
     /**
      * Reject a withdrawal request
      */
-    return blackAxios.get(this.resource.rejectWithdrawalRequest+`/${dargs.id}`, {
+    return blackAxios.put(this.resource.rejectWithdrawalRequest+`/${dargs.id}`,{
+      processor_user_id:dargs.id
+    }, {
       'headers': {
         'Authorization': 'Bearer ' + dargs.token
       }
     })
       .then(function (response) {
-        return getAll.success({
+        return getById.success({
           response: response,
           resource: 'data' // Resource is the first element of array
         })
       })
       .catch(function (error) {
-        return getAll.error({
+        return getById.error({
           error: error,
           defaultmsg: ''
         })
@@ -83,19 +87,21 @@ export default {
     /**
      * Put a withdrawal request on hold
      */
-    return blackAxios.get(this.resource.holdWithdrawalRequest+`/${dargs.id}`, {
+    return blackAxios.get(this.resource.holdWithdrawalRequest+`/${dargs.id}`,{
+      processor_user_id:dargs.id
+    }, {
       'headers': {
         'Authorization': 'Bearer ' + dargs.token
       }
     })
       .then(function (response) {
-        return getAll.success({
+        return getById.success({
           response: response,
           resource: 'data' // Resource is the first element of array
         })
       })
       .catch(function (error) {
-        return getAll.error({
+        return getById.error({
           error: error,
           defaultmsg: ''
         })
