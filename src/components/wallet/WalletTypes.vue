@@ -78,61 +78,61 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex"
-import WalletCard from "./adminWalletCard"
-import PictureModal from "./modals/PictureModal"
+import { mapActions, mapGetters } from 'vuex'
+import WalletCard from './adminWalletCard'
+import PictureModal from './modals/PictureModal'
 
 export default {
   components: {
     WalletCard,
     PictureModal
   },
-  data() {
+  data () {
     return {
       walletError: '',
       platformError: ''
-    };
+    }
   },
-  mounted() {
-    this.getWalletTypes();
-    this.getPlatformWallets();
+  mounted () {
+    this.getWalletTypes()
+    this.getPlatformWallets()
   },
   computed: {
-    ...mapGetters("admin", {
-      wallets: "walletType",
-      platformWallets: "platformWallet",
+    ...mapGetters('admin', {
+      wallets: 'walletType',
+      platformWallets: 'platformWallet',
       error: 'error',
       loading: 'loading'
     })
   },
   methods: {
-    ...mapActions("admin", ["getWalletType", "getPlatformWallet"]),
-    ...mapActions("userCredentials", ["callWithToken"]),
-    getWalletTypes() {
+    ...mapActions('admin', ['getWalletType', 'getPlatformWallet']),
+    ...mapActions('userCredentials', ['callWithToken']),
+    getWalletTypes () {
       this.callWithToken({
         parameters: {},
         action: this.getWalletType
       }).then(() => {
         this.loading
-        this.walletError = this.error                
+        this.walletError = this.error
         this.wallets
       })
       return
     },
-    getPlatformWallets() {
+    getPlatformWallets () {
       this.callWithToken({
         parameters: {},
         action: this.getPlatformWallet
       }).then(() => {
         this.platformWallets
-        this.platformError = this.error,
+        this.platformError = this.error
         this.loading
         console.log(this.platformWallets)
       })
       return
     }
   }
-};
+}
 </script>
 <style>
 

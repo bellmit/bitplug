@@ -26,7 +26,7 @@
             <tbody>
               <tr v-for="data in table.rows" :key="data.id">
                 <td>{{data.name}}</td>
-                <td>{{data.description}}</td>                
+                <td>{{data.description}}</td>
                 <td>{{data.withdrawal_bank_account_id}}</td>
                 <td>{{data.percent_fee}}</td>
                 <td>{{data.fixed_fee}}</td>
@@ -49,38 +49,38 @@
   </div>
 </template>
 <script>
-  import { mapActions, mapGetters } from "vuex"
+  import { mapActions, mapGetters } from 'vuex'
   export default {
-    data () {  
+    data () {
       return {
         table: {
           columns: ['Name',
-          'Description',
-          'Withdrawal Bank Acc No',
-          'Percent Fee',
-          'Fixed Fee',
-          'Is Crypto',
-          'Withdrawal Wallet Name'
+            'Description',
+            'Withdrawal Bank Acc No',
+            'Percent Fee',
+            'Fixed Fee',
+            'Is Crypto',
+            'Withdrawal Wallet Name'
           ],
           rows: []
         },
         feeError: ''
       }
     },
-    mounted() {
-      this.getfee();
+    mounted () {
+      this.getfee()
     },
     computed: {
-      ...mapGetters("admin", {
-        response: "fees",
+      ...mapGetters('admin', {
+        response: 'fees',
         error: 'error',
         loading: 'loading'
       })
     },
     methods: {
-      ...mapActions("admin", ["getFees"]),
-      ...mapActions("userCredentials", ["callWithToken"]),
-      getfee() {
+      ...mapActions('admin', ['getFees']),
+      ...mapActions('userCredentials', ['callWithToken']),
+      getfee () {
         this.callWithToken({
           parameters: {},
           action: this.getFees
@@ -90,7 +90,7 @@
           this.table.rows = this.response
         })
         return
-      },
+      }
     }
   }
 

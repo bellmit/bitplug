@@ -45,7 +45,7 @@
   </div>
 </template>
 <script>
-  import { mapActions, mapGetters } from "vuex";
+  import { mapActions, mapGetters } from 'vuex'
 
   export default {
     data () {
@@ -55,23 +55,22 @@
           rows: [],
         },
         bankError: ''
-        
       }
     },
     mounted() {
-      this.getbank();
+      this.getbank()
     },
     computed: {
-      ...mapGetters("admin", {
-        response: "allBanks",
+      ...mapGetters('admin', {
+        response: 'allBanks',
         error: 'error',
         loading: 'loading'
       })
     },
     methods: {
-      ...mapActions("admin", ["getAllBanks"]),
-      ...mapActions("userCredentials", ["callWithToken"]),
-      getbank() {
+      ...mapActions('admin', ['getAllBanks']),
+      ...mapActions('userCredentials', ['callWithToken']),
+      getbank () {
         this.callWithToken({
           parameters: {},
           action: this.getAllBanks
@@ -84,7 +83,6 @@
       },
     }
   }
-
 </script>
 <style>
 

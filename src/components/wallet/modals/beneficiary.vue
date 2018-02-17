@@ -31,15 +31,9 @@
   export default {
     data () {
       return {
-        withdraw_amount:0,
-        card_number:'',
-        withdraw_fee:200,
-        min_withdrawal:400,
-        available_balance:0.123,
-        depositType: "bank",
-        account_number:"",
-        account_name:"",
-        bankRegions: ['Nigeria', 'Abroad']
+        month_Year:'',
+        cvv:'',
+        card_number:''
       }
     },
     computed:{
