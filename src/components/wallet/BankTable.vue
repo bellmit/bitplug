@@ -3,18 +3,42 @@
     <div class="col-md-12">
       <div class="card">
         <div class="content table-responsive table-full-width">
-          <table class="table table-striped">
+          <span v-if="loading">
+            <div class="row">
+              <br />
+              <div class="col-xs-4 text-center">
+                <img src="../../assets/img/loading.gif" alt="">
+              </div>
+            </div>
+          </span>
+          <span v-else-if="table.rows.length === 0 && !bankError">
+            <div class="row">
+              <br />
+              <div class="col-lg-4 col-md-5 text-danger">
+                No Bank Account found
+              </div>
+            </div>
+          </span>
+          <table v-else-if="table.rows.length > 0 && !bankError" class="table table-striped">
             <thead>
-              <th v-for="column in table.columns">{{column}}</th>
+              <th v-for="column in table.columns" :key="column">{{column}}</th>
             </thead>
             <tbody>
-              <tr v-for="data in table.rows">
+              <tr v-for="data in table.rows" :key="data.id">
                 <td>{{data.name}}</td>
                 <td>{{data.nibss_id}}</td>
                 <td>{{data.id}}</td>
               </tr>
             </tbody>
           </table>
+          <span v-else-if="bankError">
+            <div class="row">
+              <br />
+              <div class="col-lg-4 col-md-5 text-danger">
+                {{bankError}}
+              </div>
+            </div>
+          </span>
         </div>
       </div>
     </div>
@@ -27,9 +51,11 @@
     data () {
       return {
         table: {
-          columns:  [ 'Name', 'Nibss_id', 'Bank id' ],
-          rows: []
-        }
+          columns:  [ 'Name', 'Nibss Id', 'Bank id' ],
+          rows: [],
+        },
+        bankError: ''
+        
       }
     },
     mounted() {
@@ -38,6 +64,8 @@
     computed: {
       ...mapGetters("admin", {
         response: "allBanks",
+        error: 'error',
+        loading: 'loading'
       })
     },
     methods: {
@@ -48,6 +76,8 @@
           parameters: {},
           action: this.getAllBanks
         }).then(() => {
+          this.bankError = this.error
+          this.loading
           this.table.rows = this.response
         })
         return

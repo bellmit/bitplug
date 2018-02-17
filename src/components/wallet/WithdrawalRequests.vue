@@ -9,16 +9,16 @@
 
     <div class="tab-content">
       <div id="home" class="tab-pane fade in active">
-        <WithdrawalRequestTable></WithdrawalRequestTable>  
+        <WithdrawalRequestTable></WithdrawalRequestTable>
       </div>
       <div id="menu2" class="tab-pane fade">
         <FeeTable></FeeTable>
       </div>
       <div id="menu3" class="tab-pane fade">
-        <BankTable></BankTable>        
+        <BankTable></BankTable>
       </div>
       <div id="menu4" class="tab-pane fade">
-        <BankAccounts></BankAccounts>        
+        <BankAccounts></BankAccounts>
       </div>
     </div>
   </div>
@@ -39,6 +39,7 @@ export default {
   },
   data() {
     return {
+
     };
   }
 };

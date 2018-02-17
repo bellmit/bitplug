@@ -1,4 +1,5 @@
 import api from '@/api/walletType'
+import withdrawRequestApi from '@/api/withdrawalRequests'
 import adminApi from '@/api/admin'
 // import fees from './fees'
 
@@ -16,6 +17,8 @@ const state = {
     unauthorized: null,
     unverified: null,
     walletType: [],
+    withdrawalRequests: [],
+    selectedRequest:{},
     allBanks: [],
     notfound: false,
   },
@@ -32,24 +35,18 @@ const getters = {
   successMsg: state => state.sub.successMsg,
   loading: state => state.sub.loading,
   walletType: state => state.sub.walletType,
+  withdrawalRequests: state => state.sub.withdrawalRequests,
+  selectedRequest: state => state.sub.selectedRequest,
   platformWallet: state => state.sub.platformWallet,
   fees: state => state.sub.fees,
   platformBanks: state => state.sub.platformBanks,
-  allBanks: state => state.sub.allBanks,  
+  allBanks: state => state.sub.allBanks,
 }
 
 // actions
 const actions = {
   getWalletType({ dispatch, commit, state }, dargs) {
-    // Loading
-    if (dargs.noLoad !== true) {
-      // commit('loading')
-    } else if (dargs.loader) {
-      const load = dargs.loader.load
-      dispatch(load.namespace, load.args, { root: true }).then(() => {
-      })
-    }
-
+    commit('loading')
     return api.getWalletType(dargs)
       .then((result) => {
         if (result.error === undefined) {
@@ -59,19 +56,82 @@ const actions = {
 
           // Use response body
           const data = result.data
+          commit('stopLoading')
           commit('walletTypeRetrieved', data)
+        } else {
+          commit('setError', result.error)
+          commit('stopLoading')
         }
       })
   },
-  getPlatformWallet({ dispatch, commit, state }, dargs) {
+
+  getWithdrawalRequests({ dispatch, commit, state }, dargs) {
     // Loading
-    if (dargs.noLoad !== true) {
-      // commit('loading')
-    } else if (dargs.loader) {
-      const load = dargs.loader.load
-      dispatch(load.namespace, load.args, { root: true }).then(() => {
+    commit('loading')
+    return withdrawRequestApi.getwithDrawalRequests(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          const data = result.data
+          commit('withdrawRequestTypeRetrieved', data)
+        }
       })
-    }
+  },
+
+  confirmWithdrawalRequests({ dispatch, commit, state }, dargs) {
+    // Loading
+    commit('loading')
+    return withdrawRequestApi.confirmWithdrawalRequest(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          this.getWithdrawalRequests()
+        }
+      })
+  },
+
+  rejectWithdrawalRequests({ dispatch, commit, state }, dargs) {
+    // Loading
+    commit('loading')
+    return withdrawRequestApi.rejectWithdrawalRequest(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          this.getWithdrawalRequests()
+        }
+      })
+  },
+
+  holdWithdrawalRequests({ dispatch, commit, state }, dargs) {
+    commit('loading')
+    return withdrawRequestApi.holdWithdrawalRequest(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+
+          // Use response body
+          this.getWithdrawalRequests()
+        }
+      })
+  },
+
+
+  getPlatformWallet({ dispatch, commit, state }, dargs) {
+    commit('loading')
     return api.getPlatformWallet(dargs)
       .then((result) => {
         if (result.error === undefined) {
@@ -80,21 +140,16 @@ const actions = {
           // commit('success')
           // Use response body
           const data = result.data
-          console.log('data ddddd', data)
           commit('platformWalletRetrieved', data)
+        } else {
+          commit('setError', result.error)
+          commit('stopLoading')
         }
       })
   },
   editWalletType({ dispatch, commit, state }, dargs) {
     // Loading
-    if (dargs.noLoad !== true) {
-      // commit('loading')
-    } else if (dargs.loader) {
-      const load = dargs.loader.load
-      dispatch(load.namespace, load.args, { root: true }).then(() => {
-      })
-    }
-    commit('loading')    
+    commit('loading')
     return api.editWalletType(dargs)
       .then((result) => {
         if (result.error === undefined) {
@@ -102,47 +157,34 @@ const actions = {
           commit('clearErrors')
           commit('success')
           commit('stopLoading')
-          // Use response body
-          // const data = result.data
-        }
-        else {
+        } else {
           commit('stopLoading')
+          commit('clearErrors')
+          commit('setError', result.error)
         }
       })
   },
   getFees ({ dispatch, commit, state }, dargs) {
-    // Loading
-    if (dargs.noLoad !== true) {
-      // commit('loading')
-    } else if (dargs.loader) {
-      const load = dargs.loader.load
-      dispatch(load.namespace, load.args, { root: true }).then(() => {
-      })
-    }
-
+    commit('loading')
     return adminApi.getFee(dargs)
       .then((result) => {
         if (result.error === undefined) {
           // Successful
           commit('clearErrors')
-          // commit('success')
 
           // Use response body
           const data = result.data
+          commit('stopLoading')
           commit('feesRetrieved', data)
+        } else {
+          commit('stopLoading')
+          commit('clearErrors')
+          commit('setError', result.error)
         }
       })
   },
   getPlatformBanks ({ dispatch, commit, state }, dargs) {
-    // Loading
-    if (dargs.noLoad !== true) {
-      // commit('loading')
-    } else if (dargs.loader) {
-      const load = dargs.loader.load
-      dispatch(load.namespace, load.args, { root: true }).then(() => {
-      })
-    }
-
+    commit('loading')
     return adminApi.getPlatformBanks(dargs)
       .then((result) => {
         if (result.error === undefined) {
@@ -152,20 +194,17 @@ const actions = {
 
           // Use response body
           const data = result.data
+          commit('stopLoading')
           commit('platformBanksRetrieved', data)
+        } else {
+          commit('stopLoading')
+          commit('clearErrors')
+          commit('setError', result.error)
         }
       })
   },
   getAllBanks ({ dispatch, commit, state }, dargs) {
-    // Loading
-    if (dargs.noLoad !== true) {
-      // commit('loading')
-    } else if (dargs.loader) {
-      const load = dargs.loader.load
-      dispatch(load.namespace, load.args, { root: true }).then(() => {
-      })
-    }
-
+    commit('loading')
     return adminApi.getAllBanks(dargs)
       .then((result) => {
         if (result.error === undefined) {
@@ -175,7 +214,12 @@ const actions = {
 
           // Use response body
           const data = result.data
+          commit('stopLoading')
           commit('allbanksRetrieved', data)
+        } else {
+          commit('stopLoading')
+          commit('clearErrors')
+          commit('setError', result.error)
         }
       })
   },
@@ -194,6 +238,12 @@ const actions = {
   stopLoading({ commit, state }, id) {
     commit('stopLoading', id)
   },
+  setSelectedRequest ({ commit, state }, request) {
+    commit('setSelectedRequest', request)
+  },
+  resetsetSelectedRequest ({ commit, state }) {
+    commit('resetSelectedRequest')
+  }
 }
 
 // mutations
@@ -230,6 +280,8 @@ const mutations = {
       fees: [],
       banks: [],
       allBanks: [],
+      selectedRequest:{},
+      withdrawalRequests:[],
       notfound: false,
     }
   },
@@ -255,6 +307,14 @@ const mutations = {
     state.sub.unverified = val
   },
 
+  setSelectedRequest (state, request) {
+    state.sub.selectedRequest = request
+  },
+
+  resetSelectedRequest (state) {
+    state.sub.selectedRequest = {}
+  },
+
   isAuthError(state) {
     state.sub.unauthorized = true
   },
@@ -266,6 +326,11 @@ const mutations = {
   walletTypeRetrieved(state, val) {
     state.sub.walletType = val
   },
+
+  withdrawRequestTypeRetrieved(state, val){
+    state.sub.withdrawalRequests = val
+  },
+
   feesRetrieved(state, val) {
     state.sub.fees = val
   },
