@@ -93,7 +93,7 @@ const actions = {
           // commit('success')
 
           // Use response body
-          this.getWithdrawalRequests()
+          this.getWithdrawalRequests
         }
       })
   },
@@ -109,7 +109,7 @@ const actions = {
           // commit('success')
 
           // Use response body
-          this.getWithdrawalRequests()
+          this.getWithdrawalRequests
         }
       })
   },
@@ -124,7 +124,7 @@ const actions = {
           // commit('success')
 
           // Use response body
-          this.getWithdrawalRequests()
+          this.getWithdrawalRequests
         }
       })
   },
