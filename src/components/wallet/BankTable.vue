@@ -66,7 +66,6 @@
           action: this.getAllBanks
         }).then(() => {
           this.bankError = this.error
-          this.loading
           this.table.rows = this.response
         })
         return

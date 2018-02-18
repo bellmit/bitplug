@@ -94,7 +94,6 @@ export default {
         action: this.getWalletType
       }).then(() => {
         this.walletError = this.error                
-        this.wallets
       })
       return
     },
@@ -103,7 +102,6 @@ export default {
         parameters: {},
         action: this.getPlatformWallet
       }).then(() => {
-        this.platformWallets
         this.platformError = this.error
       })
       return

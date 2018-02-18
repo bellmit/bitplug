@@ -157,7 +157,6 @@ export default {
         if (this.success) {
           this.$router.push('/admin/wallet')
         }
-        this.platformWallets = this.platformWal
       })
     }
   }
