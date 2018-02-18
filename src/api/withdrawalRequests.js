@@ -4,9 +4,9 @@ import { getAll, getById, add, edit, gDelete } from './generic'
 export default {
   resource: {
     getwithDrawalRequests: '/admin/withdrawal_requests',
-    confirmWithdrawalRequest: 'withdrawal_requests/confirm',
-    rejectWithdrawalRequest: 'withdrawal_requests/reject',
-    holdWithdrawalRequest: 'withdrawal_requests/hold',
+    confirmWithdrawalRequest: '/admin/withdrawal_requests/confirm',
+    rejectWithdrawalRequest: '/admin/withdrawal_requests/reject',
+    holdWithdrawalRequest: '/admin/withdrawal_requests/hold',
   },
 
   getwithdrawalRequests(dargs) {

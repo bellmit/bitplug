@@ -21,8 +21,8 @@
   <div class="col-sm-6">
     <div class="card" style="width: 48rem;">
       <div class="card-block">
-        <br />        
-        <br />        
+        <br />
+        <br />
         <h6 class="card-title">Recent Activity<br><br/></h6>
       </div>
       <ul class="list-group list-group-flush">
@@ -40,7 +40,7 @@
 </template>
 <script>
 export default {
-  data() {
+  data () {
     return {
       // user: {
       //   company: "Paper Dashboard",
@@ -52,12 +52,11 @@ export default {
       //   postalCode: "",
       //   aboutMe: `Oh so, your weak rhyme. You doubt I'll bother, reading into it.I'll probably won't, left to my own devicesBut that's the difference in our opinions.`
       // }
-    };
+    }
   },
   methods: {
   }
-};
-
+}
 </script>
 <style>
 

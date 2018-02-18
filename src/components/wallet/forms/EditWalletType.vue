@@ -8,13 +8,13 @@
     <div class="content">
       <form @submit.prevent="editwalletById">
         <BannerError v-if="error" :exempt="true">{{ error }}</BannerError>
-      
+
         <div class="row"></div>
         <div class="col-md-6">
-          <fg-input v-validate="'required|min:3|max:20'" 
-                    type="text" 
-                    :class="{'input': true, 'is-danger': errors.has('title') }" 
-                    name="title" 
+          <fg-input v-validate="'required|min:3|max:20'"
+                    type="text"
+                    :class="{'input': true, 'is-danger': errors.has('title') }"
+                    name="title"
                     label="Title"
                     placeholder="NGN wallet"
                     v-model="walletType.title">
@@ -26,10 +26,10 @@
         </div>
 
         <div class="col-md-6">
-          <fg-input v-validate="'min:2|max:5|required'" 
-                    type="text" 
-                    :class="{'input': true, 'is-danger': errors.has('currency') }" 
-                    name="currency" 
+          <fg-input v-validate="'min:2|max:5|required'"
+                    type="text"
+                    :class="{'input': true, 'is-danger': errors.has('currency') }"
+                    name="currency"
                     label="Currency"
                     placeholder="NGN"
                     v-model="walletType.currency">
@@ -42,8 +42,8 @@
 
         <div class="col-md-12">
           <fg-input v-validate="'required|decimal'"
-                    :class="{'input': true, 'is-danger': errors.has('balance') }" 
-                    name="balance" 
+                    :class="{'input': true, 'is-danger': errors.has('balance') }"
+                    name="balance"
                     label="Initial Balance"
                     placeholder="0.00"
                     v-model="walletType.initial_balance">
@@ -81,7 +81,7 @@
           </FieldError>
           <br>
         </div>
-        
+
         <div class="text-center">
           <button v-if="!loading" type="submit" class="btn btn-info btn-fill btn-wd">
           Edit
@@ -96,20 +96,20 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex"
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "edit-wallet-type",
-  data() {
+  name: 'edit-wallet-type',
+  data () {
     return {
       walletType: {
-        title: "",
+        title: '',
         actions: [],
-        currency: "",
+        currency: '',
         initial_balance: null,
         feeId: 0,
-        isCrypto: ""
-      },
+        isCrypto: ''
+      }
     }
   },
   computed: {
@@ -132,7 +132,7 @@ export default {
         this.setWalletDetails()
       })
     },
-    setWalletDetails() {
+    setWalletDetails () {
       // Updating component with data from api
       this.walletType.title = this.walletById.title
       this.walletType.actions = this.walletById.actions
@@ -140,7 +140,7 @@ export default {
       this.walletType.fee_id = this.walletById.fee_id
       this.walletType.initial_balance = this.walletById.initial_balance
     },
-    editwalletById() {
+    editwalletById () {
       let args = {
         title: this.walletType.title,
         actions: this.walletType.actions,
@@ -154,12 +154,12 @@ export default {
         parameters: args,
         action: this.editWalletType
       }).then(() => {
-        if(this.success) {
-          this.$router.push('/admin/wallet')          
+        if (this.success) {
+          this.$router.push('/admin/wallet')
         }
         this.platformWallets = this.platformWal
       })
-    },
+    }
   }
 }
 </script>

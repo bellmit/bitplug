@@ -1,54 +1,56 @@
 <template>
-  <vodalModal :show="adminWithdrawModal" animation="zoom" :width="700" :height="400" @hide="clearModals">
-    <div class="card-wallet">
-      <h3 class="header text-center text-muted">
-        Withdrawal Request
-      </h3>
-
-      <div class="content">
-        <span v-if="loading">
-          <div class="row">
-            <br />
-            <div class="col-xs-4 text-center">
-               <LoadingBar />
-            </div>
-          </div>
-        </span>
-        <h3 class="text-center text-muted withdraw-text">
-          NGN {{selectedRequest.withdrawalamount}}
+  <div>
+    <!--<span v-if="loading">-->
+    <!--<div class="row">-->
+      <!--<br />-->
+      <!--<div class="col-xs-4 text-center">-->
+        <!--<img src="../../../assets/img/loading.gif" alt="">-->
+      <!--</div>-->
+    <!--</div>-->
+  <!--</span>-->
+    <vodalModal :show="adminWithdrawModal" animation="zoom" :width="700" :height="400" @hide="clearModals">
+      <div class="card-wallet">
+        <h3 class="header text-center text-muted">
+          Withdrawal Request
         </h3>
-        <ul class="list-unstyled withdraw-list">
-          <li>
+
+        <div class="content">
+          <h3 class="text-center text-muted withdraw-text">
+            NGN {{selectedRequest.withdrawalamount}}
+          </h3>
+          <ul class="list-unstyled withdraw-list">
+            <li>
+              <div class="row">
+                <div class="col-xs-12 withdraw-content">
+                  <h5>{{selectedRequest.bank}}</h5>
+                </div>
+                <div class="col-xs-12 withdraw-content">
+                  <h5>{{`${selectedRequest.firstname + ' ' + selectedRequest.lastname}`}}</h5>
+                </div>
+                <div class="col-xs-12 withdraw-content">
+                  <h5>{{selectedRequest.account_no}}</h5>
+                </div>
+              </div>
+            </li>
+          </ul>
+          <br>
+          <div class="text-danger text-center">
+            NGN {{selectedRequest.withdrawalamount}} fee to {{selectedRequest.account_no}} - {{selectedRequest.bank}}
+          </div>
+          <br>
+          <div class="footer withdraw-footer">
+            <hr>
             <div class="row">
-              <div class="col-xs-12 withdraw-content">
-                <h5>{{selectedRequest.bank}}</h5>
-              </div>
-              <div class="col-xs-12 withdraw-content">
-                <h5>{{`${selectedRequest.firstname + ' ' + selectedRequest.lastname}`}}</h5>
-              </div>
-              <div class="col-xs-12 withdraw-content">
-                <h5>{{selectedRequest.account_no}}</h5>
-              </div>
+              <h6 class="wallet-action btn btn-danger withdraw-btn" @click="rejectRequest"> Reject </h6>
+              <h6 class="wallet-action btn btn-info withdraw-btn" @click="holdRequest"> On hold </h6>
+              <h6 class="wallet-action btn btn-success withdraw-btn" @click="confirmRequest"> Confirm </h6>
             </div>
-          </li>
-        </ul>
-        <br>
-        <div class="text-danger text-center">
-          NGN {{selectedRequest.withdrawalamount}} fee to {{selectedRequest.account_no}} - {{selectedRequest.bank}}
-        </div>
-        <br>
-        <div class="footer withdraw-footer">
-          <hr>
-          <div class="row">
-            <h6 class="wallet-action btn btn-danger withdraw-btn" @click="rejectRequest"> Reject </h6>
-            <h6 class="wallet-action btn btn-info withdraw-btn" @click="holdRequest"> On hold </h6>
-            <h6 class="wallet-action btn btn-success withdraw-btn" @click="confirmRequest"> Confirm </h6>
           </div>
         </div>
-      </div>
 
-    </div>
-  </vodalModal>
+      </div>
+    </vodalModal>
+  </div>
 </template>
 <script>
   import { mapActions, mapGetters } from 'vuex'
@@ -68,16 +70,7 @@
       return {
         data:
         {
-          requestsError: '',
-          firstname: "Fajemi",
-          lastname: "Yemi",
-          withdrawalamount: "12",
-          feeamount: "0.003",
-          totalamount: "12.003",
-          status: "Open",
-          bank: "Gt Bank",
-          account_no: "002234555",
-          id: 1
+          requestsError: ''
         },
       }
     },

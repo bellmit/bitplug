@@ -56,27 +56,22 @@
   export default {
     data () {
       return {
-        bank:"",
-        withdraw_amount:0,
-        withdraw_fee:200,
-        min_withdrawal:400,
-        available_balance:0.123,
-        depositType: "bank",
-        account_number:"",
-        account_name:"",
-        bankRegions: ['Nigeria', 'Abroad'],
+        bank: '',
+        withdraw_amount: 0,
+        withdraw_fee: 200,
+        min_withdrawal: 400,
+        available_balance: 0.123
       }
     },
-    computed:{
+    computed: {
       ...mapGetters('modals', [
         'withdrawModal'
       ])
     },
-    methods:{
+    methods: {
       ...mapActions('modals', [
-        'clearModals',
+        'clearModals'
       ])
     }
   }
-
 </script>

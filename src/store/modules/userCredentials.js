@@ -68,9 +68,9 @@ const actions = {
   callWithToken ({ dispatch, commit, state }, dargs) {
     /**
      * Add token to the parameters of store call and return the promise
-     * 
+     *
      * @param Object {
-     *    parameters: {}, 
+     *    parameters: {},
      *    action: function
      * }
      * @returns Promise

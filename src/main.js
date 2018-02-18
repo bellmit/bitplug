@@ -38,7 +38,7 @@ Vue.use(GlobalComponents)
 Vue.use(GlobalDirectives)
 Vue.use(Notifications)
 Vue.use(ElementUI)
-Vue.component('qrcode', VueQrcode);
+Vue.component('qrcode', VueQrcode)
 
 locale.use(lang)
 

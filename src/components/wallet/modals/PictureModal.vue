@@ -1,8 +1,8 @@
 <template>
-  <vodalModal :show="uploadPicsModal" 
-    animation="zoom" 
-    :width="500" 
-    :height="300" 
+  <vodalModal :show="uploadPicsModal"
+    animation="zoom"
+    :width="500"
+    :height="300"
     @hide="clearModals">
     Upload Icon
     <br>
@@ -14,21 +14,21 @@
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex"
+import { mapActions, mapGetters } from 'vuex'
 export default {
-  data() {
+  data () {
     return {
       walletId: null
     }
   },
   computed: {
-    ...mapGetters("modals", ["uploadPicsModal", "uploadPicsModalId"])
+    ...mapGetters('modals', ['uploadPicsModal', 'uploadPicsModalId'])
   },
   methods: {
-    ...mapActions("modals", ["clearModals"]),
-    mayor() {
+    ...mapActions('modals', ['clearModals']),
+    mayor () {
       this.walletId = this.uploadPicsModalId
-      this.clearModals()      
+      this.clearModals()
     }
   }
 }
