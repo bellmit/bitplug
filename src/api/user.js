@@ -1,6 +1,7 @@
 import { blackAxios } from '@/config'
-import { authErrMsg, isAuthErr, isBadReq, isVerificationErr, print } from '@/helpers'
-import { getAll, getById, add, edit, gDelete } from './generic'
+// import { authErrMsg, isAuthErr, isBadReq, isVerificationErr, print } from '@/helpers'
+import {getById, add} from './generic'
+// getAll, edit, gDelete
 
 // const blackAxios = config.blackAxios
 
@@ -42,11 +43,11 @@ export default {
       old_password: dargs.old_password, // user current password
       new_password: dargs.new_password // new password
     },
-    {
-      'headers': {
-        'Authorization': 'Bearer ' + dargs.token
-      }
-    })
+      {
+        'headers': {
+          'Authorization': 'Bearer ' + dargs.token
+        }
+      })
       .then(function (response) {
         return add.success({
           response: response,
@@ -72,22 +73,22 @@ export default {
       email: dargs.email,
       phone: dargs.phone
     },
-    {
-      'headers': {
-        'Authorization': 'Bearer ' + dargs.token
-      }
-    })
+      {
+        'headers': {
+          'Authorization': 'Bearer ' + dargs.token
+        }
+      })
       .then(function (response) {
         return add.success({
           response: response,
           resource: 'data'
         })
       })
-      .catch(function (error) {
-        return add.error({
-          error: error,
-          defaultmsg: ''
+        .catch(function (error) {
+          return add.error({
+            error: error,
+            defaultmsg: ''
+          })
         })
-      })
-  },
+  }
 }

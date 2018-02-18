@@ -25,7 +25,7 @@
             </thead>
             <tbody>
               <tr v-for="data in table.rows" :key="data.bank_id">
-                <td>{{data.bank_id}}</td>                
+                <td>{{data.bank_id}}</td>
                 <td>{{data.account_name}}</td>
                 <td>{{data.account_number}}</td>
                 <td>{{data.account_type}}</td>
@@ -46,43 +46,43 @@
   </div>
 </template>
 <script>
-  import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
 
-  export default {
-    data () {
-      return {
-        table: {
-          columns:  [  "Bank Id", 'Account Name', 'Account No', 'Account Type' ],
-          rows: [],
-        },
-        bankAccountError: ''
-      }
-    },
-    mounted() {
-      this.getbank();
-    },
-    computed: {
-      ...mapGetters("admin", {
-        response: "platformBanks",
-        error: 'error',
-        loading: 'loading'
-      })
-    },
-    methods: {
-      ...mapActions("admin", ["getPlatformBanks"]),
-      ...mapActions("userCredentials", ["callWithToken"]),
-      getbank() {
-        this.callWithToken({
-          parameters: {},
-          action: this.getPlatformBanks
-        }).then(() => {
-          this.table.rows = this.response
-          this.bankAccountError = this.error
-        })
-        return
+export default {
+  data () {
+    return {
+      table: {
+        columns: ['Bank Id', 'Account Name', 'Account No', 'Account Type'],
+        rows: [],
       },
+      bankAccountError: ''
+    }
+  },
+  mounted () {
+    this.getbank()
+  },
+  computed: {
+    ...mapGetters('admin', {
+      response: 'platformBanks',
+      error: 'error',
+      loading: 'loading'
+    })
+  },
+  methods: {
+    ...mapActions('admin', ['getPlatformBanks']),
+    ...mapActions('userCredentials', ['callWithToken']),
+    getbank () {
+      this.callWithToken({
+        parameters: {},
+        action: this.getPlatformBanks
+      }).then(() => {
+        this.table.rows = this.response
+        this.bankAccountError = this.error
+      })
+      return
     }
   }
+}
 </script>
 <style>
 

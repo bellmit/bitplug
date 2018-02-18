@@ -1,6 +1,6 @@
 import { blackAxios } from '@/config'
-import { authErrMsg, isAuthErr, isBadReq, isVerificationErr, print } from '@/helpers'
-import { getById } from './generic'
+import { authErrMsg, isBadReq, print } from '@/helpers'
+// import { getById } from './generic' isVerificationErr isAuthErr
 
 // const blackAxios = config.blackAxios
 
