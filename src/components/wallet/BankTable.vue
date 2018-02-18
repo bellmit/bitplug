@@ -7,17 +7,12 @@
             <div class="row">
               <br />
               <div class="col-xs-4 text-center">
-                <img src="../../assets/img/loading.gif" alt="">
+                <LoadingBar />
               </div>
             </div>
           </span>
           <span v-else-if="table.rows.length === 0 && !bankError">
-            <div class="row">
-              <br />
-              <div class="col-lg-4 col-md-5 text-danger">
-                No Bank Account found
-              </div>
-            </div>
+            <NoContentError>No Bank Account found</NoContentError>
           </span>
           <table v-else-if="table.rows.length > 0 && !bankError" class="table table-striped">
             <thead>
@@ -32,12 +27,7 @@
             </tbody>
           </table>
           <span v-else-if="bankError">
-            <div class="row">
-              <br />
-              <div class="col-lg-4 col-md-5 text-danger">
-                {{bankError}}
-              </div>
-            </div>
+            <AuthError>{{bankError}}</AuthError>
           </span>
         </div>
       </div>
@@ -76,7 +66,6 @@
           action: this.getAllBanks
         }).then(() => {
           this.bankError = this.error
-          this.loading
           this.table.rows = this.response
         })
         return

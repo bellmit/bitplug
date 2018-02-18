@@ -1,13 +1,13 @@
 import { blackAxios } from '@/config'
-import { getAll, getById, add, edit, gDelete } from './generic'
+import { getAll, getById } from './generic'
 
 export default {
   resource: {
     getWalletType: '/admin/wallet_types',
-    platformWallet: '/admin/wallets',
+    platformWallet: '/admin/wallets'
   },
 
-  getWalletType(dargs) {
+  getWalletType (dargs) {
     /**
      * Retrieve authenticated user object
      */
@@ -29,7 +29,7 @@ export default {
         })
       })
   },
-  getPlatformWallet(dargs) {
+  getPlatformWallet (dargs) {
     /**
      * Retrieve authenticated user object
      */
@@ -51,7 +51,30 @@ export default {
         })
       })
   },
-  editWalletType(dargs) {
+  getWalletById (dargs) {
+    /**
+     * Retrieve authenticated user object
+     */
+    return blackAxios.get(this.resource.getWalletType + `/${dargs.id}`, {
+      'headers': {
+        'Authorization': 'Bearer ' + dargs.token
+      }
+    })
+      .then(function (response) {
+        console.log('api response', response)
+        return getById.success({
+          response: response,
+          resource: 'data' // Resource is the first element of array
+        })
+      })
+      .catch(function (error) {
+        return getById.error({
+          error: error,
+          defaultmsg: ''
+        })
+      })
+  },
+  editWalletType (dargs) {
     /**
      * Retrieve authenticated user object
      */
@@ -60,12 +83,12 @@ export default {
       currency: dargs.currency,
       initial_balance: dargs.initial_balance,
       fee_id: dargs.fee_id,
-      actions: dargs.actions,
+      actions: dargs.actions
     }
     return blackAxios.put(this.resource.getWalletType + `/${dargs.id}`, tired, {
       'headers': {
         'Authorization': 'Bearer ' + dargs.token
-      },
+      }
     })
       .then(function (response) {
         return getById.success({
