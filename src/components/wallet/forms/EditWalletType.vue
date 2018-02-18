@@ -113,28 +113,32 @@ export default {
     }
   },
   computed: {
-    ...mapGetters("admin", ["loading", "fieldErrors", "error", "success"])
+    ...mapGetters("admin", ["loading", "fieldErrors", "error", "success", "walletById"])
+  },
+  mounted() {
+    this.getWalletTypeByID();
   },
   methods: {
-    ...mapActions("admin", ["editWalletType"]),
-    ...mapActions("userCredentials", ["callWithToken"]),    
-
-    clearFields() {
-      this.walletType = {
-        title: "",
-        actions: [],
-        currency: "",
-        initial_balance: null,
-        fee_id: "",
-        isCrypto: ""
+    ...mapActions("admin", ["editWalletType", "getWalletById"]),
+    ...mapActions("userCredentials", ["callWithToken"]),
+    getWalletTypeByID() {
+      let args = {
+        id: this.$route.params.walletId
       }
+      this.callWithToken({
+        parameters: args,
+        action: this.getWalletById
+      }).then(() => {
+        this.setWalletDetails()
+      })
     },
     setWalletDetails() {
       // Updating component with data from api
-      this.walletType.title = this.userData.title
-      this.walletType.actions = this.userData.actions
-      this.walletType.currency = this.userData.currency
-      this.walletType.fee_id = this.userData.fee_id
+      this.walletType.title = this.walletById.title
+      this.walletType.actions = this.walletById.actions
+      this.walletType.currency = this.walletById.currency
+      this.walletType.fee_id = this.walletById.fee_id
+      this.walletType.initial_balance = this.walletById.initial_balance
     },
     editwalletById() {
       let args = {

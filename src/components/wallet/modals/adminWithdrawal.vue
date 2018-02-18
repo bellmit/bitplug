@@ -10,7 +10,7 @@
           <div class="row">
             <br />
             <div class="col-xs-4 text-center">
-              <img src="../../../assets/img/loading.gif" alt="">
+               <LoadingBar />
             </div>
           </div>
         </span>

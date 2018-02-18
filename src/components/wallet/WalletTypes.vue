@@ -11,17 +11,12 @@
           <div class="row">
             <br />
             <div class="col-xs-4 text-center">
-              <img src="../../assets/img/loading.gif" alt="">
+              <LoadingBar />
             </div>
           </div>
         </span>
         <span v-else-if="wallets.length === 0 && !walletError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              No wallet found
-            </div>
-          </div>
+          <NoContentError>No wallet found</NoContentError>
         </span>
         <span v-else-if="wallets.length > 0 && !walletError">
           <div class="row">
@@ -32,38 +27,23 @@
           <PictureModal />
         </span>
         <span v-else-if="walletError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              {{walletError}}
-            </div>
-          </div>
+          <AuthError>{{walletError}}</AuthError>
         </span>
       </div>
       <div id="platformWallet" class="tab-pane fade">
         <span v-if="platformError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              {{platformError}}
-            </div>
-          </div>
+          <AuthError>{{platformError}}</AuthError>
         </span>
         <span v-else-if="loading">
           <div class="row">
             <br />
             <div class="col-xs-4 text-center">
-              <img src="../../assets/img/loading.gif" alt="">
+              <LoadingBar />
             </div>
           </div>
         </span>
         <span v-else-if="platformWallets.length === 0 && !platformError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              No Platform wallet found
-            </div>
-          </div>
+          <NoContentError>No Platform wallet found</NoContentError>
         </span>
         <span v-else-if="platformWallets.length > 0 && !platformError">
           <div class="row">
@@ -113,7 +93,6 @@ export default {
         parameters: {},
         action: this.getWalletType
       }).then(() => {
-        this.loading
         this.walletError = this.error                
         this.wallets
       })
@@ -125,9 +104,7 @@ export default {
         action: this.getPlatformWallet
       }).then(() => {
         this.platformWallets
-        this.platformError = this.error,
-        this.loading
-        console.log(this.platformWallets)
+        this.platformError = this.error
       })
       return
     }
