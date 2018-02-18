@@ -10,7 +10,7 @@
         </button>
         <i class="navbar-brand more-icon" :class="{'ti-close': $sidebar.showFlatSidebar, 'ti-menu': !$sidebar.showFlatSidebar}" @click.prevent="toggleSidebarNav"></i>
         <router-link to="" class="navbar-brand">
-          BitPlug
+          BITPLUG
         </router-link>
       </div>
       <div class="collapse navbar-collapse">
