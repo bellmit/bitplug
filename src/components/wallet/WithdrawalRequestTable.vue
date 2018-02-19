@@ -3,16 +3,27 @@
     <adminWithdrawModal></adminWithdrawModal>
     <div class="col-md-12">
       <div class="card">
-        <div class="header">
-          <h4 class="title">Withdrawal Requests</h4>
-        </div>
+        <!--<div class="header">-->
+          <!--<h4 class="title">Withdrawal Requests</h4>-->
+        <!--</div>-->
         <div class="content table-responsive table-full-width">
-          <table class="table table-striped">
+          <span v-if="loading">
+            <div class="row">
+              <br />
+              <div class="col-xs-4 text-center">
+                <LoadingBar />
+              </div>
+            </div>
+          </span>
+          <span v-else-if="table.data.length <= 0 && !requestsError">
+            <NoContentError>No Withdrawal Requests found</NoContentError>
+          </span>
+          <table v-else-if="table.data.length > 0 && !requestsError" class="table table-striped">
             <thead>
-              <th v-for="column in table1.columns" :key="column">{{column}}</th>
+              <th v-for="column in table.columns" :key="column">{{column}}</th>
             </thead>
             <tbody>
-              <tr v-if="table1.data.length > 0" v-for="data in table1.data" class="point" @click.prevent="requestHandler(data)">
+              <tr v-for="data in table.data" class="point" @click.prevent="requestHandler(data)">
                 <!-- <adminWithdrawModal :data="data"></adminWithdrawModal> -->
                 <td>{{`${data.firstname + ' ' + data.lastname}`}}</td>
                 <td>{{data.bank}}</td>
@@ -23,11 +34,11 @@
                 <td>{{data.date}}</td>
                 <td>{{data.status}}</td>
               </tr>
-            <tr>
-              No withdrawal requests available
-            </tr>
             </tbody>
           </table>
+          <span v-else-if="requestsError">
+            <AuthError>{{requestsError}}</AuthError>
+          </span>
         </div>
       </div>
     </div>
@@ -35,74 +46,62 @@
 </template>
 <script>
 import adminWithdrawModal from './modals/adminWithdrawal'
-import { mapActions } from 'vuex'
-
-const tableColumns = [
-  'User',
-  'Bank',
-  'Withdrawal Amount',
-  'Fee Percent',
-  'Fee Amount',
-  'Total Amount',
-  'Date',
-  'Status'
-]
-const tableData = [
-  {
-    firstname: 'Fajemi',
-    lastname: 'Yemi',
-    withdrawalamount: '12',
-    feeamount: '0.003',
-    totalamount: '12.003',
-    status: 'Open',
-    bank: 'Gt Bank',
-    account_no: '002234555',
-    id: 1
-  },
-  {
-    firstname: 'Fajemi',
-    lastname: 'Ope',
-    withdrawalamount: '12',
-    feeamount: '0.003',
-    totalamount: '12.003',
-    status: 'Open',
-    bank: 'Access Bank',
-    account_no: '002234555',
-    id: 2
-  },
-  {
-    firstname: 'Fajemi',
-    lastname: 'Opeyemi',
-    withdrawalamount: '12',
-    feeamount: '0.003',
-    totalamount: '12.003',
-    status: 'Open',
-    bank: 'Orile Bank',
-    account_no: '002234555',
-    id: 3
-  }
-]
+import { mapActions, mapGetters } from 'vuex'
 export default {
   components: {
     adminWithdrawModal
+  },
+  mounted () {
+    this.allRequests()
+  },
+  computed: {
+    ...mapGetters('admin', {
+      response: 'fees',
+      error: 'error',
+      loading: 'loading'
+    })
   },
   methods: {
     ...mapActions('modals', ['setAdminWithdrawalModal', 'clearModals']),
     ...mapActions('admin', [
       'setSelectedRequest',
-      'resetSeletedWallet'
+      'resetSeletedWallet',
+      'getWithdrawalRequests'
     ]),
+    ...mapActions("userCredentials", ["callWithToken"]),
     requestHandler (data) {
       this.setAdminWithdrawalModal()
       this.setSelectedRequest(data)
-    }
+    },
+    allRequests() {
+      this.callWithToken({
+        parameters: {},
+        action: this.getWithdrawalRequests
+      }).then(() => {
+        this.table.data = this.response
+        this.requestsError = this.error
+        console.log("withdrawal reqs")
+        console.log(this.response)
+      })
+      return
+    },
   },
   data () {
     return {
-      table1: {
-        columns: [...tableColumns],
-        data: [...tableData]
-      }
+      table: {
+        columns: [
+          'User',
+          'Bank',
+          'Withdrawal Amount',
+          'Fee Percent',
+          'Fee Amount',
+          'Total Amount',
+          'Date',
+          'Status'
+        ],
+        data: []
+      },
+      requestsError: ''
     }
   }
 }
