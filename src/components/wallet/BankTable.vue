@@ -6,7 +6,7 @@
           <span v-if="loading">
             <div class="row">
               <br />
-              <div class="col-xs-4 text-center">
+              <div class="text-center">
                 <LoadingBar />
               </div>
             </div>
@@ -22,12 +22,11 @@
               <tr v-for="data in table.rows" :key="data.id">
                 <td>{{data.name}}</td>
                 <td>{{data.nibss_id}}</td>
-                <td>{{data.id}}</td>
               </tr>
             </tbody>
           </table>
           <span v-else-if="bankError">
-            <AuthError>{{bankError}}</AuthError>
+            <FetchError>{{bankError}}</FetchError>
           </span>
         </div>
       </div>
@@ -41,7 +40,7 @@
     data () {
       return {
         table: {
-          columns:  [ 'Name', 'Nibss Id', 'Bank id' ],
+          columns:  [ 'Name', 'Nibss Id'],
           rows: [],
         },
         bankError: ''

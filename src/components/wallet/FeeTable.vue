@@ -6,7 +6,7 @@
           <span v-if="loading">
             <div class="row">
               <br />
-              <div class="col-xs-4 text-center">
+              <div class="text-center">
                 <LoadingBar />
               </div>
             </div>
@@ -32,7 +32,7 @@
             </tbody>
           </table>
           <span v-else-if="feeError">
-            <AuthError>{{feeError}}</AuthError>
+            <FetchError>{{feeError}}</FetchError>
           </span>
         </div>
       </div>

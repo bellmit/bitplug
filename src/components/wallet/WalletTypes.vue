@@ -10,7 +10,7 @@
         <span v-if="loading">
           <div class="row">
             <br />
-            <div class="col-xs-4 text-center">
+            <div class="text-center">
               <LoadingBar />
             </div>
           </div>
@@ -27,17 +27,17 @@
           <PictureModal />
         </span>
         <span v-else-if="walletError">
-          <AuthError>{{walletError}}</AuthError>
+          <FetchError>{{walletError}}</FetchError>
         </span>
       </div>
       <div id="platformWallet" class="tab-pane fade">
         <span v-if="platformError">
-          <AuthError>{{platformError}}</AuthError>
+          <FetchError>{{platformError}}</FetchError>
         </span>
         <span v-else-if="loading">
           <div class="row">
             <br />
-            <div class="col-xs-4 text-center">
+            <div class="text-center">
               <LoadingBar />
             </div>
           </div>
