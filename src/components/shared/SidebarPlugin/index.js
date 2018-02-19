@@ -28,12 +28,12 @@ const SidebarStore = {
       name: 'Exchange',
       icon: 'ti-stats-up',
       path: '/dashboard/exchange'
-    },
-    {
-      name: 'Price Alerts',
-      icon: 'ti-alarm-clock',
-      path: '/dashboard/price_alerts'
     }
+    // {
+    //   name: 'Price Alerts',
+    //   icon: 'ti-alarm-clock',
+    //   path: '/dashboard/price_alerts'
+    // }
   ],
   adminSidebarLinks: [
     {

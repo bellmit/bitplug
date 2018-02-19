@@ -317,3 +317,27 @@ select.selectpicker, .selectpicker {
 .footer.withdraw-footer {
   text-align: inherit;
 }
+
+.landing-page {
+  width: 100%;
+  .bc-hero {
+    // background-image: url(/static/img/hero.png);
+    // background-size: cover;
+    // background-position: top center;
+    // background-color: skyblue;
+    height: 240px;
+    width: 100%;
+  }
+
+  .hero-overlay {
+    // background-color: rgba(0, 0, 0, 0.4);
+    height: 100%;
+    width: 100%;
+
+    .banner-text {
+      color: white;
+      text-align: center;
+      // margin: 20px 0;
+    }
+  }
+}

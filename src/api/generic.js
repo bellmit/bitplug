@@ -27,12 +27,6 @@ export const getAll = {
         // Nada
     }
 
-    // Check for error in status for now
-    if (response.data.status === false || response.data.success === false) {
-      result.error = response.data.message || error.response.data.messasge
-
-      return result
-    }
     if (resource !== '') {
       data = response.data[resource]
     } else {
@@ -81,12 +75,6 @@ export const getById = {
 
     print('Retrieval Completed: ', response)
 
-    // Check for error in status for now
-    if (response.data.status === false || response.data.success === false) {
-      result.error = response.data.message || error.response.data.messasge
-
-      return result
-    }
     if (resource !== '') {
       data = response.data[resource]
     } else {
@@ -137,16 +125,10 @@ export const add = {
   success (dargs) {
     const response = dargs.response
     const resource = dargs.resource
-    const result = {};
+    const result = {}
     let data = response.data
 
-    print('Addition Completed: ', response);
-    // Check for error in status for now
-    if (response.data.status === false || response.data.success === false) {
-      result.error = response.data.message || error.response.data.messasge
-
-      return result
-    }
+    print('Addition Completed: ', response)
 
     if (resource !== '') {
       data = response.data[resource]
@@ -213,13 +195,6 @@ export const edit = {
 
     print('Edit Completed: ', response)
 
-    // Check for error in status for now
-    if (response.data.status === false || response.data.success === false) {
-      result.error = response.data.message || error.response.data.messasge
-
-      return result
-    }
-
     if (resource !== '') {
       data = response.data[resource]
     } else {
@@ -278,13 +253,6 @@ export const gDelete = {
     let data = response.data
 
     print('Deletion Completed: ', response)
-
-    // Check for error in status for now
-    if (response.data.status === false || response.data.success === false) {
-      result.error = response.data.message || error.response.data.messasge
-
-      return result;
-    }
 
     if (resource !== '') {
       data = response.data[resource]
