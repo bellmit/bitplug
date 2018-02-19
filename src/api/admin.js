@@ -1,14 +1,14 @@
 import { blackAxios } from '@/config'
-import { getAll, getById, add, edit, gDelete } from './generic'
+import { getAll } from './generic'
 
 export default {
   resource: {
     getFee: '/admin/fees',
     getPlatformBank: '/admin/bank_accounts',
-    getAllBanks: '/admin/banks',
+    getAllBanks: '/admin/banks'
   },
 
-  getFee(dargs) {
+  getFee (dargs) {
     /**
      * Retrieve authenticated user object
      */
@@ -73,5 +73,5 @@ export default {
           defaultmsg: ''
         })
       })
-  },
+  }
 }

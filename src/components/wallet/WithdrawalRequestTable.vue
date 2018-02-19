@@ -28,76 +28,75 @@
   </div>
 </template>
 <script>
-  import adminWithdrawModal from "./modals/adminWithdrawal";
-  import { mapActions } from "vuex";
+import adminWithdrawModal from './modals/adminWithdrawal'
+import { mapActions } from 'vuex'
 
 const tableColumns = [
-  "User",
-  "Withdrawal Amount",
-  "Fee Amount",
-  "Total Amount",
-  "Status"
-];
+  'User',
+  'Withdrawal Amount',
+  'Fee Amount',
+  'Total Amount',
+  'Status'
+]
 const tableData = [
   {
-    firstname: "Fajemi",
-    lastname: "Yemi",
-    withdrawalamount: "12",
-    feeamount: "0.003",
-    totalamount: "12.003",
-    status: "Open",
-    bank: "Gt Bank",
-    account_no: "002234555",
+    firstname: 'Fajemi',
+    lastname: 'Yemi',
+    withdrawalamount: '12',
+    feeamount: '0.003',
+    totalamount: '12.003',
+    status: 'Open',
+    bank: 'Gt Bank',
+    account_no: '002234555',
     id: 1
   },
   {
-    firstname: "Fajemi",
-    lastname: "Ope",
-    withdrawalamount: "12",
-    feeamount: "0.003",
-    totalamount: "12.003",
-    status: "Open",
-    bank: "Access Bank",
-    account_no: "002234555",
+    firstname: 'Fajemi',
+    lastname: 'Ope',
+    withdrawalamount: '12',
+    feeamount: '0.003',
+    totalamount: '12.003',
+    status: 'Open',
+    bank: 'Access Bank',
+    account_no: '002234555',
     id: 2
   },
   {
-    firstname: "Fajemi",
-    lastname: "Opeyemi",
-    withdrawalamount: "12",
-    feeamount: "0.003",
-    totalamount: "12.003",
-    status: "Open",
-    bank: "Orile Bank",
-    account_no: "002234555",
+    firstname: 'Fajemi',
+    lastname: 'Opeyemi',
+    withdrawalamount: '12',
+    feeamount: '0.003',
+    totalamount: '12.003',
+    status: 'Open',
+    bank: 'Orile Bank',
+    account_no: '002234555',
     id: 3
   }
-];
-  export default {
-    components: {
-      adminWithdrawModal
-    },
-    methods: {
-      ...mapActions("modals", ["setAdminWithdrawalModal", "clearModals", ]),
-      ...mapActions('admin', [
-        'setSelectedRequest',
-        'resetSeletedWallet'
-      ]),
-      requestHandler(data){
-          this.setAdminWithdrawalModal();
-          this.setSelectedRequest(data);
+]
+export default {
+  components: {
+    adminWithdrawModal
+  },
+  methods: {
+    ...mapActions('modals', ['setAdminWithdrawalModal', 'clearModals']),
+    ...mapActions('admin', [
+      'setSelectedRequest',
+      'resetSeletedWallet'
+    ]),
+    requestHandler (data) {
+      this.setAdminWithdrawalModal()
+      this.setSelectedRequest(data)
+    }
+  },
+  data () {
+    return {
+      table1: {
+        columns: [...tableColumns],
+        data: [...tableData]
       }
-    },
-    data () {
-      return {
-        table1: {
-          columns: [...tableColumns],
-          data: [...tableData]
-        }
-      }
-    },
+    }
   }
-
+}
 </script>
 <style>
 

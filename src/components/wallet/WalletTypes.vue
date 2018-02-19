@@ -11,17 +11,12 @@
           <div class="row">
             <br />
             <div class="col-xs-4 text-center">
-              <img src="../../assets/img/loading.gif" alt="">
+              <LoadingBar />
             </div>
           </div>
         </span>
         <span v-else-if="wallets.length === 0 && !walletError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              No wallet found
-            </div>
-          </div>
+          <NoContentError>No wallet found</NoContentError>
         </span>
         <span v-else-if="wallets.length > 0 && !walletError">
           <div class="row">
@@ -32,38 +27,23 @@
           <PictureModal />
         </span>
         <span v-else-if="walletError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              {{walletError}}
-            </div>
-          </div>
+          <AuthError>{{walletError}}</AuthError>
         </span>
       </div>
       <div id="platformWallet" class="tab-pane fade">
         <span v-if="platformError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              {{platformError}}
-            </div>
-          </div>
+          <AuthError>{{platformError}}</AuthError>
         </span>
         <span v-else-if="loading">
           <div class="row">
             <br />
             <div class="col-xs-4 text-center">
-              <img src="../../assets/img/loading.gif" alt="">
+              <LoadingBar />
             </div>
           </div>
         </span>
         <span v-else-if="platformWallets.length === 0 && !platformError">
-          <div class="row">
-            <br />
-            <div class="col-lg-4 col-md-5 text-danger">
-              No Platform wallet found
-            </div>
-          </div>
+          <NoContentError>No Platform wallet found</NoContentError>
         </span>
         <span v-else-if="platformWallets.length > 0 && !platformError">
           <div class="row">
@@ -78,61 +58,56 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex"
-import WalletCard from "./adminWalletCard"
-import PictureModal from "./modals/PictureModal"
+import { mapActions, mapGetters } from 'vuex'
+import WalletCard from './adminWalletCard'
+import PictureModal from './modals/PictureModal'
 
 export default {
   components: {
     WalletCard,
     PictureModal
   },
-  data() {
+  data () {
     return {
       walletError: '',
       platformError: ''
-    };
+    }
   },
-  mounted() {
-    this.getWalletTypes();
-    this.getPlatformWallets();
+  mounted () {
+    this.getWalletTypes()
+    this.getPlatformWallets()
   },
   computed: {
-    ...mapGetters("admin", {
-      wallets: "walletType",
-      platformWallets: "platformWallet",
+    ...mapGetters('admin', {
+      wallets: 'walletType',
+      platformWallets: 'platformWallet',
       error: 'error',
       loading: 'loading'
     })
   },
   methods: {
-    ...mapActions("admin", ["getWalletType", "getPlatformWallet"]),
-    ...mapActions("userCredentials", ["callWithToken"]),
-    getWalletTypes() {
+    ...mapActions('admin', ['getWalletType', 'getPlatformWallet']),
+    ...mapActions('userCredentials', ['callWithToken']),
+    getWalletTypes () {
       this.callWithToken({
         parameters: {},
         action: this.getWalletType
       }).then(() => {
-        this.loading
         this.walletError = this.error                
-        this.wallets
       })
       return
     },
-    getPlatformWallets() {
+    getPlatformWallets () {
       this.callWithToken({
         parameters: {},
         action: this.getPlatformWallet
       }).then(() => {
-        this.platformWallets
-        this.platformError = this.error,
-        this.loading
-        console.log(this.platformWallets)
+        this.platformError = this.error
       })
       return
     }
   }
-};
+}
 </script>
 <style>
 

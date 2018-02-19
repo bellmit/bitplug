@@ -12,16 +12,17 @@ const state = {
     platformBanks: [],
     platformWallet: [],
     fees: [],
+    walletById: {},
     successMsg: 'Profile updated',
     loading: false,
     unauthorized: null,
     unverified: null,
     walletType: [],
     withdrawalRequests: [],
-    selectedRequest:{},
+    selectedRequest: {},
     allBanks: [],
-    notfound: false,
-  },
+    notfound: false
+  }
 }
 
 // getters
@@ -41,11 +42,12 @@ const getters = {
   fees: state => state.sub.fees,
   platformBanks: state => state.sub.platformBanks,
   allBanks: state => state.sub.allBanks,
+  walletById: state => state.sub.walletById
 }
 
 // actions
 const actions = {
-  getWalletType({ dispatch, commit, state }, dargs) {
+  getWalletType ({ dispatch, commit, state }, dargs) {
     commit('loading')
     return api.getWalletType(dargs)
       .then((result) => {
@@ -65,7 +67,7 @@ const actions = {
       })
   },
 
-  getWithdrawalRequests({ dispatch, commit, state }, dargs) {
+  getWithdrawalRequests ({ dispatch, commit, state }, dargs) {
     // Loading
     commit('loading')
     return withdrawRequestApi.getwithDrawalRequests(dargs)
@@ -82,7 +84,7 @@ const actions = {
       })
   },
 
-  confirmWithdrawalRequests({ dispatch, commit, state }, dargs) {
+  confirmWithdrawalRequests ({ dispatch, commit, state }, dargs) {
     // Loading
     commit('loading')
     return withdrawRequestApi.confirmWithdrawalRequest(dargs)
@@ -93,12 +95,12 @@ const actions = {
           // commit('success')
 
           // Use response body
-          this.getWithdrawalRequests()
+          this.getWithdrawalRequests
         }
       })
   },
 
-  rejectWithdrawalRequests({ dispatch, commit, state }, dargs) {
+  rejectWithdrawalRequests ({ dispatch, commit, state }, dargs) {
     // Loading
     commit('loading')
     return withdrawRequestApi.rejectWithdrawalRequest(dargs)
@@ -109,12 +111,12 @@ const actions = {
           // commit('success')
 
           // Use response body
-          this.getWithdrawalRequests()
+          this.getWithdrawalRequests
         }
       })
   },
 
-  holdWithdrawalRequests({ dispatch, commit, state }, dargs) {
+  holdWithdrawalRequests ({ dispatch, commit, state }, dargs) {
     commit('loading')
     return withdrawRequestApi.holdWithdrawalRequest(dargs)
       .then((result) => {
@@ -124,13 +126,12 @@ const actions = {
           // commit('success')
 
           // Use response body
-          this.getWithdrawalRequests()
+          this.getWithdrawalRequests
         }
       })
   },
 
-
-  getPlatformWallet({ dispatch, commit, state }, dargs) {
+  getPlatformWallet ({ dispatch, commit, state }, dargs) {
     commit('loading')
     return api.getPlatformWallet(dargs)
       .then((result) => {
@@ -147,7 +148,26 @@ const actions = {
         }
       })
   },
-  editWalletType({ dispatch, commit, state }, dargs) {
+
+  getWalletById ({ dispatch, commit, state }, dargs) {
+    return api.getWalletById(dargs)
+      .then((result) => {
+        if (result.error === undefined) {
+          // Successful
+          commit('clearErrors')
+          // commit('success')
+          // Use response body
+          const data = result.data
+          // console.log('api response', data)
+          commit('WalletByIdRetrieved', data)
+        } else {
+          commit('setError', result.error)
+          commit('stopLoading')
+        }
+      })
+  },
+
+  editWalletType ({ dispatch, commit, state }, dargs) {
     // Loading
     commit('loading')
     return api.editWalletType(dargs)
@@ -164,6 +184,7 @@ const actions = {
         }
       })
   },
+
   getFees ({ dispatch, commit, state }, dargs) {
     commit('loading')
     return adminApi.getFee(dargs)
@@ -183,6 +204,7 @@ const actions = {
         }
       })
   },
+
   getPlatformBanks ({ dispatch, commit, state }, dargs) {
     commit('loading')
     return adminApi.getPlatformBanks(dargs)
@@ -203,6 +225,7 @@ const actions = {
         }
       })
   },
+
   getAllBanks ({ dispatch, commit, state }, dargs) {
     commit('loading')
     return adminApi.getAllBanks(dargs)
@@ -223,19 +246,20 @@ const actions = {
         }
       })
   },
-  clearErrors({ commit, state }) {
+
+  clearErrors ({ commit, state }) {
     commit('clearErrors')
   },
-  clearFieldErrors({ commit, state }) {
+  clearFieldErrors ({ commit, state }) {
     commit('clearErrors')
   },
-  resetState({ commit, state }) {
+  resetState ({ commit, state }) {
     commit('resetState')
   },
-  load({ commit, state }, id) {
+  load ({ commit, state }, id) {
     commit('loading', id)
   },
-  stopLoading({ commit, state }, id) {
+  stopLoading ({ commit, state }, id) {
     commit('stopLoading', id)
   },
   setSelectedRequest ({ commit, state }, request) {
@@ -248,27 +272,27 @@ const actions = {
 
 // mutations
 const mutations = {
-  loading(state) {
+  loading (state) {
     state.sub.loading = true
   },
 
-  stopLoading(state) {
+  stopLoading (state) {
     state.sub.loading = false
   },
 
-  setError(state, error) {
+  setError (state, error) {
     state.sub.error = error
   },
 
-  success(state) {
+  success (state) {
     state.sub.success = true
   },
 
-  setFieldErrors(state, error) {
+  setFieldErrors (state, error) {
     state.sub.fieldErrors = error || {}
   },
 
-  resetState(state) {
+  resetState (state) {
     state.sub = {
       error: false,
       success: false,
@@ -280,30 +304,35 @@ const mutations = {
       fees: [],
       banks: [],
       allBanks: [],
-      selectedRequest:{},
-      withdrawalRequests:[],
-      notfound: false,
+      selectedRequest: {},
+      walletById: {},
+      withdrawalRequests: [],
+      notfound: false
     }
   },
 
-  clearErrors(state) {
+  clearErrors (state) {
     state.sub.fieldErrors = false
     state.sub.error = false
   },
 
-  clearFieldErrors(state) {
+  clearFieldErrors (state) {
     state.sub.fieldErrors = false
   },
 
-  platformWalletRetrieved(state, val) {
+  platformWalletRetrieved (state, val) {
     state.sub.platformWallet = val
   },
 
-  setNotFound(state, val) {
+  WalletByIdRetrieved (state, val) {
+    state.sub.walletById = val
+  },
+
+  setNotFound (state, val) {
     state.sub.notfound = val
   },
 
-  setVerification(state, val) {
+  setVerification (state, val) {
     state.sub.unverified = val
   },
 
@@ -315,39 +344,36 @@ const mutations = {
     state.sub.selectedRequest = {}
   },
 
-  isAuthError(state) {
+  isAuthError (state) {
     state.sub.unauthorized = true
   },
 
-  notAuthError(state) {
+  notAuthError (state) {
     state.sub.unauthorized = false
   },
 
-  walletTypeRetrieved(state, val) {
+  walletTypeRetrieved (state, val) {
     state.sub.walletType = val
   },
 
-  withdrawRequestTypeRetrieved(state, val){
+  withdrawRequestTypeRetrieved (state, val) {
     state.sub.withdrawalRequests = val
   },
 
-  feesRetrieved(state, val) {
+  feesRetrieved (state, val) {
     state.sub.fees = val
   },
-  platformBanksRetrieved(state, val) {
+  platformBanksRetrieved (state, val) {
     state.sub.platformBanks = val
   },
-  allbanksRetrieved(state, val) {
+  allbanksRetrieved (state, val) {
     state.sub.allBanks = val
-  },
+  }
 }
 export default {
   namespaced: true,
   state,
   getters,
   actions,
-  mutations,
-  // modules: [
-  //   fees
-  // ]
+  mutations
 }

@@ -25,10 +25,10 @@
 </template>
 
 <script>
-import WithdrawalRequestTable from "./WithdrawalRequestTable";
-import FeeTable from "./FeeTable";
-import BankTable from "./BankTable";
-import BankAccounts from "./BankAccounts";
+import WithdrawalRequestTable from './WithdrawalRequestTable'
+import FeeTable from './FeeTable'
+import BankTable from './BankTable'
+import BankAccounts from './BankAccounts'
 
 export default {
   components: {
@@ -37,12 +37,12 @@ export default {
     BankTable,
     BankAccounts
   },
-  data() {
+  data () {
     return {
 
-    };
+    }
   }
-};
+}
 </script>
 <style>
 

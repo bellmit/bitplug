@@ -7,17 +7,12 @@
             <div class="row">
               <br />
               <div class="col-xs-4 text-center">
-                <img src="../../assets/img/loading.gif" alt="">
+                <LoadingBar />
               </div>
             </div>
           </span>
           <span v-else-if="table.rows.length === 0 && !feeError">
-            <div class="row">
-              <br />
-              <div class="col-lg-4 col-md-5 text-danger">
-                No Fee found
-              </div>
-            </div>
+            <NoContentError>No Fee found</NoContentError>
           </span>
           <table v-else-if="table.rows.length > 0 && !feeError" class="table table-striped">
             <thead>
@@ -27,21 +22,17 @@
               <tr v-for="data in table.rows" :key="data.id">
                 <td>{{data.name}}</td>
                 <td>{{data.description}}</td>                
-                <td>{{data.withdrawal_bank_account_id}}</td>
+                <td v-if="data.withdrawal_bank_account">{{data.withdrawal_bank_account.account_number}}</td>
+                <td v-else>{{'not provided'}}</td>
                 <td>{{data.percent_fee}}</td>
                 <td>{{data.fixed_fee}}</td>
                 <td>{{data.is_crypto}}</td>
-                <td>{{data.withdrawal_wallet_id}}</td>
+                <td>{{data.withdrawal_wallet}}</td>
               </tr>
             </tbody>
           </table>
           <span v-else-if="feeError">
-            <div class="row">
-              <br />
-              <div class="col-lg-4 col-md-5 text-danger">
-                {{feeError}}
-              </div>
-            </div>
+            <AuthError>{{feeError}}</AuthError>
           </span>
         </div>
       </div>
@@ -49,48 +40,47 @@
   </div>
 </template>
 <script>
-  import { mapActions, mapGetters } from "vuex"
+  import { mapActions, mapGetters } from 'vuex'
   export default {
-    data () {  
+    data () {
       return {
         table: {
           columns: ['Name',
-          'Description',
-          'Withdrawal Bank Acc No',
-          'Percent Fee',
-          'Fixed Fee',
-          'Is Crypto',
-          'Withdrawal Wallet Name'
+            'Description',
+            'Withdrawal Bank Acc No',
+            'Percent Fee',
+            'Fixed Fee',
+            'Is Crypto',
+            'Withdrawal Wallet Name'
           ],
-          rows: []
+          rows: [],
         },
         feeError: ''
       }
     },
-    mounted() {
-      this.getfee();
+    mounted () {
+      this.getfee()
     },
     computed: {
-      ...mapGetters("admin", {
-        response: "fees",
+      ...mapGetters('admin', {
+        response: 'fees',
         error: 'error',
         loading: 'loading'
       })
     },
     methods: {
-      ...mapActions("admin", ["getFees"]),
-      ...mapActions("userCredentials", ["callWithToken"]),
-      getfee() {
+      ...mapActions('admin', ['getFees']),
+      ...mapActions('userCredentials', ['callWithToken']),
+      getfee () {
         this.callWithToken({
           parameters: {},
           action: this.getFees
         }).then(() => {
           this.feeError = this.error
-          this.loading
           this.table.rows = this.response
         })
         return
-      },
+      }
     }
   }
 

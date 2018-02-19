@@ -12,10 +12,10 @@
         <div class="row">
         </div>
           <div class="col-md-6">
-            <fg-input v-validate="'required|min:2'" 
-                      type="text" 
-                      :class="{'input': true, 'is-danger': errors.has('title') }" 
-                      name="title" 
+            <fg-input v-validate="'required|min:2'"
+                      type="text"
+                      :class="{'input': true, 'is-danger': errors.has('title') }"
+                      name="title"
                       label="Title"
                       placeholder="NGN Wallet"
                       v-model="walletType.title">
@@ -26,10 +26,10 @@
             </FieldError>
           </div>
           <div class="col-md-6">
-            <fg-input v-validate="'required'" 
-                      type="text" 
-                      :class="{'input': true, 'is-danger': errors.has('currency') }" 
-                      name="currency" 
+            <fg-input v-validate="'required'"
+                      type="text"
+                      :class="{'input': true, 'is-danger': errors.has('currency') }"
+                      name="currency"
                       label="Currency"
                       placeholder="NGN"
                       v-model="walletType.currency">
@@ -42,8 +42,8 @@
           <div class="col-md-6">
             <fg-input type="decimal"
                       v-validate="'required|decimal'"
-                      :class="{'input': true, 'is-danger': errors.has('balance') }" 
-                      name="balance" 
+                      :class="{'input': true, 'is-danger': errors.has('balance') }"
+                      name="balance"
                       label="Initial Balance"
                       placeholder="0.00"
                       v-model="walletType.initialBalance">
@@ -56,16 +56,16 @@
           <div class="col-md-12">
             <!-- <fg-input type="decimal"
                       v-validate="'required|decimal'"
-                      :class="{'input': true, 'is-danger': errors.has('balance') }" 
-                      name="balance" 
+                      :class="{'input': true, 'is-danger': errors.has('balance') }"
+                      name="balance"
                       label="Initial Balance"
                       placeholder="0.00"
                       v-model="walletType.initialBalance">
             </fg-input> -->
 
-            <drop-down title="Actions" icon="" 
+            <drop-down title="Actions" icon=""
                 class="form-control"
-                name="actions" 
+                name="actions"
                 v-model="walletType.actions"
                 v-validate="'required'">
               <li><a href="#">Fund</a></li>
@@ -79,12 +79,12 @@
             </FieldError>
           </div>
           <!-- <div class="col-md-12">
-            <fg-input v-validate="'required|min:6'"  
+            <fg-input v-validate="'required|min:6'"
                 v-model="user.password"
-                :class="{'input': true, 'is-danger': errors.has('password') }" 
-                name="password" 
+                :class="{'input': true, 'is-danger': errors.has('password') }"
+                name="password"
                 label="Password"
-                type="password" 
+                type="password"
                 placeholder="Password">
             </fg-input>
 
@@ -109,27 +109,27 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
-  name: "signup",
-  destroyed() {
-    this.$_$destroyedHook();
+  name: 'signup',
+  destroyed () {
+    this.$_$destroyedHook()
   },
-  data() {
+  data () {
     return {
       walletType: {
-        title: "",
+        title: '',
         actions: [],
-        currency: "",
+        currency: '',
         initialBalance: null,
-        feeId: "",
-        isCrypto: ""
+        feeId: '',
+        isCrypto: ''
       }
-    };
+    }
   },
   computed: {
-    ...mapGetters("register", ["error", "fieldErrors", "loading"])
+    ...mapGetters('register', ['error', 'fieldErrors', 'loading'])
 
     // isUserClient() {
     //     const clientType = this.$_$userTypesObject.client.id
@@ -137,24 +137,24 @@ export default {
     // },
   },
   methods: {
-    ...mapActions("register", ["register", "resetState", "clearErrors"]),
+    ...mapActions('register', ['register', 'resetState', 'clearErrors']),
 
-    clearFields() {
+    clearFields () {
       this.walletType = {
-        title: "",
+        title: '',
         actions: [],
-        currency: "",
+        currency: '',
         initialBalance: null,
-        feeId: "",
-        isCrypto: ""
-      };
+        feeId: '',
+        isCrypto: ''
+      }
     },
 
-    redirectBack() {
-      this.$router.push({ name: "admin-wallet-types" });
+    redirectBack () {
+      this.$router.push({ name: 'admin-wallet-types' })
     },
 
-    validateBeforeSubmit() {
+    validateBeforeSubmit () {
       this.$validator.validateAll().then(result => {
         if (result) {
           // eslint-disable-next-line
@@ -166,21 +166,21 @@ export default {
             phone: this.user.phone,
             password: this.user.password,
             type: this.user.userType
-          };
+          }
 
-          const self = this;
-          this.register(args).then(function(status) {
+          const self = this
+          this.register(args).then(function (status) {
             if (status.state === true) {
-              self.clearFields();
-              self.redirectBack();
+              self.clearFields()
+              self.redirectBack()
             }
-          });
-          return;
+          })
+          return
         }
-      });
+      })
     }
   }
-};
+}
 </script>
 <style>
 
