@@ -4,7 +4,7 @@
       <div><i class="fa fa-arrow-down"></i> Receive {{selectedWallet.title}}.</div>
       <div class="text-center mt-10">
         <qrcode value="Hello, World!" :options="{ size: 150 }"></qrcode>
-        <input type="text" class="form-control" :value="selectedWallet.title">
+        <label class="form-control">1BvBMSEYstWetqTFn5Au4m4GFg7xJaNVN2</label>
         <button type="submit" class="btn btn-info btn-block btn-fill btn-wd mt-10">
           Copy Address
         </button>

@@ -118,6 +118,9 @@
         this.setreceiveModal()
         this.setSeletedWallet(this.wallet)
       },
+      routeHandler(){
+        this.setSeletedWallet(this.wallet)
+      },
       getStatusClass (status) {
         switch (status) {
           case 'Offline':

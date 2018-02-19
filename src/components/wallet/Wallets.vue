@@ -45,7 +45,7 @@
           {
               id:1,
             title: 'NGN Wallet',
-            image: 'static/img/faces/face-0.jpg',
+            image: '/static/img/naira.png',
             balance: '5000.00',
             available: '5000.00',
             type:'NGN',
@@ -54,7 +54,7 @@
           {
             id:2,
             title: 'BTC Wallet',
-            image: 'static/img/faces/face-0.jpg',
+            image: '/static/img/bitcoin.png',
             balance: '0.00',
             available: '0.00',
             type:'BTC',
@@ -63,7 +63,7 @@
           {
             id:3,
             title: 'ETH Wallet',
-            image: 'static/img/faces/face-0.jpg',
+            image: '/static/img/eth.png',
             balance: '0.0103790',
             available: '0.0103790',
             type:'ETH',

@@ -70,7 +70,7 @@ const actions = {
   getWithdrawalRequests ({ dispatch, commit, state }, dargs) {
     // Loading
     commit('loading')
-    return withdrawRequestApi.getwithDrawalRequests(dargs)
+    return withdrawRequestApi.getwithdrawalRequests(dargs)
       .then((result) => {
         if (result.error === undefined) {
           // Successful

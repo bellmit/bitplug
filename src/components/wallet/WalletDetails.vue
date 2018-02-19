@@ -16,7 +16,7 @@
       >
     </WalletDetails>
     </el-tab-pane>
-    <el-tab-pane label="Config" name="second">
+    <el-tab-pane label="Transactions" name="second">
       <transaction ></transaction>
     </el-tab-pane>
   </el-tabs>
