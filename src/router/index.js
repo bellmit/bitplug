@@ -5,6 +5,7 @@ import Router from 'vue-router'
 
 // Flat
 import FlatLayout from '@/components/layouts/flat/Layout'
+import LandingPage from '@/components/home/LandingPage'
 import Login from '@/components/Login'
 import SignUp from '@/components/Signup'
 
@@ -13,7 +14,7 @@ import UserDashboard from '@/components/layouts/dashboard/Dashboard'
 import UserDashboardHome from '@/components/home/Home'
 import UserProfileLayout from '@/components/profile/Profile'
 import UserWallets from '@/components/wallet/Wallets'
-import UserWalletDetails from '@/components/wallet/walletDetails'
+import UserWalletDetails from '@/components/wallet/WalletDetails'
 import UserTransactions from '@/components/transactions/Transactions'
 import UserOrders from '@/components/orders/Orders'
 import UserPriceAlerts from '@/components/priceAlerts/PriceAlerts'
@@ -42,10 +43,14 @@ const router = new Router({
     // Flat pages
     {
       path: '/',
-      name: 'home',
       component: FlatLayout,
       // redirect: '/dashboard/profile',
       children: [
+        {
+          path: '/',
+          name: 'home',
+          component: LandingPage
+        },
         {
           path: 'signup',
           name: 'signup',
@@ -115,11 +120,11 @@ const router = new Router({
           name: 'exchange',
           component: Exchange
         },
-        {
-          path: 'price_alerts',
-          name: 'price_alerts',
-          component: UserPriceAlerts
-        },
+        // {
+        //   path: 'price_alerts',
+        //   name: 'price_alerts',
+        //   component: UserPriceAlerts
+        // },
         {
           path: 'settings',
           name: 'settings',

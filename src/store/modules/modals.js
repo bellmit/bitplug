@@ -22,7 +22,7 @@ const getters = {
   withdrawModal: state => state.sub.withdrawModal,
   receiveModal: state => state.sub.receiveModal,
   adminWithdrawModal: state => state.sub.adminWithdrawModal,
-  uploadPicsModalId: state => state.sub.uploadPicsModalId,
+  uploadPicsModalId: state => state.sub.uploadPicsModalId
 }
 
 // actions

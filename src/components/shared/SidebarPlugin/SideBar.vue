@@ -11,9 +11,9 @@
       <div class="logo">
         <router-link :to="{ name: 'home' }" class="simple-text">
             <div class="logo-img">
-                <img src="static/img/vue-logo.png" alt="">
+                <img src="/static/img/bitplug-logo.png" alt="">
             </div>
-          BitPlug
+          <h6 style="display:inline-block">BitPlug</h6>
         </router-link>
       </div>
       <slot>
@@ -54,7 +54,7 @@
       },
       backgroundColor: {
         type: String,
-        default: 'black',
+        default: 'darkblue',
         validator: (value) => {
           let acceptedValues = ['white', 'black', 'darkblue']
           return acceptedValues.indexOf(value) !== -1

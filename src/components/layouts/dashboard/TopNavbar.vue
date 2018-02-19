@@ -63,7 +63,7 @@
           'user',
       ]),
       username () {
-        return this.user.first_name + ' ' + this.user.last_name
+        return (this.user.first_name || '') + ' ' + (this.user.last_name || '')
       },
       routeName () {
         const {name} = this.$route
