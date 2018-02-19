@@ -109,12 +109,12 @@
   </div>
 </template>
 <script>
-import { mapActions, mapGetters } from 'vuex';
+import { mapActions, mapGetters } from 'vuex'
 
 export default {
   name: 'signup',
   destroyed () {
-    this.$_$destroyedHook();
+    this.$_$destroyedHook()
   },
   data () {
     return {
@@ -151,7 +151,7 @@ export default {
     },
 
     redirectBack () {
-      this.$router.push({ name: 'admin-wallet-types' });
+      this.$router.push({ name: 'admin-wallet-types' })
     },
 
     validateBeforeSubmit () {
@@ -168,7 +168,7 @@ export default {
             type: this.user.userType
           }
 
-          const self = this;
+          const self = this
           this.register(args).then(function (status) {
             if (status.state === true) {
               self.clearFields()
