@@ -2,7 +2,7 @@
   <div>
     <ul class="nav nav-tabs">
       <li class="active"><a data-toggle="tab" href="#walletType">Wallet Types</a></li>
-      <li><a data-toggle="tab" href="#platformWallet">PlatForm Wallets</a></li>
+      <li><a data-toggle="tab" href="#platformWallet">Platform Wallets</a></li>
     </ul>
 
     <div class="tab-content">
@@ -26,14 +26,26 @@
           </div>
           <PictureModal />
         </span>
-        <span v-else-if="walletError">
-          <FetchError>{{walletError}}</FetchError>
-        </span>
+        <div v-else-if="walletError" class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="content">
+                <FetchError>{{walletError}}</FetchError>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
       <div id="platformWallet" class="tab-pane fade">
-        <span v-if="platformError">
-          <FetchError>{{platformError}}</FetchError>
-        </span>
+        <div v-if="platformError" class="row">
+          <div class="col-md-12">
+            <div class="card">
+              <div class="content">
+                <FetchError>{{platformError}}</FetchError>
+              </div>
+            </div>
+          </div>
+        </div>
         <span v-else-if="loading">
           <div class="row">
             <br />
