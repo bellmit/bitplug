@@ -1,9 +1,13 @@
 <template>
   <div class="row">
-    <vodalModal :show="beneficiaryModal" animation="zoom" :width="400" :height="300" @hide="clearModals">
+    <vodalModal :show="beneficiaryModal" animation="zoom" :width="400" :height="400" @hide="clearModals">
       <div>Card Details</div>
 
       <div class="row">
+        <div class="col-md-12 mt-100">
+          <input type="text" class="form-control" placeholder="Amount" v-model="amount">
+        </div>
+
         <div class="col-md-12 mt-100">
           <input type="text" class="form-control" placeholder="Card Number" v-model="card_number">
         </div>
@@ -18,7 +22,7 @@
         </div>
         <div class="col-md-12 mt-100">
           <button type="submit" class="btn btn-info btn-block btn-fill">
-            Copy Address
+            Fund
           </button>
         </div>
       </div>
@@ -33,7 +37,8 @@
       return {
         month_Year:'',
         cvv:'',
-        card_number:''
+        card_number:'',
+        amount:''
       }
     },
     computed:{

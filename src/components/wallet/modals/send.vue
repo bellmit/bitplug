@@ -43,7 +43,7 @@
             <span v-else>0.000483 ETH (0.56 USD)</span>
           </p>
           <button type="submit" class="btn btn-info btn-block btn-fill btn-wd mt-10">
-            Copy Address
+            Send
           </button>
         </div>
       </div>
