@@ -8,7 +8,6 @@ import PlainCard from './components/shared/cards/PlainCard.vue'
 
 import SavageDropzone from './plugins/savage_dropzone/index.vue'
 import BannerError from './components/shared/bannerError'
-import AuthError from './components/shared/AuthError'
 import BannerSuccess from './components/shared/bannerSuccess'
 import FetchError from './components/shared/fetchError'
 import FieldError from './components/shared/fieldError'
@@ -46,7 +45,6 @@ const GlobalComponents = {
     Vue.component('PlainCard', PlainCard)
 
     Vue.component('SavageDropzone', SavageDropzone)
-    Vue.component('AuthError', AuthError)
     Vue.component('BannerError', BannerError)
     Vue.component('BannerSuccess', BannerSuccess)
     Vue.component('FetchError', FetchError)
