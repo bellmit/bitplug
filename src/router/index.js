@@ -4,7 +4,7 @@ import Router from 'vue-router'
 // Generic
 
 // Flat
-import FlatLayout from '@/components/layouts/flat/Layout'
+import FlatLayout from '@/components/layouts/flat/Layouts'
 import LandingPage from '@/components/home/LandingPage'
 import Login from '@/components/Login'
 import SignUp from '@/components/Signup'
