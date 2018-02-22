@@ -4,6 +4,8 @@ import Router from 'vue-router'
 // Generic
 
 // Flat
+import Home from '@/components/layouts/new/Home'
+
 import FlatLayout from '@/components/layouts/flat/Layouts'
 import LandingPage from '@/components/home/LandingPage'
 import Login from '@/components/Login'
@@ -41,6 +43,11 @@ const router = new Router({
   mode: 'history',
   routes: [
     // Flat pages
+    {
+      path: '/home',
+      name: 'BitplugHome',
+      component: Home
+    },
     {
       path: '/',
       component: FlatLayout,
