@@ -25,14 +25,20 @@
       <h4 class="help-center-subheader">Popular Topics</h4>      
     </div>
     <div class="row popular-topic-button-container">
-      <div class="col-md-4 popular-topic-button">
-        2-factor authentication
+      <div class="col-md-4">
+        <div class="popular-topic-button">
+          2-factor authentication          
+        </div>
       </div>
-      <div class="col-md-4 popular-topic-button">
-        How do I buy coins?
+      <div class="col-md-4">
+        <div class="popular-topic-button">
+           How do I buy coins?   
+        </div>
       </div>
-      <div class="col-md-4 popular-topic-button">
-        How do I create a new ...
+      <div class="col-md-4">
+        <div class="popular-topic-button">
+           How do I create a new ...
+        </div>
       </div>
     </div>
   </div>
@@ -78,7 +84,8 @@
             <div class="knowledge-base-image-container community">
             </div>
             <p class="knowledge-base-text">Community</p>
-            <div class="knowledge-base-subtext">Information on getting started and getting your account up and running</div>            
+            <div class="knowledge-base-subtext">Information on getting started and getting your account up and running</div>
+            
           </div>
         </div>
       </div>
@@ -88,7 +95,6 @@
             <div class="knowledge-base-image-container verify">
             </div>
             <p class="knowledge-base-text">Identity Verification</p>
-            <div class="knowledge-base-subtext">Information on getting started and getting your account up and running</div>            
           </div>
         </div>
       </div>

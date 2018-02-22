@@ -358,15 +358,15 @@ select.selectpicker, .selectpicker {
     height: 100%;
 
     .fees-and-feature-list-container {
-      margin-right: 8%;
-      margin-left: 8%;
-      margin-bottom: 4%;
+      margin: 0 auto;
+      padding: 20px;
   
       .fees-and-feature-list {
         height: 20rem;
-        width: 230px;
+        width: 100%;
         font-size: 1rem;
         margin-left: 0;
+        margin-bottom: 15px;
         -webkit-box-shadow: none;
         box-shadow: none;
         -webkit-box-sizing: content-box;
@@ -470,10 +470,8 @@ select.selectpicker, .selectpicker {
     margin-top: -30px;
     background-color: white;
     .popular-topic-button-container {
-      margin-left: 15%;
-      margin-right: 10%;
       color: white;
-      padding-bottom: 60px;
+      padding: 20px 40px;
 
       .popular-topic-button {
         cursor: pointer;
@@ -497,13 +495,11 @@ select.selectpicker, .selectpicker {
     background-color: #F7F7F7;
     margin-top: -30px;
     .knowledge-base-list-container {
-      margin-right: 4%;
-      margin-left: 5%;
-      margin-bottom: 4%;
+      padding: 20px;
     }
     .knowledge-base-list {
       height: 250px;
-      width: 250px;
+      width: 100%;
       font-size: 1rem;
       margin-left: 0;
       margin-bottom: 15px;
