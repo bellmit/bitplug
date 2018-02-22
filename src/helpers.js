@@ -142,7 +142,7 @@ export function isVerificationErr(statusCode) {
 // float
 // function
 // var
-// const          
+// const
 // var red = red
 // var dan = document.getElementById('daniel')
 
@@ -487,6 +487,7 @@ export function redirectHome (type) {
     // } else {
     //     vm.$router.push('/')
     // }
+
     this.$router.push('/dashboard')
 }
 

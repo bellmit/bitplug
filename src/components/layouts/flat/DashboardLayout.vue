@@ -10,11 +10,12 @@
 
     </notifications>
     <div class="main-panel">
-      <top-navbar></top-navbar>
-      <dashboard-content @click.native="toggleSidebar">
+      <div class="bg-gradient">
+        <top-navbar></top-navbar>
+        <dashboard-content @click.native="toggleSidebar">
 
-      </dashboard-content>
-
+        </dashboard-content>
+      </div>
       <content-footer></content-footer>
     </div>
   </div>
@@ -25,7 +26,7 @@
 <script>
   import { mapGetters } from 'vuex'
   import TopNavbar from './TopNavbar.vue'
-  import ContentFooter from '../ContentFooter.vue'
+  import ContentFooter from './ContentFooter.vue'
   import DashboardContent from './Content.vue'
   export default {
     data () {

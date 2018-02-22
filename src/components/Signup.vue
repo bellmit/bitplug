@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row light-bg">
   <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
   <div class="card">
     <div class="header">
@@ -13,8 +13,8 @@
           <!-- <div class="col-md-6">
             <fg-input type="text"
                       v-validate="'min:2'"
-                      :class="{'input': true, 'is-danger': errors.has('first_name') }" 
-                      name="first_name" 
+                      :class="{'input': true, 'is-danger': errors.has('first_name') }"
+                      name="first_name"
                       label="First Name"
                       placeholder="First Name"
                       v-model="user.firstName">
@@ -27,8 +27,8 @@
           <div class="col-md-6">
             <fg-input type="text"
                       v-validate="'min:2'"
-                      :class="{'input': true, 'is-danger': errors.has('last_name') }" 
-                      name="last_name" 
+                      :class="{'input': true, 'is-danger': errors.has('last_name') }"
+                      name="last_name"
                       label="Last Name"
                       placeholder="Last Name"
                       v-model="user.lastName">
@@ -40,10 +40,10 @@
           </div> -->
         </div>
           <div class="col-md-12">
-            <fg-input v-validate="'required|email'" 
-                      type="email" 
-                      :class="{'input': true, 'is-danger': errors.has('email') }" 
-                      name="email" 
+            <fg-input v-validate="'required|email'"
+                      type="email"
+                      :class="{'input': true, 'is-danger': errors.has('email') }"
+                      name="email"
                       label="Email"
                       placeholder="Email"
                       v-model="user.email">
@@ -56,8 +56,8 @@
           <!-- <div class="col-md-6">
             <fg-input type="number"
                       v-validate="'required|min:11|max:11'"
-                      :class="{'input': true, 'is-danger': errors.has('phone') }" 
-                      name="phone" 
+                      :class="{'input': true, 'is-danger': errors.has('phone') }"
+                      name="phone"
                       label="Phone Number"
                       placeholder="Phone Number"
                       v-model="user.phone">
@@ -68,12 +68,12 @@
             </FieldError>
           </div> -->
           <div class="col-md-12">
-            <fg-input v-validate="'required|min:6'"  
+            <fg-input v-validate="'required|min:6'"
                 v-model="user.password"
-                :class="{'input': true, 'is-danger': errors.has('password') }" 
-                name="password" 
+                :class="{'input': true, 'is-danger': errors.has('password') }"
+                name="password"
                 label="Password"
-                type="password" 
+                type="password"
                 placeholder="Password">
             </fg-input>
 
@@ -99,7 +99,7 @@
 </template>
 <script>
   import { mapActions, mapGetters } from 'vuex'
-  
+
   export default {
     name: 'signup',
     destroyed () {
