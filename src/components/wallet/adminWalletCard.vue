@@ -85,16 +85,18 @@
         walletId: this.wallet.id,
       }
     },
+    mounted() {
+      this.setuploadPicsModalId(this.walletId)
+    },
     computed: {
       ...mapGetters("modals", ["uploadPicsModalId"])
     },
     methods: {
        ...mapActions('modals', [
-        'setuploadPicsModal',
+        'setuploadPicsModal', 'setuploadPicsModalId'
       ]),
       upload() {
-        this.setuploadPicsModal(this.walletId)
-        console.log('uploadPicsModalId', this.uploadPicsModalId)
+        this.setuploadPicsModal()
       },
       getStatusClass (status) {
         switch (status) {
