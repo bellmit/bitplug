@@ -341,3 +341,220 @@ select.selectpicker, .selectpicker {
     }
   }
 }
+
+.fees-and-feature {
+  color: #292929;
+  
+  .fees-and-feature-header {
+    padding-top: 20px;
+    text-align: center;
+  }
+
+  .fees-and-feature-sub-header {
+    margin-left: 20%;
+  }
+  .features {
+    background-color: #FFFFFF;
+    height: 100%;
+
+    .fees-and-feature-list-container {
+      margin-right: 8%;
+      margin-left: 8%;
+      margin-bottom: 4%;
+  
+      .fees-and-feature-list {
+        height: 20rem;
+        width: 230px;
+        font-size: 1rem;
+        margin-left: 0;
+        -webkit-box-shadow: none;
+        box-shadow: none;
+        -webkit-box-sizing: content-box;
+        box-sizing: content-box;
+        padding-left: 10px;
+        outline: none;
+        -webkit-transition: all 0.3s;
+        transition: all 0.3s;
+        border-width: 0.3px;
+        border-style: solid;
+        border-color: #00B0DC;
+        -o-border-image: initial;
+        border-image: initial;
+      }
+      .fees-and-feature-image {
+        width: 70px;
+        margin-top: 30px;
+        margin-left: 30%;
+        margin-bottom: 30px;
+      }
+      .buy {
+        width: 36px;
+      }
+      .api {
+        width: 94px;
+      }
+      .fees-and-feature-list-content {
+        margin: 20px;
+      }
+      .fees-and-feature-text {
+        font-size: 22px;
+        text-align: center;
+      }
+    }
+  }
+  .fees {
+    margin-top: -30px;
+    background-color: #F7F7F7;
+    .fees-content {
+      width: 80%;
+      margin-left: 10%;
+    }
+    .card {
+      border-width: 1.3px;
+      border-style: solid;
+      border-color: #00B0DC;
+    }
+  }
+}
+
+.help-center {
+  .help-center-nav-content {
+    text-align: center;
+    color: white;
+    background-color: #00B0DC;
+  }
+  .help-center-subheader {
+    text-align: center;
+    font-weight: 500;
+    padding-top: 20px;
+  }
+  #custom-search-input {
+    width: 60%;
+    margin-top: 10px;
+    margin-left: 20%;
+    padding-bottom: 30px;
+  }
+
+  #custom-search-input .search-query {
+    padding-right: 3px;
+    padding-right: 4px \9;
+    padding-left: 10px;
+    padding-left: 4px \9;
+    height: 55px;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    background-color: white;
+  }
+
+  #custom-search-input button {
+    border: 0;
+    background: none;
+    padding: 2px 5px;
+    margin-top: 2px;
+    position: relative;
+    left: -28px;
+    margin-bottom: 0;
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    color:#00B0DC;
+  }
+  .search-query:focus + button {
+    // z-index: 3;   
+  }
+
+  .popular-topic-container {
+    color: #292929;
+    margin-top: -30px;
+    background-color: white;
+    .popular-topic-button-container {
+      margin-left: 15%;
+      margin-right: 10%;
+      color: white;
+      padding-bottom: 60px;
+
+      .popular-topic-button {
+        cursor: pointer;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        border-width: 2px;
+        background-color: #00B0DC;
+        border-color: #00B0DC;
+        font-size: 18px;
+        font-weight: 500;
+        padding: 7px 18px;
+        border-style: solid;
+        padding-top: 13px;
+        height: 58px;
+        width: 260px;
+        margin-left: 30px;
+      }
+    }
+  }
+  .knowledge-base-container {
+    background-color: #F7F7F7;
+    margin-top: -30px;
+    .knowledge-base-list-container {
+      margin-right: 4%;
+      margin-left: 5%;
+      margin-bottom: 4%;
+    }
+    .knowledge-base-list {
+      height: 250px;
+      width: 250px;
+      font-size: 1rem;
+      margin-left: 0;
+      margin-bottom: 15px;
+      -webkit-box-sizing: content-box;
+      box-sizing: content-box;
+      padding-left: 10px;
+      -webkit-transition: all 0.3s;
+      transition: all 0.3s;
+      border-width: 0.3px;
+      border-style: solid;
+      border-color: #00B0DC;
+      background-color: white;
+    }
+    .knowledge-base-list-content {
+      margin: 20px;
+    }
+    .knowledge-base-image-container {
+      height: 100px;
+      width: 100px;
+      margin: 0 auto;
+      border-radius: 50%;
+      background-color: #1076B0;
+      background-position:50% 50%;
+      background-size: 65px 65px;
+      background-repeat:no-repeat;
+    }
+    .gettingStarted {
+      background-image: url('../img/startup.png');
+    }
+    .secureAccount{
+      background-image: url('../img/bitcoin1.png');
+    }
+    .buyAndSell{
+      background-image: url('../img/flash.png');
+    }
+    .community{
+      background-image: url('../img/conversation.png');
+    }
+    .verify{
+      background-image: url('../img/shield.png');
+    }
+    p.knowledge-base-text {
+      text-align: center;
+      font-weight: 500;
+      margin-top: 20px;
+      font-size: 16px
+    }
+    div.knowledge-base-subtext {
+      // font-size: 10px;
+      // font-weight: 100;
+      color: #999999;
+    }
+  }
+}

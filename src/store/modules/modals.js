@@ -39,8 +39,11 @@ const actions = {
   setreceiveModal ({ commit, state }) {
     commit('setreceiveModal')
   },
-  setuploadPicsModal ({ commit, state }, dargs) {
-    commit('setuploadPicsModal', dargs)
+  setuploadPicsModal ({ commit, state }) {
+    commit('setuploadPicsModal')
+  },
+  setuploadPicsModalId ({ commit, state }, dargs) {
+    commit('setuploadPicsModalId', dargs)
   },
   setwithdrawModal ({ commit, state }) {
     commit('setwithdrawModal')
@@ -93,8 +96,11 @@ const mutations = {
     state.sub.receiveModal = true
   },
 
-  setuploadPicsModal (state, dargs) {
+  setuploadPicsModal (state) {
     state.sub.uploadPicsModal = true
+  },
+
+  setuploadPicsModalId (state, dargs) {
     state.sub.uploadPicsModalId = dargs
   },
 

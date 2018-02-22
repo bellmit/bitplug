@@ -29,6 +29,7 @@ import EditWalletType from '@/components/wallet/forms/EditWalletType'
 import AdminTransactions from '@/components/transactions/AdminTransactions'
 import AdminMarkets from '@/components/markets/Markets'
 import AdminFees from '@/components/fees/AdminFees'
+import FeesAndFeature from '@/components/fees/FeesAndFeature'
 import WithdrawalRequests from '@/components/wallet/WithdrawalRequests'
 
 import OrderBook from '@/components/orders/OrderBook'
@@ -75,6 +76,11 @@ const router = new Router({
           path: 'fees',
           name: 'fees',
           component: HelpCenter
+        },
+        {
+          path: 'features',
+          name: 'features',
+          component: FeesAndFeature
         }
       ]
     },
