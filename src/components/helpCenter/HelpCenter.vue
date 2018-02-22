@@ -2,18 +2,18 @@
 <div class="help-center">
   <div class="help-center-nav-container">
     <div class="help-center-nav-content">
-     <h2>
+     <h2 class="help-center-nav-header">
       Help Centre        
      </h2>
-     <h4>
+     <h4 class="help-center-nav-subheader">
        What can we help you with?
      </h4>
     <div id="custom-search-input">
       <div class="input-group col-md-12">
-        <input type="text" class="search-query form-control" placeholder="Search" />
+        <input type="text" class="search-query form-control" placeholder="type to search for a topic or term" />
         <span class="input-group-btn">
           <button class="btn btn-danger" type="button">
-            <span class=" glyphicon glyphicon-search"></span>
+            <span class="glyphicon glyphicon-search"></span>
           </button>
         </span>
       </div>
@@ -27,17 +27,26 @@
     <div class="row popular-topic-button-container">
       <div class="col-md-4">
         <div class="popular-topic-button">
-          2-factor authentication          
+          <span class="remove-icon glyphicon glyphicon-remove"></span>
+          <span class="popular-topic-text">
+            2-factor authentication   
+          </span>
         </div>
       </div>
       <div class="col-md-4">
         <div class="popular-topic-button">
-           How do I buy coins?   
+          <span class="remove-icon glyphicon glyphicon-remove"></span>
+          <span class="popular-topic-text">
+            How do I buy coins?   
+          </span>
         </div>
       </div>
       <div class="col-md-4">
         <div class="popular-topic-button">
-           How do I create a new ...
+          <span class="remove-icon glyphicon glyphicon-remove"></span>
+          <span class="popular-topic-text">
+            How do I create a new ...
+          </span>
         </div>
       </div>
     </div>
@@ -85,7 +94,6 @@
             </div>
             <p class="knowledge-base-text">Community</p>
             <div class="knowledge-base-subtext">Information on getting started and getting your account up and running</div>
-            
           </div>
         </div>
       </div>
@@ -95,6 +103,7 @@
             <div class="knowledge-base-image-container verify">
             </div>
             <p class="knowledge-base-text">Identity Verification</p>
+            <div class="knowledge-base-subtext">Information on getting started and getting your account up and running</div>
           </div>
         </div>
       </div>
