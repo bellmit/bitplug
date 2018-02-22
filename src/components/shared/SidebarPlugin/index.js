@@ -28,6 +28,16 @@ const SidebarStore = {
       name: 'Exchange',
       icon: 'ti-stats-up',
       path: '/dashboard/exchange'
+    },
+    {
+      name: 'Fees & Features',
+      icon: 'ti-money',
+      path: '/fees'
+    },
+    {
+      name: 'Help Center',
+      icon: 'ti-help-alt',
+      path: '/help-center'
     }
     // {
     //   name: 'Price Alerts',

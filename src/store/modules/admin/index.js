@@ -80,6 +80,10 @@ const actions = {
           // Use response body
           const data = result.data
           commit('withdrawRequestTypeRetrieved', data)
+        } else {
+          commit('clearErrors')
+          commit('setError', result.error)
+          commit('stopLoading')
         }
       })
   },
@@ -96,6 +100,10 @@ const actions = {
 
           // Use response body
           this.getWithdrawalRequests
+        } else {
+          commit('clearErrors')
+          commit('setError', result.error)
+          commit('stopLoading')
         }
       })
   },
@@ -112,6 +120,10 @@ const actions = {
 
           // Use response body
           this.getWithdrawalRequests
+        } else {
+          commit('clearErrors')
+          commit('setError', result.error)
+          commit('stopLoading')
         }
       })
   },
@@ -127,6 +139,10 @@ const actions = {
 
           // Use response body
           this.getWithdrawalRequests
+        } else {
+          commit('clearErrors')
+          commit('setError', result.error)
+          commit('stopLoading')
         }
       })
   },
@@ -143,6 +159,7 @@ const actions = {
           const data = result.data
           commit('platformWalletRetrieved', data)
         } else {
+          commit('clearErrors')
           commit('setError', result.error)
           commit('stopLoading')
         }
@@ -161,6 +178,7 @@ const actions = {
           // console.log('api response', data)
           commit('WalletByIdRetrieved', data)
         } else {
+          commit('clearErrors')
           commit('setError', result.error)
           commit('stopLoading')
         }

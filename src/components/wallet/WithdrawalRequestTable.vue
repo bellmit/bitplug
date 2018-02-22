@@ -37,7 +37,7 @@
             </tbody>
           </table>
           <span v-else-if="requestsError">
-            <AuthError>{{requestsError}}</AuthError>
+            <FetchError>{{requestsError}}</FetchError>
           </span>
         </div>
       </div>
