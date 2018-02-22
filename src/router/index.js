@@ -75,11 +75,6 @@ const router = new Router({
         {
           path: 'fees',
           name: 'fees',
-          component: HelpCenter
-        },
-        {
-          path: 'features',
-          name: 'features',
           component: FeesAndFeature
         }
       ]
