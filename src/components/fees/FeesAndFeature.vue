@@ -1,5 +1,8 @@
 <template>
 <div class="fees-and-feature">
+  <div class="fees-and-feature-nav">
+    <h3 class="fees-and-feature-nav-content">Fees and Features</h3>
+  </div>
   <div class="features">
     <h1 class="fees-and-feature-header">Features</h1>
     <div>
