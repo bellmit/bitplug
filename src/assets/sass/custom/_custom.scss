@@ -348,7 +348,6 @@ select.selectpicker, .selectpicker {
     text-align: center;
     color: white;
     height: 150px;
-    background-color: #1B8FC0;
     background-position: 22% 0;
     background-size: 250px 250px;
     margin-bottom: -30px;
@@ -356,8 +355,10 @@ select.selectpicker, .selectpicker {
     background-image: url('../img/loupe.png');
   }
   .fees-and-feature-nav-content {
+    font-size: 30px;
     padding-top: 20px;
-    font-weight: bold;
+    font-weight: 500;
+    color: white;
   }
   
   .fees-and-feature-header {
@@ -365,11 +366,14 @@ select.selectpicker, .selectpicker {
     font-weight: bold;
     font-size: 20px;
     text-align: center;
+    color: #292929;
   }
 
   .fees-and-feature-sub-header {
     margin-left: 20%;
     font-size: 16px;
+    font-weight: bold;
+    color: #292929;
   }
   .features {
     background-color: #FFFFFF;
@@ -418,6 +422,7 @@ select.selectpicker, .selectpicker {
       .fees-and-feature-text {
         font-size: 22px;
         text-align: center;
+        color: #292929;
       }
     }
   }
@@ -437,7 +442,6 @@ select.selectpicker, .selectpicker {
     padding-top: 10px;
     color: white;
     height: 260px;
-    background-color: #1B8FC0;
     background-position: 20% 10px;
     background-size: 300px 300px;
     background-repeat: no-repeat;
