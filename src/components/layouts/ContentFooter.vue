@@ -1,6 +1,6 @@
 <template>
   <footer class="footer">
-    <div class="container-fluid">
+    <div class="">
       <nav class="pull-left">
         <ul>
           <li>

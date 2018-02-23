@@ -355,14 +355,21 @@ select.selectpicker, .selectpicker {
     background-repeat: no-repeat;
     background-image: url('../img/loupe.png');
   }
+  .fees-and-feature-nav-content {
+    padding-top: 20px;
+    font-weight: bold;
+  }
   
   .fees-and-feature-header {
     padding-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
     text-align: center;
   }
 
   .fees-and-feature-sub-header {
     margin-left: 20%;
+    font-size: 16px;
   }
   .features {
     background-color: #FFFFFF;
@@ -406,6 +413,7 @@ select.selectpicker, .selectpicker {
       }
       .fees-and-feature-list-content {
         margin: 20px;
+        cursor: pointer;
       }
       .fees-and-feature-text {
         font-size: 22px;
@@ -420,23 +428,20 @@ select.selectpicker, .selectpicker {
       width: 80%;
       margin-left: 10%;
     }
-    .card {
-      border-width: 1.3px;
-      border-style: solid;
-      border-color: #00B0DC;
-    }
   }
 }
 
 .help-center {
   .help-center-nav-content {
     text-align: center;
+    padding-top: 10px;
     color: white;
+    height: 260px;
     background-color: #1B8FC0;
-    background-position: 22% 0;
-    background-size: 250px 250px;
+    background-position: 20% 10px;
+    background-size: 300px 300px;
     background-repeat: no-repeat;
-    background-image: url('../img/loupe.png');
+    background-image: url(/static/img/loupe.ed14f6a.png)
   }
   .help-center-nav-header {
     margin-bottom: 0;
