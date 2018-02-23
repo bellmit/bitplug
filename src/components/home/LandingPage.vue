@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <header id="home">
+  <div class="landing-page">
+    <header class="layout-header" id="home">
       <div class="container top-20">
-        <h2>Trade Cruptocurrencies Securely</h2>
+        <h2 class="h2 text-white text-center">Trade Cruptocurrencies Securely</h2>
 
-        <h5><strong>Bitplug</strong> is the <strong>easiest</strong> and <strong>safest</strong> way to buy, sell and manage your crypto-assets </h5>
+        <h5 class="h5 text-white text-center"><strong class="strong">Bitplug</strong> is the <strong class="strong">easiest</strong> and <strong class="strong">safest</strong> way to buy, sell and manage your crypto-assets </h5>
 
         <form class="form-inline text-center mt-10">
           <input type="text" class="form-control top-form input-icon-user"  placeholder="Jane Doe">
@@ -13,7 +13,7 @@
         </form>
       </div>
     </header>
-    <div class="section white-bg" id="features">
+    <div class="layout-section white-bg" id="features">
       <div class="container">
         <div class="row">
           <div class="col-12 col-lg-4">
@@ -25,8 +25,8 @@
 
                 <div class="media text-center mt-4">
                   <div class="media-body">
-                    <h4 class="card-title">Safe</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
+                    <h4 class="h4 card-title">Safe</h4>
+                    <p class="p card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
                   </div>
                 </div>
               </div>
@@ -41,8 +41,8 @@
 
                 <div class="media text-center mt-4">
                   <div class="media-body">
-                    <h4 class="card-title">Fast Transportation</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
+                    <h4 class="h4 card-title">Fast Transportation</h4>
+                    <p class="p card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
                   </div>
                 </div>
               </div>
@@ -57,8 +57,8 @@
 
                 <div class="media text-center mt-4">
                   <div class="media-body">
-                    <h4 class="card-title">Lowest Fees</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
+                    <h4 class="h4 card-title">Lowest Fees</h4>
+                    <p class="p card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer rutrum, urna eu pellentesque </p>
                   </div>
                 </div>
               </div>
@@ -67,16 +67,16 @@
         </div>
       </div>
     </div>
-    <!-- // end .section -->
-    <div class="section light-bg">
+    <!-- // end .layout-section -->
+    <div class="layout-section light-bg">
       <div class="container">
-        <div class="wrapper w-70">
+        <div class="layout-wrapper w-70">
           <div class="line"></div>
-          <h4 class="text-muted text-center">Trade on our Platform</h4>
+          <h4 class="h4 text-muted text-center">Trade on our Platform</h4>
           <div class="line"></div>
         </div>
         <div class="row">
-          <div class="card-wrapper">
+          <div class="card-layout-wrapper">
             <div class="card features" style="border-radius: 1%">
               <div class="inner">
                 Buy Coins
@@ -112,15 +112,15 @@
       </div>
 
     </div>
-    <!-- // end .section -->
-    <div class="section white-bg">
+    <!-- // end .layout-section -->
+    <div class="layout-section white-bg">
       <div class="container">
-        <div class="wrapper w-70 mb-lg-5">
+        <div class="layout-wrapper w-70 mb-lg-5">
           <div class="line"></div>
           <h4 class="text-muted text-center">Start in 3 Easy Steps</h4>
           <div class="line"></div>
         </div>
-        <div class="wrapper w-70">
+        <div class="layout-wrapper w-70">
           <div class="pair text-center">
             <h4 class="circle mb-lg-3 text-blue">1</h4>
             <small>Sign Up</small>
@@ -138,9 +138,9 @@
         </div>
       </div>
     </div>
-    <!-- // end .section -->
+    <!-- // end .layout-section -->
 
-    <div class="section bg-gradient">
+    <div class="layout-section bg-gradient">
       <div class="container text-center">
         <h3 class="text-white">Start Trading with Bitplug Today</h3>
         <h5 class="text-white">Securely store and trade your crypto-assets</h5>
