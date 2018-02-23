@@ -912,16 +912,22 @@ select.selectpicker, .selectpicker {
   color: #292929 !important;
 }
 
-.footer a {
-  display: inline-block !important;
-  width: 100%;
-  text-decoration: none;
-  font-size: 15px !important;
-  color: #292929;
-  &:hover {
-    color: #00B0DC;
+.footer{
+  padding: 3%;
+   a {
+    display: inline-block !important;
+    width: 100%;
+    text-decoration: none;
+    font-size: 15px !important;
+    color: #292929;
+    padding: 3%;
+    &:hover {
+      color: #00B0DC;
+    }
   }
 }
+
+
 
 
 @media (max-width: 767px) {
