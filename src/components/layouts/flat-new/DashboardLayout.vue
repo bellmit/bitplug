@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper body">
     <side-bar v-if="!isAuth" type="sidebar" :sidebar-links="$sidebar.flatSidebarLinks">
 
     </side-bar>

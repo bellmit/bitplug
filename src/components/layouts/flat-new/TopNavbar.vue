@@ -1,15 +1,15 @@
 <template>
-  <nav class="navbar navbar-default" :class="{'navbar-float': stickyNav }">
+  <nav class="navbar navbar-default transparent" :class="{'navbar-float': stickyNav }">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" :class="{toggled: $sidebar.showSidebar}" @click="toggleSidebar">
           <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar bar1"></span>
-          <span class="icon-bar bar2"></span>
-          <span class="icon-bar bar3"></span>
+          <span class="icon-bar bar1 bar-white"></span>
+          <span class="icon-bar bar2 bar-white"></span>
+          <span class="icon-bar bar3 bar-white"></span>
         </button>
-        <i class="navbar-brand more-icon" :class="{'ti-close': $sidebar.showFlatSidebar, 'ti-menu': !$sidebar.showFlatSidebar}" @click.prevent="toggleSidebarNav"></i>
-        <router-link to="/" class="navbar-brand">
+        <i class="navbar-brand text-white more-icon" :class="{'ti-close': $sidebar.showFlatSidebar, 'ti-menu': !$sidebar.showFlatSidebar}" @click.prevent="toggleSidebarNav"></i>
+        <router-link to="/" class="navbar-brand text-white">
           BITPLUG
         </router-link>
       </div>
@@ -53,13 +53,13 @@
             <li><a href="#">Another notification</a></li>
           </drop-down> -->
           <li class="open">
-            <router-link :to="{ name: 'profile'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
+            <router-link :to="{ name: 'profile'}" class="dropdown-toggle btn-magnify text-white" data-toggle="dropdown">
               <i class="ti-user"></i>
               <p>Profile</p>
             </router-link>
           </li>
           <li>
-            <router-link :to="{ name: 'settings'}" class="btn-rotate">
+            <router-link :to="{ name: 'settings'}" class="btn-rotate text-white">
               <i class="ti-settings"></i>
               <p>
                 Settings
@@ -67,7 +67,7 @@
             </router-link>
           </li>
           <li>
-            <a @click.prevent="logoutUser" class="btn-rotate">
+            <a @click.prevent="logoutUser" class="btn-rotate text-white">
               <i class="ti-shift-left"></i>
               <p>
                 Logout
@@ -157,5 +157,5 @@ export default {
 }
 </script>
 <style lang="scss">
-  @import '../../../assets/sass/extra.scss';
+
 </style>
