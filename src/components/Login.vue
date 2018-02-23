@@ -1,5 +1,5 @@
 <template>
-  <div class="row">
+  <div class="row light-bg">
   <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
     <div class="card">
         <div class="header">
@@ -12,13 +12,13 @@
               {{ redirectError || error }}
             </BannerError>
             <BannerError v-if="autherror" :exempt="true">{{ autherrorMsg }}</BannerError>
-            
+
             <div class="col-md-12">
                 <fg-input type="email"
                         label="Email"
                         v-validate="'required|email'"
-                        :class="{'input': true, 'is-danger': errors.has('email') }" 
-                        name="email" 
+                        :class="{'input': true, 'is-danger': errors.has('email') }"
+                        name="email"
                         placeholder="Email"
                         v-model="user.email">
                 </fg-input>
@@ -31,8 +31,8 @@
                 <fg-input type="password"
                         label="Password"
                         v-validate="'required|min:1'"
-                        :class="{'input': true, 'is-danger': errors.has('password') }" 
-                        name="password" 
+                        :class="{'input': true, 'is-danger': errors.has('password') }"
+                        name="password"
                         placeholder="Password"
                         v-model="user.password">
                 </fg-input>

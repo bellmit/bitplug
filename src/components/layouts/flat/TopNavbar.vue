@@ -9,7 +9,7 @@
           <span class="icon-bar bar3"></span>
         </button>
         <i class="navbar-brand more-icon" :class="{'ti-close': $sidebar.showFlatSidebar, 'ti-menu': !$sidebar.showFlatSidebar}" @click.prevent="toggleSidebarNav"></i>
-        <router-link to="" class="navbar-brand">
+        <router-link to="/" class="navbar-brand">
           BITPLUG
         </router-link>
       </div>
@@ -22,26 +22,24 @@
                <li><a href="#">Notification 4</a></li>
                <li><a href="#">Another notification</a></li>
              </drop-down> -->
-          <li>
-            <router-link :to="{ name: 'user-dashboard'}" class="btn-rotate">
-              <!-- <i class="ti-settings"></i> -->
-              <p>
-                FakeLogin
-              </p>
-            </router-link>
-          </li>
+          <!--<li>-->
+            <!--<router-link :to="{ name: 'user-dashboard'}" class="btn-rotate">-->
+              <!--&lt;!&ndash; <i class="ti-settings"></i> &ndash;&gt;-->
+              <!--<p>-->
+                <!--FakeLogin-->
+              <!--</p>-->
+            <!--</router-link>-->
+          <!--</li>-->
           <li>
             <router-link :to="{ name: 'login'}" class="btn-rotate">
               <!-- <i class="ti-settings"></i> -->
-              <p>
-                Sign in
-              </p>
+              <a class="btn btn-outline-big">Sign In</a>
             </router-link>
           </li>
           <li class="open">
             <router-link :to="{ name: 'signup'}" class="dropdown-toggle btn-magnify" data-toggle="dropdown">
               <!-- <i class="ti-help-alt"></i> -->
-              <p>Sign up</p>
+              <a class="btn btn-primary-big">Register</a>
             </router-link>
           </li>
         </ul>
@@ -158,6 +156,6 @@ export default {
   }
 }
 </script>
-<style>
-
+<style lang="scss">
+  @import '../../../assets/sass/extra.scss';
 </style>
