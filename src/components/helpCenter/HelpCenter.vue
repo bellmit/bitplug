@@ -58,7 +58,7 @@
     </div>
     <div class="row knowledge-base-list-container">
       <div class="col-md-3">
-        <div class="knowledge-base-list">
+        <div class="card knowledge-base-list">
           <div class="knowledge-base-list-content">
             <div class="knowledge-base-image-container gettingStarted">
             </div>
@@ -68,7 +68,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="knowledge-base-list">
+        <div class="card knowledge-base-list">
           <div class="knowledge-base-list-content">
             <div class="knowledge-base-image-container secureAccount">
             </div>
@@ -78,7 +78,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="knowledge-base-list">
+        <div class="card knowledge-base-list">
           <div class="knowledge-base-list-content">
             <div class="knowledge-base-image-container buyAndSell">
             </div>
@@ -88,7 +88,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="knowledge-base-list">
+        <div class="card knowledge-base-list">
           <div class="knowledge-base-list-content">
             <div class="knowledge-base-image-container community">
             </div>
@@ -98,7 +98,7 @@
         </div>
       </div>
       <div class="col-md-3">
-        <div class="knowledge-base-list">
+        <div class="card knowledge-base-list">
           <div class="knowledge-base-list-content">
             <div class="knowledge-base-image-container verify">
             </div>

@@ -348,11 +348,11 @@ select.selectpicker, .selectpicker {
     text-align: center;
     color: white;
     height: 150px;
-    background-position: 22% 0;
-    background-size: 250px 250px;
+    background-position: 27% 0%;
+    background-size: 274px 261px;
     margin-bottom: -30px;
     background-repeat: no-repeat;
-    background-image: url('../img/loupe.png');
+    background-image: url('../img/browser.svg');
   }
   .fees-and-feature-nav-content {
     font-size: 30px;
@@ -383,25 +383,17 @@ select.selectpicker, .selectpicker {
       margin: 0 auto;
       padding: 20px;
   
-      .fees-and-feature-list {
-        height: 20rem;
-        width: 100%;
+      .card.fees-and-feature-list {
+        border: 1px solid #00B0DC;
+        -webkit-transition: all 0.3s ease;
+        transition: all 0.3s ease;
         font-size: 1rem;
-        margin-left: 0;
-        margin-bottom: 15px;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-        -webkit-box-sizing: content-box;
-        box-sizing: content-box;
-        padding-left: 10px;
-        outline: none;
-        -webkit-transition: all 0.3s;
-        transition: all 0.3s;
-        border-width: 0.3px;
-        border-style: solid;
-        border-color: #00B0DC;
-        -o-border-image: initial;
-        border-image: initial;
+      }
+      .fees-and-feature-list:hover{
+        transform: translateY(-3px);
+        -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+        -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+        box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
       }
       .fees-and-feature-image {
         width: 70px;
@@ -496,9 +488,6 @@ select.selectpicker, .selectpicker {
     border-radius: 3px;
     color:#00B0DC;
   }
-  .search-query:focus + button {
-    // z-index: 3;   
-  }
 
   .popular-topic-container {
     color: #292929;
@@ -542,20 +531,15 @@ select.selectpicker, .selectpicker {
       padding: 20px;
     }
     .knowledge-base-list {
-      height: 250px;
-      width: 100%;
-      font-size: 1rem;
-      margin-left: 0;
-      margin-bottom: 15px;
-      -webkit-box-sizing: content-box;
-      box-sizing: content-box;
-      padding-left: 10px;
-      -webkit-transition: all 0.3s;
-      transition: all 0.3s;
-      border-width: 0.3px;
-      border-style: solid;
-      border-color: #00B0DC;
-      background-color: white;
+      border: 1px solid #00B0DC;
+      -webkit-transition: all 0.3s ease;
+      transition: all 0.3s ease;
+    }
+    .knowledge-base-list:hover{
+      transform: translateY(-3px);
+      -moz-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+      -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
+      box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
     }
     .knowledge-base-list-content {
       margin: 20px;
@@ -577,7 +561,7 @@ select.selectpicker, .selectpicker {
       background-image: url('../img/bitcoin1.png');
     }
     .buyAndSell{
-      background-image: url('../img/flash.png');
+      background-image: url('../img/group.svg');
     }
     .community{
       background-image: url('../img/conversation.png');
@@ -592,8 +576,6 @@ select.selectpicker, .selectpicker {
       font-size: 16px
     }
     div.knowledge-base-subtext {
-      // font-size: 10px;
-      // font-weight: 100;
       color: #999999;
     }
   }
