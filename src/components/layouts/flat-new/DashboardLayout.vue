@@ -10,6 +10,7 @@
 
     </notifications>
     <div class="main-panel">
+      <div class="bg-gradient">
         <top-navbar></top-navbar>
         <dashboard-content @click.native="toggleSidebar">
 
@@ -17,6 +18,7 @@
       </div>
       <content-footer></content-footer>
     </div>
+  </div>
 </template>
 <style lang="scss">
 

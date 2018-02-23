@@ -6,7 +6,8 @@ import Router from 'vue-router'
 // Flat
 import Home from '@/components/layouts/new/Home'
 
-import FlatLayout from '@/components/layouts/flat/Layouts'
+import NewFlatLayout from '@/components/layouts/flat-new/Layout'
+import FlatLayout from '@/components/layouts/flat/Layout'
 import LandingPage from '@/components/home/LandingPage'
 import Login from '@/components/Login'
 import SignUp from '@/components/Signup'
@@ -45,29 +46,13 @@ const router = new Router({
   routes: [
     // Flat pages
     {
-      path: '/home',
-      name: 'BitplugHome',
-      component: Home
-    },
-    {
       path: '/',
-      component: FlatLayout,
-      // redirect: '/dashboard/profile',
+      component: NewFlatLayout,
       children: [
         {
           path: '/',
           name: 'home',
           component: LandingPage
-        },
-        {
-          path: 'signup',
-          name: 'signup',
-          component: SignUp
-        },
-        {
-          path: 'login',
-          name: 'login',
-          component: Login
         },
         {
           path: 'exchange',
@@ -83,6 +68,23 @@ const router = new Router({
           path: 'fees',
           name: 'fees',
           component: FeesAndFeature
+        }
+      ]
+    },
+    {
+      path: '/',
+      component: FlatLayout,
+      // redirect: '/dashboard/profile',
+      children: [
+        {
+          path: 'signup',
+          name: 'signup',
+          component: SignUp
+        },
+        {
+          path: 'login',
+          name: 'login',
+          component: Login
         }
       ]
     },
