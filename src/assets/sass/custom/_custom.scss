@@ -55,9 +55,15 @@
 }
 
 .flat-view {
-    .more-icon {
-        display: none;
-    }
+  .wrapper{
+    height: inherit;
+  }
+  .more-icon {
+      display: none;
+  }
+  .navbar .btn{
+    margin: 0;
+  }
 
   .navbar-float {
     // background-color: white;
