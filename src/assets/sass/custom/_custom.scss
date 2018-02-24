@@ -60,11 +60,17 @@
     }
 
   .navbar-float {
-    background-color: white;
-    // position: fixed;
+    // background-color: white;
+    background-image: linear-gradient(135deg, #00B0DC 0%, #1076B0 100%);
+    position: fixed;
     width: 100%;
     height: 10%;
+    color: black;
+  }
 
+  .navbar-right {
+    position: relative;
+    margin-top: -1.5%;
   }
 }
 
@@ -648,7 +654,7 @@ select.selectpicker, .selectpicker {
     padding: 100px 0 0;
     text-align: center;
     color: #FFF;
-    height: 80vh;
+    height: 500px;
   }
 
   .top-20 {

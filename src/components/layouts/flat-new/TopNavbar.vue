@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default transparent" :class="{'navbar-float': stickyNav }">
+  <nav class="navbar navbar-default navbar-float">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" :class="{toggled: $sidebar.showSidebar}" @click="toggleSidebar">
