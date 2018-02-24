@@ -778,33 +778,6 @@ select.selectpicker, .selectpicker {
     margin: 0 auto;
   }
 
-  .bar-white{
-    background-color: #FFFFFF !important;
-  }
-
-  .transparent{
-    background-color: transparent;
-  }
-
-  .light-bg {
-    background-color: #F7F7F7;
-  }
-
-  .white-bg{
-    background-color: #FFFFFF;
-  }
-
-  .text-blue {
-    color: #00B0DC;
-  }
-
-  .text-white{
-    color: #FFFFFF !important;
-  }
-
-  .text-dark{
-    color: #292929 !important;
-  }
 }
 
 .body {
@@ -919,6 +892,35 @@ select.selectpicker, .selectpicker {
 
 .layout-footer-items:last-child {
   text-align: right;
+}
+
+.bar-white{
+  background-color: #FFFFFF !important;
+}
+
+
+.light-bg {
+  background-color: #F7F7F7;
+}
+
+.white-bg{
+  background-color: #FFFFFF;
+}
+
+.text-blue {
+  color: #00B0DC;
+}
+
+.text-white{
+  color: #FFFFFF !important;
+}
+
+.text-dark{
+  color: #292929 !important;
+}
+
+.transparent{
+  background-color: transparent;
 }
 
 @media (max-width: 1300px) {
