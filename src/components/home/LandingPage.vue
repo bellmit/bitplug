@@ -76,7 +76,7 @@
           <div class="line"></div>
         </div>
         <div class="row">
-          <div class="card-layout-wrapper">
+          <div class="card-layout-wrapper w-70">
             <div class="card landing-card-features" style="border-radius: 1%">
               <div class="landing-card-inner">
                 Buy Coins

@@ -692,6 +692,9 @@ select.selectpicker, .selectpicker {
     padding: 5% !important;
   }
 
+  .card-layout-wrapper{
+    margin: 0 auto;
+  }
 
   .landing-wrapper {
     display: flex;
@@ -701,6 +704,8 @@ select.selectpicker, .selectpicker {
     height: auto !important;
     min-height: auto !important;
   }
+
+
 
   .line {
     border-top: 1px solid #868e96;
