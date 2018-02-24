@@ -1,0 +1,85 @@
+<svg width="854" height="800" viewBox="0 0 854 800" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<title>browser</title>
+<desc>Created using Figma</desc>
+<g id="Canvas" transform="matrix(2 0 0 2 -13778 702)">
+<g id="browser">
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(6929 -311)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(6969 -311)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path0_fill" transform="translate(7249 -311)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(6955.67 -204.333)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path1_fill" transform="translate(6955.67 -97.6667)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(7062.33 -204.333)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path3_fill" transform="translate(7062.33 -151)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path2_fill" transform="translate(7062.33 -97.6667)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path3_fill" transform="translate(7062.33 -44.3333)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+<g id="Group">
+<g id="Group">
+<g id="Vector">
+<use xlink:href="#path4_fill" transform="translate(6889 -351)" fill="#FFFFFF" fill-opacity="0.16"/>
+</g>
+</g>
+</g>
+</g>
+</g>
+<defs>
+<path id="path0_fill" d="M 26.6667 0L 0 0L 0 26.6667L 26.6667 26.6667L 26.6667 0Z"/>
+<path id="path1_fill" d="M 66.6667 0L 13.3333 0C 5.96 0 0 5.97333 0 13.3333L 0 66.6667C 0 74.0267 5.96 80 13.3333 80L 66.6667 80C 74.04 80 80 74.0267 80 66.6667L 80 13.3333C 80 5.97333 74.04 0 66.6667 0ZM 53.3333 53.3333L 26.6667 53.3333L 26.6667 26.6667L 53.3333 26.6667L 53.3333 53.3333Z"/>
+<path id="path2_fill" d="M 80 0L 0 0L 0 26.6667L 80 26.6667L 80 0Z"/>
+<path id="path3_fill" d="M 186.667 0L 0 0L 0 26.6667L 186.667 26.6667L 186.667 0Z"/>
+<path id="path4_fill" d="M 413.333 0L 13.3333 0C 5.96 0 0 5.97333 0 13.3333L 0 386.667C 0 394.027 5.96 400 13.3333 400L 413.333 400C 420.707 400 426.667 394.027 426.667 386.667L 426.667 13.3333C 426.667 5.97333 420.707 0 413.333 0ZM 400 373.333L 26.6667 373.333L 26.6667 106.667L 400 106.667L 400 373.333ZM 400 80L 26.6667 80L 26.6667 26.6667L 400 26.6667L 400 80Z"/>
+</defs>
+</svg>
