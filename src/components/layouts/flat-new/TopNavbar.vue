@@ -1,5 +1,5 @@
 <template>
-  <nav class="navbar navbar-default transparent" :class="{'navbar-float': stickyNav }">
+  <nav class="navbar navbar-default" :class="scrollClass">
     <div class="container-fluid">
       <div class="navbar-header">
         <button type="button" class="navbar-toggle" :class="{toggled: $sidebar.showSidebar}" @click="toggleSidebar">
@@ -95,7 +95,8 @@ export default {
     return {
       activeNotifications: false,
       isSidebarOpen: false,
-      stickyNav: false
+      stickyNav: false,
+      scrollClass: 'transparent'
     }
   },
   mounted () {
@@ -123,9 +124,13 @@ export default {
     },
     handleScroll () {
       if (window.scrollY >= 60) {
+          console.log('scroll')
         this.stickyNav = true
+        this.scrollClass = 'navbar-float'
       } else {
+        console.log('none')
         this.stickyNav = false
+        this.scrollClass = 'transparent'
       }
     },
     capitalizeFirstLetter (string) {
