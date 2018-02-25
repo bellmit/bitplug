@@ -7,40 +7,40 @@
     <h1 class="fees-and-feature-header">Features</h1>
     <div>
       <div class="row fees-and-feature-list-container">
-        <div class="col-md-3 count">
+        <div class="col-lg-3 count">
           <div class="card fees-and-feature-list">
             <div class="fees-and-feature-list-content">
-              <div>
+              <div class="img-container">
                 <img class="fees-and-feature-image buy" src="../../assets/img/flash.svg" alt="">
               </div>
               <p class="fees-and-feature-text">Instant Buy/Sell</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3 count">
+        <div class="col-lg-3 count">
           <div class="card fees-and-feature-list">
             <div class="fees-and-feature-list-content">
-              <div>
+              <div class="img-container">
                 <img class="fees-and-feature-image" src="../../assets/img/bitcoin.svg" alt="">
               </div>
               <p class="fees-and-feature-text">Wallet</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3 count">
+        <div class="col-lg-3 count">
           <div class="card fees-and-feature-list">
             <div class="fees-and-feature-list-content">
-              <div>
+              <div class="img-container">
                 <img class="fees-and-feature-image" src="../../assets/img/group.svg" alt="">
               </div>
               <p class="fees-and-feature-text">Exchange</p>
             </div>
           </div>
         </div>
-        <div class="col-md-3 count">
+        <div class="col-lg-3 count">
           <div class="card fees-and-feature-list">
             <div class="fees-and-feature-list-content">
-              <div>
+              <div class="img-container">
                 <img class="fees-and-feature-image api" src="../../assets/img/noun.svg" alt="">
               </div>
               <p class="fees-and-feature-text">API</p>

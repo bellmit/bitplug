@@ -344,6 +344,7 @@ select.selectpicker, .selectpicker {
 
 .fees-and-feature {
   color: #292929;
+  font-family: 'Poppins', sans-serif !important;
   .fees-and-feature-nav {
     text-align: center;
     color: white;
@@ -395,10 +396,13 @@ select.selectpicker, .selectpicker {
         -webkit-box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
         box-shadow: 0px 5px 30px 0px rgba(0, 0, 0, 0.08);
       }
+      .img-container {
+        text-align: center
+      }
       .fees-and-feature-image {
         width: 70px;
         margin-top: 30px;
-        margin-left: 30%;
+        // margin-left: 30%;
         margin-bottom: 30px;
       }
       .buy {
@@ -429,6 +433,7 @@ select.selectpicker, .selectpicker {
 }
 
 .help-center {
+  font-family: 'Poppins', sans-serif !important;
   .help-center-nav-content {
     text-align: center;
     padding-top: 10px;
@@ -441,12 +446,14 @@ select.selectpicker, .selectpicker {
   }
   .help-center-nav-header {
     margin-bottom: 0;
+    margin: 0;
     padding-top: 20px;
     font-weight: 500;
     font-size: 29px;
   }
   .help-center-nav-subheader {
     margin-top: 5px;
+    margin-left: 0;    
     font-weight: 300;
     font-size: 18px;
     margin-bottom: 25px;
@@ -472,7 +479,7 @@ select.selectpicker, .selectpicker {
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
     border-radius: 3px;
-    background-color: white;
+    // background-color: white;
   }
 
   #custom-search-input button {
@@ -488,7 +495,9 @@ select.selectpicker, .selectpicker {
     border-radius: 3px;
     color:#00B0DC;
   }
+  .icon-addon:hover .glyphicon {
 
+  }
   .popular-topic-container {
     color: #292929;
     margin-top: -30px;
@@ -555,19 +564,19 @@ select.selectpicker, .selectpicker {
       background-repeat:no-repeat;
     }
     .gettingStarted {
-      background-image: url('../img/startup.png');
+      background-image: url('../img/startup.svg');
     }
     .secureAccount{
-      background-image: url('../img/bitcoin1.png');
+      background-image: url('../img/bitcoin1.svg');
     }
     .buyAndSell{
       background-image: url('../img/group.svg');
     }
     .community{
-      background-image: url('../img/conversation.png');
+      background-image: url('../img/conversation.svg');
     }
     .verify{
-      background-image: url('../img/shield.png');
+      background-image: url('../img/shield.svg');
     }
     p.knowledge-base-text {
       text-align: center;
