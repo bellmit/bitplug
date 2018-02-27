@@ -3,7 +3,30 @@
   <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
     <div class="card">
         <div class="header">
-        <h4 class="title">Login</h4>
+					<div class="social_loginSignup">
+						<h3 class="title text-center">Login</h3>
+						<br>
+						<div class="row omb_socialButtons">
+							<div class="col-lg-6 col-xs-6 col-sm-6">
+								<a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+									<i class="fa fa-facebook visible-xs"></i>
+									<span class="hidden-xs">Facebook</span>
+								</a>
+							</div>
+							<div class="col-lg-6 col-xs-6 col-sm-6">
+								<a href="#" class="btn btn-lg btn-block omb_btn-google">
+									<i class="fa fa-google visible-xs"></i>
+									<span class="hidden-xs">Google</span>
+								</a>
+							</div>	
+						</div>
+						<div class="row omb_row-sm-offset-3 omb_loginOr">
+							<div class="col-lg-12 col-xs-12 col-sm-12">
+								<hr class="omb_hrOr">
+								<span class="omb_spanOr">or</span>
+							</div>
+						</div>
+					</div>
         </div>
         <div class="content">
         <form @submit.prevent="validateBeforeSubmit">
@@ -50,6 +73,18 @@
               </button>
               <LoadingButton v-else buttonclass="btn btn-info btn-fill btn-wd">Logging you in...</LoadingButton>
             </div>
+            <div class="row text-center">
+							<div class="col-xs-12 col-xs-12 col-sm-12">
+								<p class="omb_forgotPwd">
+									<a href="#">Forgot password?</a>
+								</p>
+							</div>
+		    		</div>	 
+            <!-- <div class="social-login-container">
+                <h6 class="">Login with</h6>
+                <a href="#"><i id="social-fb" class="fa fa-facebook-square fa-3x social-login"></i></a>
+                <a href="#"><i id="social-gp" class="fa fa-google-plus-square fa-3x social-login"></i></a>
+            </div> -->
             <div class="clearfix"></div>
         </form>
         </div>

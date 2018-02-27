@@ -3,7 +3,32 @@
   <div class="col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
   <div class="card">
     <div class="header">
-      <h4 class="title">Sign Up</h4>
+      <div class="social_loginSignup">
+        <h3 class="title text-center">Sign Up</h3>
+        <br>
+        <div class="row omb_socialButtons">
+          <div class="col-lg-6 col-xs-6 col-sm-6">
+            <a href="#" class="btn btn-lg btn-block omb_btn-facebook">
+              <i class="fa fa-facebook visible-xs"></i>
+              <span class="hidden-xs">Facebook</span>
+            </a>
+          </div>
+          <div class="col-lg-6 col-xs-6 col-sm-6">
+            <a href="#" class="btn btn-lg btn-block omb_btn-google">
+              <i class="fa fa-google visible-xs"></i>
+              <span class="hidden-xs">Google</span>
+            </a>
+          </div>	
+        </div>
+    
+        <div class="row omb_row-sm-offset-3 omb_loginOr">
+          <div class="col-lg-12 col-xs-12 col-sm-12">
+            <hr class="omb_hrOr">
+            <span class="omb_spanOr">or</span>
+          </div>
+        </div>
+      </div>
+
     </div>
     <div class="content">
       <form @submit.prevent="validateBeforeSubmit">
