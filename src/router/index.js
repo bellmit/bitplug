@@ -11,6 +11,7 @@ import FlatLayout from '@/components/layouts/flat/Layout'
 import LandingPage from '@/components/home/LandingPage'
 import Login from '@/components/Login'
 import SignUp from '@/components/Signup'
+import Auth from '@/components/Auth'
 
 // User dashboard
 import UserDashboard from '@/components/layouts/dashboard/Dashboard'
@@ -44,6 +45,11 @@ Vue.use(Router)
 const router = new Router({
   mode: 'history',
   routes: [
+    {
+      path: '/social-auth',
+      // name: 'social-auth',
+      component: Auth
+    },
     // Flat pages
     {
       path: '/',
